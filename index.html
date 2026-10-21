@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دالاس — فروشگاه اشتراک</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root{ --gold:#d4af37; --gold2:#f1d98a; --bg:#0c0c0e; --card:#17171b; --line:#2a2a31; --txt:#f5f1e6; --mut:#a49f8d; }
+  *{box-sizing:border-box; margin:0; padding:0; font-family:Tahoma,system-ui,sans-serif;}
+  body{background:var(--bg); color:var(--txt); padding:16px 14px 40px;}
+  header{text-align:center; padding:18px 0 10px;}
+  .logo{font-size:34px; letter-spacing:6px; color:var(--gold); font-weight:700;}
+  .slogan{color:var(--mut); font-size:13px; margin-top:6px;}
+  .banner{margin:14px 0; background:linear-gradient(90deg,#241c05,#3a2f08); border:1px solid var(--gold);
+          color:var(--gold2); border-radius:12px; padding:10px; text-align:center; font-size:13px;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 12px;}
+  .card h3{font-size:14px; line-height:1.7; min-height:46px;}
+  .card p{color:var(--mut); font-size:11px; line-height:1.8; min-height:40px;}
+  .plan{display:flex; justify-content:space-between; align-items:center; border-top:1px dashed var(--line);
+        padding:8px 0 2px; margin-top:8px; font-size:12px;}
+  .price{color:var(--gold2); font-weight:700;}
+  .soon{color:var(--mut);}
+  button.buy{width:100%; margin-top:10px; background:linear-gradient(180deg,var(--gold2),var(--gold));
+        color:#191300; border:none; border-radius:10px; padding:9px; font-size:13px; font-weight:700; cursor:pointer;}
+  footer{text-align:center; color:var(--mut); font-size:11px; margin-top:22px; line-height:2;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">DALLAS</div>
+  <div class="slogan">🛍 اشتراکِ اصل، قیمتِ دالاس 🎯</div>
+</header>
+
+<div class="banner">🎟 خرید اول با کد <b>AVVAL</b> → ۱۵٪ تخفیف | 🎁 دعوت ۳ نفر → کد تخفیف ۲۰٪</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>
+  💳 پرداخت ریالی (کارت‌به‌کارت) | ⚡️ تحویل سریع | 🛡 ضمانت تعویض<br>
+  💬 پشتیبانی: @khoshhalmojtaba
+</footer>
+
+<script>
+const BOT = "Dallassvpnbot";
+const PRODUCTS = [
+  {id:"chatgpt_k12", t:"📱 ChatGPT K12 Edu", d:"اشتراک ۲ ساله", plans:[["۲ ساله","۴٬۸۰۰٬۰۰۰"]]},
+  {id:"gemini", t:"📱 Gemini", d:"هوش مصنوعی گوگل — ۱۸ ماهه", plans:[["۱۸ ماهه","۴۱۴٬۰۰۰"]]},
+  {id:"nordvpn", t:"🥏 NordVPN", d:"اشتراک پریمیوم", plans:[["۱ ماهه","۱٬۷۶۰٬۰۰۰"],["۱ ساله","به‌زودی"],["۲ ساله","به‌زودی"]]},
+  {id:"figma_pro", t:"📱 Figma Pro Edu", d:"ابزار حرفه‌ای طراحی", plans:[["۱ ساله","۳٬۲۰۰٬۰۰۰"]]},
+  {id:"duolingo", t:"👋 Duolingo Super", d:"یادگیری زبان", plans:[["۱ ماهه","۴۷۸٬۰۰۰"],["۱ ساله","۳٬۵۰۲٬۰۰۰"]]},
+  {id:"telegram_premium", t:"✈️ Telegram Premium", d:"فعال‌سازی رسمی روی اکانت شما", plans:[["۳ ماهه","۶٬۱۴۴٬۰۰۰"],["۶ ماهه","۸٬۱۷۶٬۰۰۰"],["۱۲ ماهه","۱۳٬۵۱۷٬۰۰۰"]]},
+  {id:"v2ray", t:"🌎 V2Ray", d:"کانفیگ اختصاصی — آی‌پی ثابت و متغیر", plans:[["۱ ماهه متغیر","۸۰٬۰۰۰"],["۳ ماهه متغیر","۲۴۰٬۰۰۰"],["آی‌پی ثابت","به‌زودی"]]}
+];
+const tg = window.Telegram && window.Telegram.WebApp;
+if (tg) { tg.ready(); tg.expand(); }
+const grid = document.getElementById('grid');
+PRODUCTS.forEach(p => {
+  const el = document.createElement('div');
+  el.className = 'card';
+  el.innerHTML = `<h3>${p.t}</h3><p>${p.d}</p>` +
+    p.plans.map(([l, pr]) => `<div class="plan"><span>${l}</span>${pr === 'به‌زودی' ? '<span class="soon">🔜 به‌زودی</span>' : `<span class="price">${pr} تومان</span>`}</div>`).join('') +
+    `<button class="buy" onclick="buy('${p.id}')">🛒 خرید از ربات</button>`;
+  grid.appendChild(el);
+});
+function buy(id){
+  const url = `https://t.me/${BOT}?start=buy_${id}`;
+  if (tg) tg.openTelegramLink(url); else location.href = url;
+}
+</script>
+</body>
+</html>
