@@ -2,81 +2,238 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دالاس — فروشگاه اشتراک</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>دالاس | DALLAS — اشتراکِ اصل، قیمتِ دالاس</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
-  :root{ --gold:#d4af37; --gold2:#f1d98a; --bg:#0c0c0e; --card:#17171b; --line:#2a2a31; --txt:#f5f1e6; --mut:#a49f8d; }
-  *{box-sizing:border-box; margin:0; padding:0; font-family:Tahoma,system-ui,sans-serif;}
-  body{background:var(--bg); color:var(--txt); padding:16px 14px 40px;}
-  header{text-align:center; padding:18px 0 10px;}
-  .logo{font-size:34px; letter-spacing:6px; color:var(--gold); font-weight:700;}
-  .slogan{color:var(--mut); font-size:13px; margin-top:6px;}
-  .banner{margin:14px 0; background:linear-gradient(90deg,#241c05,#3a2f08); border:1px solid var(--gold);
-          color:var(--gold2); border-radius:12px; padding:10px; text-align:center; font-size:13px;}
-  .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 12px;}
-  .card h3{font-size:14px; line-height:1.7; min-height:46px;}
-  .card p{color:var(--mut); font-size:11px; line-height:1.8; min-height:40px;}
-  .plan{display:flex; justify-content:space-between; align-items:center; border-top:1px dashed var(--line);
-        padding:8px 0 2px; margin-top:8px; font-size:12px;}
-  .price{color:var(--gold2); font-weight:700;}
-  .soon{color:var(--mut);}
-  button.buy{width:100%; margin-top:10px; background:linear-gradient(180deg,var(--gold2),var(--gold));
-        color:#191300; border:none; border-radius:10px; padding:9px; font-size:13px; font-weight:700; cursor:pointer;}
-  footer{text-align:center; color:var(--mut); font-size:11px; margin-top:22px; line-height:2;}
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family: Tahoma, 'Segoe UI', sans-serif; background:#0a0a0f; color:#f2f2f2; padding:16px 14px 90px; }
+  .hero { text-align:center; padding:22px 10px 4px; }
+  .star { font-size:44px; color:#f0c75e; text-shadow:0 0 26px rgba(240,199,94,.65); }
+  .logo { font-size:42px; font-weight:900; letter-spacing:6px; color:#f0c75e; text-shadow:0 2px 18px rgba(240,199,94,.35); }
+  .tag { margin-top:6px; font-size:15px; font-weight:bold; }
+  .sub { margin-top:8px; font-size:12.5px; color:#bdbdbd; line-height:2; }
+  .chip { display:inline-block; margin-top:10px; padding:5px 14px; border:1px solid #f0c75e; border-radius:999px; color:#f0c75e; font-size:11.5px; letter-spacing:1px; }
+  .banner { margin:14px 0 2px; background:linear-gradient(90deg,#241c05,#3a2f08); border:1px solid #f0c75e; color:#f1d98a; border-radius:12px; padding:10px; text-align:center; font-size:13px; }
+  .cats { display:flex; gap:8px; overflow-x:auto; padding:16px 2px 6px; scrollbar-width:none; }
+  .cats::-webkit-scrollbar { display:none; }
+  .cat-btn { flex:0 0 auto; padding:9px 16px; border-radius:999px; border:1px solid #333; background:#15151d; color:#ddd; font-size:13.5px; cursor:pointer; }
+  .cat-btn.on { background:#f0c75e; color:#111; font-weight:bold; border-color:#f0c75e; }
+  .sec-title { margin:22px 2px 10px; font-size:17px; font-weight:bold; color:#f0c75e; }
+  .card { background:linear-gradient(160deg,#17171f,#101016); border:1px solid #2a2a35; border-radius:16px; padding:16px; margin-bottom:12px; }
+  .card h3 { font-size:17px; margin-bottom:4px; }
+  .card p { font-size:12.5px; color:#a9a9a9; line-height:1.9; margin-bottom:10px; }
+  .plan { display:flex; align-items:center; justify-content:space-between; gap:8px; background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:10px 12px; margin-top:8px; }
+  .plan .lbl { font-size:13.5px; }
+  .plan .prc { font-size:13.5px; color:#f0c75e; font-weight:bold; white-space:nowrap; }
+  .buy { background:#f0c75e; color:#111; border:none; border-radius:10px; padding:9px 18px; font-size:13.5px; font-weight:bold; cursor:pointer; white-space:nowrap; }
+  .soon { background:#26262f; color:#bbb; border:none; border-radius:10px; padding:9px 14px; font-size:12.5px; cursor:pointer; white-space:nowrap; }
+  .foot { text-align:center; color:#8a8a8a; font-size:12px; line-height:2.1; margin-top:26px; }
+  .foot b { color:#f0c75e; letter-spacing:2px; }
+  .ovl { position:fixed; inset:0; background:rgba(0,0,0,.72); display:none; z-index:50; }
+  .ovl.open { display:block; }
+  .sheet { position:absolute; left:0; right:0; bottom:0; background:#12121a; border-top:2px solid #f0c75e; border-radius:22px 22px 0 0; padding:20px 18px 26px; max-height:88vh; overflow-y:auto; }
+  .sheet h3 { font-size:18px; margin-bottom:2px; }
+  .sheet .pl { color:#f0c75e; font-weight:bold; font-size:15px; margin-bottom:10px; }
+  .amount { text-align:center; font-size:30px; font-weight:900; color:#f0c75e; margin:12px 0 4px; }
+  .amount small { font-size:13px; color:#bbb; font-weight:normal; }
+  .bank { background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:12px 14px; font-size:14px; line-height:2.1; margin:12px 0; }
+  .bank .num { direction:ltr; unicode-bidi:embed; font-weight:bold; letter-spacing:1px; }
+  .tick { display:flex; align-items:center; gap:10px; background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:12px 14px; font-size:14px; margin:12px 0; cursor:pointer; }
+  .tick input { width:20px; height:20px; accent-color:#f0c75e; }
+  .cta { width:100%; background:#f0c75e; color:#111; border:none; border-radius:14px; padding:15px; font-size:16px; font-weight:900; cursor:pointer; margin-top:8px; }
+  .cta:disabled { background:#333; color:#777; cursor:not-allowed; }
+  .ghost { width:100%; background:transparent; color:#bbb; border:1px solid #333; border-radius:14px; padding:12px; font-size:14px; cursor:pointer; margin-top:10px; }
+  .copyrow { display:flex; gap:10px; margin-top:10px; }
+  .copybtn { flex:1; background:#1b1b24; color:#f0c75e; border:1px solid #f0c75e; border-radius:12px; padding:14px 8px; font-size:14px; font-weight:bold; cursor:pointer; }
+  .note { font-size:12.5px; color:#a9a9a9; line-height:2; margin-top:12px; }
+  .toast { position:fixed; bottom:26px; left:50%; transform:translateX(-50%); background:#f0c75e; color:#111; font-weight:bold; padding:10px 22px; border-radius:999px; font-size:14px; display:none; z-index:99; }
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">DALLAS</div>
-  <div class="slogan">🛍 اشتراکِ اصل، قیمتِ دالاس 🎯</div>
-</header>
+  <div class="hero">
+    <div class="star">★</div>
+    <div class="logo">DALLAS</div>
+    <div class="tag">اشتراکِ اصل، قیمتِ دالاس 🤠</div>
+    <div class="sub">اینجا دالاسه — همه‌چی گنده‌ست، جز قیمت‌ها.<br>ضمانت تعویض + تحویل فوری، به سبک تگزاس.</div>
+    <div class="chip">★ TEXAS ENERGY — TEHRAN PRICES ★</div>
+  </div>
 
-<div class="banner">🎟 خرید اول با کد <b>AVVAL</b> → ۱۵٪ تخفیف | 🎁 دعوت ۳ نفر → کد تخفیف ۲۰٪</div>
+  <div class="banner">🎟 خرید اول با کد <b>AVVAL</b> → ۱۵٪ تخفیف | 🎁 دعوت ۳ نفر → کد تخفیف ۲۰٪</div>
 
-<div class="grid" id="grid"></div>
+  <div class="cats" id="cats"></div>
+  <div id="grid"></div>
 
-<div style="text-align:center; color:var(--gold2); font-size:12px; line-height:2; margin-top:16px;">👆 با زدن «خرید از ربات» به بات دالاس منتقل می‌شی؛ اون‌جا دکمه‌ی <b>START</b> رو بزن تا صفحه‌ی خرید همون محصول برات باز شه.</div>
+  <div class="foot">
+    💳 پرداخت ریالی (کارت‌به‌کارت) | ⚡️ تحویل سریع | 🛡 ضمانت تعویض<br>
+    💬 پشتیبانی: داخل ربات دالاس<br>
+    <b>★ DALLAS — BIG DEALS ONLY ★</b>
+  </div>
 
-<footer>
-  💳 پرداخت ریالی (کارت‌به‌کارت) | ⚡️ تحویل سریع | 🛡 ضمانت تعویض<br>
-  💬 پشتیبانی: داخل ربات دالاس
-</footer>
+  <div class="ovl" id="ovl">
+    <div class="sheet" id="sheet"></div>
+  </div>
+  <div class="toast" id="toast">کپی شد ✅</div>
 
 <script>
 const BOT = "Dallassvpnbot";
-const PRODUCTS = [
-  {id:"v2ray", t:"🌎 V2Ray", d:"کانفیگ اختصاصی — آی‌پی ثابت و متغیر", plans:[["۱ ماهه متغیر","۸۰٬۰۰۰"],["۳ ماهه متغیر","۲۴۰٬۰۰۰"],["۱ ماهه ثابت","۲۰۰٬۰۰۰"],["۳ ماهه ثابت","۶۰۰٬۰۰۰"]]},
-  {id:"gemini", t:"📱 Gemini", d:"هوش مصنوعی گوگل — ۱۸ ماهه", plans:[["۱۸ ماهه","۴۱۴٬۰۰۰"]]},
-  {id:"chatgpt_k12", t:"📱 ChatGPT K12 Edu", d:"اشتراک ۲ ساله", plans:[["۲ ساله","۴٬۸۰۰٬۰۰۰"]]},
-  {id:"nordvpn", t:"🥏 NordVPN", d:"اشتراک پریمیوم", plans:[["۱ ماهه","۱٬۷۶۰٬۰۰۰"],["۱ ساله","به‌زودی"],["۲ ساله","به‌زودی"]]},
-  {id:"figma_pro", t:"📱 Figma Pro Edu", d:"ابزار حرفه‌ای طراحی", plans:[["۱ ساله","۳٬۲۰۰٬۰۰۰"]]},
-  {id:"duolingo", t:"👋 Duolingo Super", d:"یادگیری زبان", plans:[["۱ ماهه","۴۷۸٬۰۰۰"],["۱ ساله","۳٬۵۰۲٬۰۰۰"]]},
-  {id:"telegram_premium", t:"✈️ Telegram Premium", d:"فعال‌سازی رسمی روی اکانت شما", plans:[["۳ ماهه","۶٬۱۴۴٬۰۰۰"],["۶ ماهه","۸٬۱۷۶٬۰۰۰"],["۱۲ ماهه","۱۳٬۵۱۷٬۰۰۰"]]},
-  {id:"claude_pro", t:"🤖 Claude Pro", d:"هوش مصنوعی Anthropic", plans:[["۱ ماهه","۱٬۲۷۸٬۰۰۰"]]},
-  {id:"capcut_pro", t:"🎬 CapCut Pro", d:"ویرایش حرفه‌ای ویدیو", plans:[["۱ ماهه","۱٬۰۳۸٬۰۰۰"],["۱ ساله","به‌زودی"]]},
-  {id:"canva_pro", t:"🎨 Canva Pro", d:"طراحی آنلاین", plans:[["۳ ماهه","۲۴۰٬۰۰۰"],["۶ ماهه","۴۸۰٬۰۰۰"],["۱۲ ماهه","۱٬۹۰۲٬۰۰۰"]]},
-  {id:"spotify_premium", t:"🎵 Spotify Premium", d:"موزیک بدون تبلیغ", plans:[["۱ ماهه","۱٬۱۹۸٬۰۰۰"],["۱ ساله","۷٬۶۷۸٬۰۰۰"]]},
-  {id:"youtube_premium", t:"▶️ YouTube Premium", d:"یوتیوب بدون تبلیغ", plans:[["۱ ماهه","۱٬۱۱۵٬۰۰۰"]]}
+const CARD_NUMBER = "6037-9982-1606-6141";
+const CARD_DIGITS = "6037998216066141";
+const CARD_HOLDER = "مجتبی خوشحال";
+
+const CATS = [
+  ["all", "🔥 همه"],
+  ["ai", "🤖 هوش مصنوعی"],
+  ["vpn", "🌐 VPN و اینترنت"],
+  ["design", "🎨 طراحی و ویدیو"],
+  ["fun", "🎵 سرگرمی"],
+  ["learn", "📚 یادگیری زبان"],
 ];
+const CAT_NAMES = { ai:"🤖 هوش مصنوعی", vpn:"🌐 VPN و اینترنت", design:"🎨 طراحی و ویدیو", fun:"🎵 سرگرمی", learn:"📚 یادگیری زبان" };
+
+/* plans: [برچسب, قیمت نمایشی, مبلغ خام برای کپی (۰ = به‌زودی)] */
+const PRODUCTS = [
+  {id:"v2ray", cat:"vpn", t:"🌎 V2Ray", d:"کانفیگ اختصاصی — آی‌پی ثابت و متغیر", plans:[["۱ ماهه متغیر","۸۰٬۰۰۰",80000],["۳ ماهه متغیر","۲۴۰٬۰۰۰",240000],["۱ ماهه ثابت","۲۰۰٬۰۰۰",200000],["۳ ماهه ثابت","۶۰۰٬۰۰۰",600000]]},
+  {id:"gemini", cat:"ai", t:"📱 Gemini", d:"هوش مصنوعی گوگل — ۱۸ ماهه", plans:[["۱۸ ماهه","۴۱۴٬۰۰۰",414000]]},
+  {id:"chatgpt_k12", cat:"ai", t:"📱 ChatGPT K12 Edu", d:"اشتراک ۲ ساله", plans:[["۲ ساله","۴٬۸۰۰٬۰۰۰",4800000]]},
+  {id:"claude_pro", cat:"ai", t:"🤖 Claude Pro", d:"هوش مصنوعی Anthropic", plans:[["۱ ماهه","۱٬۲۷۸٬۰۰۰",1278000]]},
+  {id:"nordvpn", cat:"vpn", t:"🥏 NordVPN", d:"اشتراک پریمیوم", plans:[["۱ ماهه","۱٬۷۶۰٬۰۰۰",1760000],["۱ ساله","به‌زودی",0],["۲ ساله","به‌زودی",0]]},
+  {id:"figma_pro", cat:"design", t:"📱 Figma Pro Edu", d:"ابزار حرفه‌ای طراحی", plans:[["۱ ساله","۳٬۲۰۰٬۰۰۰",3200000]]},
+  {id:"capcut_pro", cat:"design", t:"🎬 CapCut Pro", d:"ویرایش حرفه‌ای ویدیو", plans:[["۱ ماهه","۱٬۰۳۸٬۰۰۰",1038000],["۱ ساله","به‌زودی",0]]},
+  {id:"canva_pro", cat:"design", t:"🎨 Canva Pro", d:"طراحی آنلاین — عضویت تیم پرو", plans:[["۳ ماهه","۲۴۰٬۰۰۰",240000],["۶ ماهه","۴۸۰٬۰۰۰",480000],["۱۲ ماهه","۱٬۹۰۲٬۰۰۰",1902000]]},
+  {id:"spotify_premium", cat:"fun", t:"🎵 Spotify Premium", d:"موزیک بدون تبلیغ", plans:[["۱ ماهه","۱٬۱۹۸٬۰۰۰",1198000],["۱ ساله","۷٬۶۷۸٬۰۰۰",7678000]]},
+  {id:"youtube_premium", cat:"fun", t:"▶️ YouTube Premium", d:"یوتیوب بدون تبلیغ", plans:[["۱ ماهه","۱٬۱۱۵٬۰۰۰",1115000]]},
+  {id:"telegram_premium", cat:"fun", t:"✈️ Telegram Premium", d:"فعال‌سازی رسمی روی اکانت شما", plans:[["۳ ماهه","۶٬۱۴۴٬۰۰۰",6144000],["۶ ماهه","۸٬۱۷۶٬۰۰۰",8176000],["۱۲ ماهه","۱۳٬۵۱۷٬۰۰۰",13517000]]},
+  {id:"duolingo", cat:"learn", t:"👋 Duolingo Super", d:"یادگیری زبان", plans:[["۱ ماهه","۴۷۸٬۰۰۰",478000],["۱ ساله","۳٬۵۰۲٬۰۰۰",3502000]]},
+];
+
 const tg = window.Telegram && window.Telegram.WebApp;
 if (tg) { tg.ready(); tg.expand(); }
+
 const grid = document.getElementById('grid');
-PRODUCTS.forEach(p => {
-  const el = document.createElement('div');
-  el.className = 'card';
-  el.innerHTML = `<h3>${p.t}</h3><p>${p.d}</p>` +
-    p.plans.map(([l, pr]) => `<div class="plan"><span>${l}</span>${pr === 'به‌زودی' ? '<span class="soon">🔜 به‌زودی</span>' : `<span class="price">${pr} تومان</span>`}</div>`).join('') +
-    `<button class="buy" onclick="buy('${p.id}')">🛒 خرید از ربات</button>`;
-  grid.appendChild(el);
+const catsEl = document.getElementById('cats');
+let activeCat = 'all';
+
+CATS.forEach(([key, name], i) => {
+  const b = document.createElement('button');
+  b.className = 'cat-btn' + (i === 0 ? ' on' : '');
+  b.textContent = name;
+  b.onclick = () => {
+    activeCat = key;
+    document.querySelectorAll('.cat-btn').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    render();
+  };
+  catsEl.appendChild(b);
 });
-function buy(id){
-  const url = `https://t.me/${BOT}?start=buy_${id}`;
+
+function render() {
+  grid.innerHTML = '';
+  const order = ["ai", "vpn", "design", "fun", "learn"];
+  order.forEach(cat => {
+    if (activeCat !== 'all' && activeCat !== cat) return;
+    const items = PRODUCTS.filter(p => p.cat === cat);
+    if (!items.length) return;
+    const h = document.createElement('div');
+    h.className = 'sec-title';
+    h.textContent = CAT_NAMES[cat];
+    grid.appendChild(h);
+    items.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      let html = `<h3>${p.t}</h3><p>${p.d}</p>`;
+      p.plans.forEach((pl, idx) => {
+        const btn = pl[2] > 0
+          ? `<button class="buy" onclick="openCheckout('${p.id}',${idx})">خرید 🛒</button>`
+          : `<button class="soon" onclick="notifyMe('${p.id}')">🔔 خبرم کن</button>`;
+        html += `<div class="plan"><span class="lbl">${pl[0]}</span><span class="prc">${pl[1]} تومان</span>${btn}</div>`;
+      });
+      card.innerHTML = html;
+      grid.appendChild(card);
+    });
+  });
+}
+render();
+
+function openBotLink(url) {
   try { if (tg && typeof tg.openTelegramLink === 'function') { tg.openTelegramLink(url); return; } } catch(e){}
   try { if (tg && typeof tg.openLink === 'function') { tg.openLink(url); return; } } catch(e){}
-  try { window.open(url, '_blank'); } catch(e){}
+  try { window.open(url, '_blank'); return; } catch(e){}
   location.href = url;
+}
+function notifyMe(pid) {
+  openBotLink(`https://t.me/${BOT}?start=buy_${pid}`);
+}
+
+/* ---------- فلو خرید داخل مینی‌اپ ---------- */
+const ovl = document.getElementById('ovl');
+const sheet = document.getElementById('sheet');
+let cur = null;
+
+function openCheckout(pid, idx) {
+  const p = PRODUCTS.find(x => x.id === pid);
+  const pl = p.plans[idx];
+  cur = { p, pl, idx };
+  sheet.innerHTML = `
+    <h3>${p.t}</h3>
+    <div class="pl">پلن: ${pl[0]}</div>
+    <div class="amount">${pl[1]} <small>تومان</small></div>
+    <div class="bank">
+      💳 شماره کارت: <span class="num">${CARD_NUMBER}</span><br>
+      👤 به نام: ${CARD_HOLDER}
+    </div>
+    <label class="tick"><input type="checkbox" id="tick" onchange="document.getElementById('payBtn').disabled=!this.checked">
+      <span>این طرح رو می‌خوام و مبلغش رو واریز می‌کنم ✅</span></label>
+    <button class="cta" id="payBtn" disabled onclick="showGuide()">💳 پرداخت</button>
+    <button class="ghost" onclick="closeSheet()">انصراف</button>`;
+  ovl.classList.add('open');
+}
+
+function showGuide() {
+  const { p, pl, idx } = cur;
+  sheet.innerHTML = `
+    <h3>راهنمای پرداخت 🧾</h3>
+    <div class="pl">${p.t} — ${pl[0]}</div>
+    <div class="note">فقط با <b>برنامه بانکی (کارت‌به‌کارت)</b> واریز کن. با دکمه‌های زیر، مبلغ و شماره کارت رو دقیق کپی کن تا اشتباهی پیش نیاد:</div>
+    <div class="amount">${pl[1]} <small>تومان</small></div>
+    <div class="copyrow">
+      <button class="copybtn" onclick="copyTxt('${pl[2]}')">📋 کپی مبلغ دقیق</button>
+      <button class="copybtn" onclick="copyTxt('${CARD_DIGITS}')">💳 کپی شماره کارت</button>
+    </div>
+    <div class="bank">
+      💳 شماره کارت: <span class="num">${CARD_NUMBER}</span><br>
+      👤 به نام: ${CARD_HOLDER}
+    </div>
+    <div class="note">واریز کردی؟ حالا رسید رو <b>داخل بات</b> بفرست — سفارشت بر اساس همین خرید بررسی می‌شه و بعد از تأیید، تحویل می‌گیری. 👇</div>
+    <button class="cta" onclick="sendReceipt()">✅ واریز کردم — ارسال رسید در بات</button>
+    <button class="ghost" onclick="closeSheet()">بعداً</button>`;
+}
+
+function sendReceipt() {
+  openBotLink(`https://t.me/${BOT}?start=buy_${cur.p.id}_${cur.idx}`);
+}
+function closeSheet() { ovl.classList.remove('open'); }
+ovl.addEventListener('click', e => { if (e.target === ovl) closeSheet(); });
+
+function copyTxt(txt) {
+  const done = () => {
+    const t = document.getElementById('toast');
+    t.style.display = 'block';
+    setTimeout(() => t.style.display = 'none', 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(done).catch(() => fallbackCopy(txt, done));
+  } else fallbackCopy(txt, done);
+}
+function fallbackCopy(txt, done) {
+  const ta = document.createElement('textarea');
+  ta.value = txt;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  done();
 }
 </script>
 </body>
