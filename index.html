@@ -37,6 +37,8 @@
 
 <div class="grid" id="grid"></div>
 
+<div style="text-align:center; color:var(--gold2); font-size:12px; line-height:2; margin-top:16px;">👆 با زدن «خرید از ربات» به بات دالاس منتقل می‌شی؛ اون‌جا دکمه‌ی <b>START</b> رو بزن تا صفحه‌ی خرید همون محصول برات باز شه.</div>
+
 <footer>
   💳 پرداخت ریالی (کارت‌به‌کارت) | ⚡️ تحویل سریع | 🛡 ضمانت تعویض<br>
   💬 پشتیبانی: @khoshhalmojtaba
@@ -66,7 +68,10 @@ PRODUCTS.forEach(p => {
 });
 function buy(id){
   const url = `https://t.me/${BOT}?start=buy_${id}`;
-  if (tg) tg.openTelegramLink(url); else location.href = url;
+  try { if (tg && typeof tg.openTelegramLink === 'function') { tg.openTelegramLink(url); return; } } catch(e){}
+  try { if (tg && typeof tg.openLink === 'function') { tg.openLink(url); return; } } catch(e){}
+  try { window.open(url, '_blank'); } catch(e){}
+  location.href = url;
 }
 </script>
 </body>
