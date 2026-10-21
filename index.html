@@ -182,31 +182,16 @@ function openCheckout(pid, idx) {
       💳 شماره کارت: <span class="num">${CARD_NUMBER}</span><br>
       👤 به نام: ${CARD_HOLDER}
     </div>
-    <label class="tick"><input type="checkbox" id="tick" onchange="document.getElementById('payBtn').disabled=!this.checked">
-      <span>این طرح رو می‌خوام و مبلغش رو واریز می‌کنم ✅</span></label>
-    <button class="cta" id="payBtn" disabled onclick="showGuide()">💳 پرداخت</button>
-    <button class="ghost" onclick="closeSheet()">انصراف</button>`;
-  ovl.classList.add('open');
-}
-
-function showGuide() {
-  const { p, pl, idx } = cur;
-  sheet.innerHTML = `
-    <h3>راهنمای پرداخت 🧾</h3>
-    <div class="pl">${p.t} — ${pl[0]}</div>
-    <div class="note">فقط با <b>برنامه بانکی (کارت‌به‌کارت)</b> واریز کن. با دکمه‌های زیر، مبلغ و شماره کارت رو دقیق کپی کن تا اشتباهی پیش نیاد:</div>
-    <div class="amount">${pl[1]} <small>تومان</small></div>
     <div class="copyrow">
       <button class="copybtn" onclick="copyTxt('${pl[2]}')">📋 کپی مبلغ دقیق</button>
       <button class="copybtn" onclick="copyTxt('${CARD_DIGITS}')">💳 کپی شماره کارت</button>
     </div>
-    <div class="bank">
-      💳 شماره کارت: <span class="num">${CARD_NUMBER}</span><br>
-      👤 به نام: ${CARD_HOLDER}
-    </div>
-    <div class="note">واریز کردی؟ حالا رسید رو <b>داخل بات</b> بفرست — سفارشت بر اساس همین خرید بررسی می‌شه و بعد از تأیید، تحویل می‌گیری. 👇</div>
-    <button class="cta" onclick="sendReceipt()">✅ واریز کردم — ارسال رسید در بات</button>
-    <button class="ghost" onclick="closeSheet()">بعداً</button>`;
+    <div class="note">فقط با <b>برنامه بانکی (کارت‌به‌کارت)</b> واریز کن؛ مبلغ و شماره کارت رو با دکمه‌های بالا دقیق کپی کن. بعد از واریز، رسید رو <b>داخل بات</b> می‌فرستی — سفارشت بر اساس همین خرید بررسی و بعد از تأیید تحویل داده می‌شه.</div>
+    <label class="tick"><input type="checkbox" id="tick" onchange="document.getElementById('payBtn').disabled=!this.checked">
+      <span>این طرح رو می‌خوام و مبلغش رو واریز می‌کنم ✅</span></label>
+    <button class="cta" id="payBtn" disabled onclick="sendReceipt()">✅ واریز کردم — ارسال رسید در بات</button>
+    <button class="ghost" onclick="closeSheet()">انصراف</button>`;
+  ovl.classList.add('open');
 }
 
 function sendReceipt() {
