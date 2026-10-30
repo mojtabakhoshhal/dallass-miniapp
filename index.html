@@ -1,375 +1,228 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DALLAS | دالاس — اشتراکِ اصل، قیمتِ دالاس</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>دالاس | DALLAS — اشتراکِ اصل، قیمتِ دالاس</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
-:root{--gold:#d4af37;--gold2:#f5d76e;--bg:#0b0b0d;--card:#17171c;--card2:#1e1e26;--txt:#f2f2f2;--mut:#b8b8c0;--line:#2a2a33}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--txt);font-family:Tahoma,'Segoe UI',Arial,sans-serif}
-body.lang-fa .en{display:none} body.lang-en .fa{display:none}
-body.lang-en{direction:ltr} body.lang-en .grid,body.lang-en .plans{direction:ltr}
-header{position:sticky;top:0;z-index:10;background:#0b0b0de8;backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{font-weight:900;letter-spacing:2px;font-size:22px} .logo span{color:var(--gold)}
-.langbtn{background:transparent;border:1px solid var(--gold);color:var(--gold2);border-radius:20px;padding:6px 14px;cursor:pointer;font-family:inherit}
-.hero{padding:28px 16px 8px;text-align:center} .hero h1{margin:0 0 6px;font-size:26px} .hero h1 span{color:var(--gold)}
-.hero p{color:var(--mut);margin:0 0 16px} .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.cta a{text-decoration:none;border-radius:12px;padding:11px 20px;font-weight:700} .cta .main{background:var(--gold);color:#111} .cta .alt{border:1px solid var(--gold);color:var(--gold2)}
-.toolbar{padding:16px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center} .toolbar input{flex:1 1 220px;max-width:420px;background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:10px;padding:10px 12px;font-family:inherit}
-.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:0 16px 8px} .chip{background:var(--card);border:1px solid var(--line);color:var(--txt);border-radius:20px;padding:7px 14px;cursor:pointer;font-family:inherit} .chip.on{background:var(--gold);color:#111;border-color:var(--gold)}
-.catsec{padding:8px 16px 20px} .catsec h2{font-size:19px;margin:10px 0} .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px} .card h3{margin:0 0 8px;font-size:17px} .desc{color:var(--mut);font-size:14px;line-height:1.9;margin:0 0 12px}
-.meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px} .from{color:var(--gold2);font-weight:700} .badge{font-size:12px;border:1px solid #2e7d32;color:#7ed491;border-radius:20px;padding:3px 10px}
-.plan{display:flex;align-items:center;gap:8px;padding:9px 0;border-top:1px solid var(--line)} .plabel{flex:1;font-size:14px} .pprice{font-weight:700;color:var(--gold2);white-space:nowrap} .buy{text-decoration:none;background:var(--gold);color:#111;font-weight:700;border-radius:10px;padding:7px 14px;font-size:14px} .buy.ghost{background:transparent;border:1px solid var(--gold);color:var(--gold2)}
-footer{border-top:1px solid var(--line);padding:20px 16px;color:var(--mut);font-size:13px;line-height:2;text-align:center} footer a{color:var(--gold2)}
-.hidden{display:none!important}
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { font-family: Tahoma, 'Segoe UI', sans-serif; background:#0a0a0f; color:#f2f2f2; padding:16px 14px 90px; }
+  .hero { text-align:center; padding:22px 10px 4px; }
+  .star { font-size:44px; color:#f0c75e; text-shadow:0 0 26px rgba(240,199,94,.65); }
+  .logo { font-size:42px; font-weight:900; letter-spacing:6px; color:#f0c75e; text-shadow:0 2px 18px rgba(240,199,94,.35); }
+  .tag { margin-top:6px; font-size:15px; font-weight:bold; }
+  .sub { margin-top:8px; font-size:12.5px; color:#bdbdbd; line-height:2; }
+  .chip { display:inline-block; margin-top:10px; padding:5px 14px; border:1px solid #f0c75e; border-radius:999px; color:#f0c75e; font-size:11.5px; letter-spacing:1px; }
+  .banner { margin:14px 0 2px; background:linear-gradient(90deg,#241c05,#3a2f08); border:1px solid #f0c75e; color:#f1d98a; border-radius:12px; padding:10px; text-align:center; font-size:13px; }
+  .cats { display:flex; gap:8px; overflow-x:auto; padding:16px 2px 6px; scrollbar-width:none; }
+  .cats::-webkit-scrollbar { display:none; }
+  .cat-btn { flex:0 0 auto; padding:9px 16px; border-radius:999px; border:1px solid #333; background:#15151d; color:#ddd; font-size:13.5px; cursor:pointer; }
+  .cat-btn.on { background:#f0c75e; color:#111; font-weight:bold; border-color:#f0c75e; }
+  .sec-title { margin:22px 2px 10px; font-size:17px; font-weight:bold; color:#f0c75e; }
+  .card { background:linear-gradient(160deg,#17171f,#101016); border:1px solid #2a2a35; border-radius:16px; padding:16px; margin-bottom:12px; }
+  .card h3 { font-size:17px; margin-bottom:4px; }
+  .card p { font-size:12.5px; color:#a9a9a9; line-height:1.9; margin-bottom:10px; }
+  .plan { display:flex; align-items:center; justify-content:space-between; gap:8px; background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:10px 12px; margin-top:8px; }
+  .plan .lbl { font-size:13.5px; }
+  .plan .prc { font-size:13.5px; color:#f0c75e; font-weight:bold; white-space:nowrap; }
+  .buy { background:#f0c75e; color:#111; border:none; border-radius:10px; padding:9px 18px; font-size:13.5px; font-weight:bold; cursor:pointer; white-space:nowrap; }
+  .soon { background:#26262f; color:#bbb; border:none; border-radius:10px; padding:9px 14px; font-size:12.5px; cursor:pointer; white-space:nowrap; }
+  .foot { text-align:center; color:#8a8a8a; font-size:12px; line-height:2.1; margin-top:26px; }
+  .foot b { color:#f0c75e; letter-spacing:2px; }
+  .ovl { position:fixed; inset:0; background:rgba(0,0,0,.72); display:none; z-index:50; }
+  .ovl.open { display:block; }
+  .sheet { position:absolute; left:0; right:0; bottom:0; background:#12121a; border-top:2px solid #f0c75e; border-radius:22px 22px 0 0; padding:20px 18px 26px; max-height:88vh; overflow-y:auto; }
+  .sheet h3 { font-size:18px; margin-bottom:2px; }
+  .sheet .pl { color:#f0c75e; font-weight:bold; font-size:15px; margin-bottom:10px; }
+  .amount { text-align:center; font-size:30px; font-weight:900; color:#f0c75e; margin:12px 0 4px; }
+  .amount small { font-size:13px; color:#bbb; font-weight:normal; }
+  .bank { background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:12px 14px; font-size:14px; line-height:2.1; margin:12px 0; }
+  .bank .num { direction:ltr; unicode-bidi:embed; font-weight:bold; letter-spacing:1px; }
+  .tick { display:flex; align-items:center; gap:10px; background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:12px 14px; font-size:14px; margin:12px 0; cursor:pointer; }
+  .tick input { width:20px; height:20px; accent-color:#f0c75e; }
+  .cta { width:100%; background:#f0c75e; color:#111; border:none; border-radius:14px; padding:15px; font-size:16px; font-weight:900; cursor:pointer; margin-top:8px; }
+  .cta:disabled { background:#333; color:#777; cursor:not-allowed; }
+  .ghost { width:100%; background:transparent; color:#bbb; border:1px solid #333; border-radius:14px; padding:12px; font-size:14px; cursor:pointer; margin-top:10px; }
+  .copyrow { display:flex; gap:10px; margin-top:10px; }
+  .copybtn { flex:1; background:#1b1b24; color:#f0c75e; border:1px solid #f0c75e; border-radius:12px; padding:14px 8px; font-size:14px; font-weight:bold; cursor:pointer; }
+  .note { font-size:12.5px; color:#a9a9a9; line-height:2; margin-top:12px; }
+  .toast { position:fixed; bottom:26px; left:50%; transform:translateX(-50%); background:#f0c75e; color:#111; font-weight:bold; padding:10px 22px; border-radius:999px; font-size:14px; display:none; z-index:99; }
 </style>
 </head>
-<body class="lang-fa">
-<header>
-  <div class="logo"><span class="fa">دالاس</span><span class="en">DALLAS</span> <span style="color:var(--gold)">◆</span></div>
-  <button class="langbtn" id="langBtn" onclick="toggleLang()">English</button>
-</header>
-<div class="hero">
-  <h1 class="fa">اشتراکِ <span>اصل</span>، قیمتِ <span>دالاس</span></h1>
-  <h1 class="en">Genuine <span>subscriptions</span>, Dallas <span>prices</span></h1>
-  <p class="fa">خرید از داخل ربات تلگرام دالاس انجام می‌شود — پرداخت کارت‌به‌کارت + ارسال رسید</p>
-  <p class="en">Checkout happens inside the Dallas Telegram bot — card-to-card + receipt</p>
-  <div class="cta">
-    <a class="main" href="https://t.me/Dallassvpnbot"><span class="fa">ورود به ربات دالاس</span><span class="en">Open the Dallas bot</span></a>
-    <a class="alt" href="https://t.me/Dallassvpnbot?start=test"><span class="fa">🎁 تست رایگان V2Ray</span><span class="en">🎁 Free V2Ray test</span></a>
+<body>
+  <div class="hero">
+    <div class="star">★</div>
+    <div class="logo">DALLAS</div>
+    <div class="tag">اشتراکِ اصل، قیمتِ دالاس 🤠</div>
+    <div class="sub">اینجا دالاسه — همه‌چی گنده‌ست، جز قیمت‌ها.<br>ضمانت تعویض + تحویل فوری، به سبک تگزاس.</div>
+    <div class="chip">★ TEXAS ENERGY — TEHRAN PRICES ★</div>
   </div>
-</div>
-<div class="toolbar">
-  <input id="q" type="search" placeholder="جست‌وجوی محصول…" oninput="applyFilter()">
-</div>
-<div class="chips" id="chips">
-  <button class="chip on" data-filter="all"><span class="fa">همه</span><span class="en">All</span></button>
-  <span class="fa"><button class="chip" data-filter="ai">🤖 هوش مصنوعی</button><button class="chip" data-filter="vpn">🌐 VPN و اینترنت</button><button class="chip" data-filter="design">🎨 طراحی و ویدیو</button><button class="chip" data-filter="fun">🎵 سرگرمی</button><button class="chip" data-filter="learn">📚 یادگیری زبان</button><button class="chip" data-filter="gift">🎁 گیفت‌کارت و بازی</button></span><span class="en"><button class="chip" data-filter="ai">🤖 AI Tools</button><button class="chip" data-filter="vpn">🌐 VPN &amp; Internet</button><button class="chip" data-filter="design">🎨 Design &amp; Video</button><button class="chip" data-filter="fun">🎵 Entertainment</button><button class="chip" data-filter="learn">📚 Language Learning</button><button class="chip" data-filter="gift">🎁 Gift Cards &amp; Games</button></span>
-</div>
-<main id="catalog">
-<section class="catsec" data-cat="ai">
-  <h2 class="fa">🤖 هوش مصنوعی</h2><h2 class="en">🤖 AI Tools</h2>
-  <div class="grid"><article class="card" data-cat="ai" data-id="gemini">
-  <div class="fa"><h3>📱 Gemini | هوش مصنوعی گوگل</h3><p class="desc">اشتراک Gemini (هوش مصنوعی گوگل)، فعال‌سازی روی ایمیل شخصی شما.</p>
-  <div class="meta"><span class="from">۵۰۰٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱۸ ماهه</span><span class="pprice">۵۰۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gemini_0">خرید</a></div></div></div>
-  <div class="en"><h3>📱 Gemini | Google AI</h3><p class="desc">Gemini subscription (Google&#x27;s AI), activated on your own personal email.</p>
-  <div class="meta"><span class="from">500,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">18 months</span><span class="pprice">500,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gemini_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="chatgpt_k12">
-  <div class="fa"><h3>📱 ChatGPT K12 Edu | اشتراک ۲ ساله</h3><p class="desc">اشتراک ChatGPT نسخه K12 Edu با اعتبار ۲ ساله، تحویل سریع بعد از تأیید پرداخت.</p>
-  <div class="meta"><span class="from">۴٬۸۰۰٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۲ ساله</span><span class="pprice">۴٬۸۰۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_chatgpt_k12_0">خرید</a></div></div></div>
-  <div class="en"><h3>📱 ChatGPT K12 Edu | 2-year subscription</h3><p class="desc">ChatGPT K12 Edu subscription with 2-year validity, fast delivery after payment approval.</p>
-  <div class="meta"><span class="from">4,800,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">2 years</span><span class="pprice">4,800,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_chatgpt_k12_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="claude_pro">
-  <div class="fa"><h3>🤖 Claude Pro | هوش مصنوعی Anthropic</h3><p class="desc">اشتراک Claude Pro؛ دستیار هوش مصنوعی قدرتمند برای نوشتن، برنامه‌نویسی و تحلیل.</p>
-  <div class="meta"><span class="from">۱٬۲۷۸٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه</span><span class="pprice">۱٬۲۷۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_claude_pro_0">خرید</a></div></div></div>
-  <div class="en"><h3>🤖 Claude Pro | Anthropic AI</h3><p class="desc">Claude Pro subscription; a powerful AI assistant for writing, coding and analysis.</p>
-  <div class="meta"><span class="from">1,278,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month</span><span class="pprice">1,278,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_claude_pro_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="perplexity_pro">
-  <div class="fa"><h3>🤖 Perplexity Pro | جست‌وجوی هوشمند</h3><p class="desc">اشتراک Perplexity Pro — جست‌وجو و پاسخ‌گویی هوشمند با منابع زنده و مدل‌های روز هوش مصنوعی؛ فعال‌سازی روی ایمیل شخصی شما.</p>
-  <div class="meta"><span class="from">۱۰٬۶۲۴٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">فعال‌سازی روی ایمیل شما</span><span class="pprice">۱۰٬۶۲۴٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_perplexity_pro_0">خرید</a></div></div></div>
-  <div class="en"><h3>🤖 Perplexity Pro | AI search</h3><p class="desc">Perplexity Pro subscription — AI search and answers with live sources and frontier models; activated on your own email.</p>
-  <div class="meta"><span class="from">10,624,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">Activation on your email</span><span class="pprice">10,624,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_perplexity_pro_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="super_grok">
-  <div class="fa"><h3>🤖 Super Grok | هوش مصنوعی xAI</h3><p class="desc">اشتراک Super Grok — سطح بالای مدل‌های Grok برای چت، تحلیل و ساخت تصویر؛ فعال‌سازی روی ایمیل شخصی شما، مدت یک ماه.</p>
-  <div class="meta"><span class="from">۶٬۳۸۴٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه — فعال‌سازی روی ایمیل شما</span><span class="pprice">۶٬۳۸۴٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_super_grok_0">خرید</a></div></div></div>
-  <div class="en"><h3>🤖 Super Grok | xAI assistant</h3><p class="desc">Super Grok subscription — top-tier Grok models for chat, analysis and image generation; activated on your own email, 1 month.</p>
-  <div class="meta"><span class="from">6,384,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month — activation on your email</span><span class="pprice">6,384,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_super_grok_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="chatgpt_plus">
-  <div class="fa"><h3>💬 ChatGPT Plus | اختصاصی</h3><p class="desc">اشتراک ChatGPT Plus اختصاصی — فعال‌سازی روی اکانت شخصی خودتان، بدون اکانت اشتراکی؛ مدت یک ماه.</p>
-  <div class="meta"><span class="from">۷٬۳۰۲٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه — روی اکانت شخصی شما</span><span class="pprice">۷٬۳۰۲٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_chatgpt_plus_0">خرید</a></div></div></div>
-  <div class="en"><h3>💬 ChatGPT Plus | Personal</h3><p class="desc">Personal ChatGPT Plus subscription — activated on your own account, no shared accounts; 1 month.</p>
-  <div class="meta"><span class="from">7,302,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month — on your own account</span><span class="pprice">7,302,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_chatgpt_plus_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="chatgpt_go">
-  <div class="fa"><h3>💬 ChatGPT Go | اختصاصی</h3><p class="desc">اشتراک ChatGPT Go اختصاصی — نسخه‌ی سبک و اقتصادی چت‌جی‌پی‌تی روی اکانت شخصی شما؛ مدت یک ماه.</p>
-  <div class="meta"><span class="from">۵٬۰۹۴٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه — روی اکانت شخصی شما</span><span class="pprice">۵٬۰۹۴٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_chatgpt_go_0">خرید</a></div></div></div>
-  <div class="en"><h3>💬 ChatGPT Go | Personal</h3><p class="desc">Personal ChatGPT Go subscription — the light, budget ChatGPT tier on your own account; 1 month.</p>
-  <div class="meta"><span class="from">5,094,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month — on your own account</span><span class="pprice">5,094,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_chatgpt_go_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="cursor_pro">
-  <div class="fa"><h3>⌨️ Cursor Pro | ویرایشگر کدنویسی AI</h3><p class="desc">اشتراک Cursor Pro — ویرایشگر کدنویسی هوشمند برای برنامه‌نویس‌ها؛ فعال‌سازی روی ایمیل شخصی شما، مدت یک ماه.</p>
-  <div class="meta"><span class="from">۷٬۹۲۱٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه — فعال‌سازی روی ایمیل شما</span><span class="pprice">۷٬۹۲۱٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_cursor_pro_0">خرید</a></div></div></div>
-  <div class="en"><h3>⌨️ Cursor Pro | AI code editor</h3><p class="desc">Cursor Pro subscription — the AI code editor for developers; activated on your own email, 1 month.</p>
-  <div class="meta"><span class="from">7,921,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month — activation on your email</span><span class="pprice">7,921,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_cursor_pro_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="copilot_pro">
-  <div class="fa"><h3>🪟 Copilot Pro | دستیار مایکروسافت</h3><p class="desc">اشتراک Copilot Pro مایکروسافت — دستیار هوشمند کنار آفیس و ویندوز؛ فعال‌سازی روی ایمیل شخصی شما، مدت یک ماه.</p>
-  <div class="meta"><span class="from">۳٬۹۷۶٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه — فعال‌سازی روی ایمیل شما</span><span class="pprice">۳٬۹۷۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_copilot_pro_0">خرید</a></div></div></div>
-  <div class="en"><h3>🪟 Copilot Pro | Microsoft assistant</h3><p class="desc">Microsoft Copilot Pro subscription — the AI assistant across Office and Windows; activated on your own email, 1 month.</p>
-  <div class="meta"><span class="from">3,976,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month — activation on your email</span><span class="pprice">3,976,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_copilot_pro_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="perplexity_max">
-  <div class="fa"><h3>🤖 Perplexity Max | بالاترین سطح</h3><p class="desc">اشتراک Perplexity Max — بالاترین سطح پرپلکسیتی با سقف استفاده و امکانات کامل؛ مدل تحویل ریدیم است و بعد از ثبت سفارش با شما هماهنگ می‌شود.</p>
-  <div class="meta"><span class="from">۲۶٬۹۰۴٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">Max — ریدیم</span><span class="pprice">۲۶٬۹۰۴٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_perplexity_max_0">خرید</a></div></div></div>
-  <div class="en"><h3>🤖 Perplexity Max | Top tier</h3><p class="desc">Perplexity Max subscription — the top Perplexity tier with full limits and features; redeem delivery, coordinated with you after ordering.</p>
-  <div class="meta"><span class="from">26,904,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">Max — redeem</span><span class="pprice">26,904,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_perplexity_max_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="super_grok_3m">
-  <div class="fa"><h3>🤖 Super Grok | سه‌ماهه</h3><p class="desc">اشتراک سه‌ماهه‌ی Super Grok — سطح بالای مدل‌های Grok برای چت، تحلیل و ساخت تصویر.</p>
-  <div class="meta"><span class="from">۴٬۸۶۶٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۳ ماهه</span><span class="pprice">۴٬۸۶۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_super_grok_3m_0">خرید</a></div></div></div>
-  <div class="en"><h3>🤖 Super Grok | 3 months</h3><p class="desc">Super Grok 3-month subscription — top-tier Grok models for chat, analysis and image generation.</p>
-  <div class="meta"><span class="from">4,866,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">3 months</span><span class="pprice">4,866,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_super_grok_3m_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="codex_api_credits">
-  <div class="fa"><h3>🧩 کردیت API کدکس | Codex API</h3><p class="desc">بسته‌های کردیت API مدل Codex برای توسعه‌دهنده‌ها — در اندازه‌های مختلف؛ جزئیات تحویل و فعال‌سازی بعد از ثبت سفارش با پشتیبانی هماهنگ می‌شود.</p>
-  <div class="meta"><span class="from">۱٬۱۲۳٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">کردیت ۱۰ میلیونی</span><span class="pprice">۱٬۱۲۳٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_0">خرید</a></div><div class="plan"><span class="plabel">کردیت ۲۰ میلیونی</span><span class="pprice">۱٬۲۱۹٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_1">خرید</a></div><div class="plan"><span class="plabel">کردیت ۵۰ میلیونی</span><span class="pprice">۲٬۱۳۷٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_2">خرید</a></div><div class="plan"><span class="plabel">کردیت ۱۰۰ میلیونی</span><span class="pprice">۲٬۶۷۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_3">خرید</a></div><div class="plan"><span class="plabel">کردیت ۲۰۰ میلیونی</span><span class="pprice">۴٬۰۱۳٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_4">خرید</a></div></div></div>
-  <div class="en"><h3>🧩 Codex API Credits</h3><p class="desc">Codex API credit packs for developers — in several sizes; delivery and activation details are coordinated with support after ordering.</p>
-  <div class="meta"><span class="from">1,123,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">10M credits</span><span class="pprice">1,123,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_0">Buy</a></div><div class="plan"><span class="plabel">20M credits</span><span class="pprice">1,219,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_1">Buy</a></div><div class="plan"><span class="plabel">50M credits</span><span class="pprice">2,137,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_2">Buy</a></div><div class="plan"><span class="plabel">100M credits</span><span class="pprice">2,676,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_3">Buy</a></div><div class="plan"><span class="plabel">200M credits</span><span class="pprice">4,013,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_codex_api_credits_4">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="cursor_api_credits">
-  <div class="fa"><h3>🧩 کردیت API کرسر | Cursor API</h3><p class="desc">کردیت API کرسر پرو (پلن ۶۵۰۰) برای توسعه‌دهنده‌ها؛ جزئیات تحویل و فعال‌سازی بعد از ثبت سفارش با پشتیبانی هماهنگ می‌شود.</p>
-  <div class="meta"><span class="from">۹٬۵۰۵٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">کردیت API — پلن ۶۵۰۰</span><span class="pprice">۹٬۵۰۵٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_cursor_api_credits_0">خرید</a></div></div></div>
-  <div class="en"><h3>🧩 Cursor API Credits</h3><p class="desc">Cursor Pro API credits (6500 plan) for developers; delivery and activation details are coordinated with support after ordering.</p>
-  <div class="meta"><span class="from">9,505,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">API credits — 6500 plan</span><span class="pprice">9,505,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_cursor_api_credits_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="replit_core">
-  <div class="fa"><h3>🛠 Replit Core | سالانه</h3><p class="desc">اشتراک Replit Core — محیط توسعه‌ی آنلاین با ابزارهای AI برای ساخت و انتشار اپ؛ مدت دوازده ماه.</p>
-  <div class="meta"><span class="from">۲۷٬۷۸۳٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱۲ ماهه</span><span class="pprice">۲۷٬۷۸۳٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_replit_core_0">خرید</a></div></div></div>
-  <div class="en"><h3>🛠 Replit Core | 12 months</h3><p class="desc">Replit Core subscription — the online development environment with AI tools to build and ship apps; 12 months.</p>
-  <div class="meta"><span class="from">27,783,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">12 months</span><span class="pprice">27,783,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_replit_core_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="gumloop_pro">
-  <div class="fa"><h3>🔁 Gumloop Pro | اتوماسیون AI</h3><p class="desc">اشتراک Gumloop Pro — ساخت اتوماسیون و ایجنت‌های هوش مصنوعی بدون کدنویسی؛ مدت دوازده ماه.</p>
-  <div class="meta"><span class="from">۱۰٬۴۱۹٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱۲ ماهه</span><span class="pprice">۱۰٬۴۱۹٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gumloop_pro_0">خرید</a></div></div></div>
-  <div class="en"><h3>🔁 Gumloop Pro | AI automation</h3><p class="desc">Gumloop Pro subscription — build AI automations and agents without code; 12 months.</p>
-  <div class="meta"><span class="from">10,419,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">12 months</span><span class="pprice">10,419,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gumloop_pro_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="ai" data-id="warp_build">
-  <div class="fa"><h3>⚡ Warp Build | سالانه</h3><p class="desc">اشتراک Warp Build — ترمینال مدرن با ایجنت‌های AI برای توسعه‌دهنده‌ها؛ مدت یک سال.</p>
-  <div class="meta"><span class="from">۶٬۹۴۶٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ساله</span><span class="pprice">۶٬۹۴۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_warp_build_0">خرید</a></div></div></div>
-  <div class="en"><h3>⚡ Warp Build | 1 year</h3><p class="desc">Warp Build subscription — the modern terminal with AI agents for developers; 1 year.</p>
-  <div class="meta"><span class="from">6,946,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 year</span><span class="pprice">6,946,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_warp_build_0">Buy</a></div></div></div>
-</article></div></section><section class="catsec" data-cat="vpn">
-  <h2 class="fa">🌐 VPN و اینترنت</h2><h2 class="en">🌐 VPN &amp; Internet</h2>
-  <div class="grid"><article class="card" data-cat="vpn" data-id="v2ray">
-  <div class="fa"><h3>🌎 V2Ray متغیر | کانفیگ حجمی</h3><p class="desc">کانفیگ V2Ray با آی‌پی متغیر — قیمت بر اساس حجم و بدون محدودیت زمانی (تا وقتی حجمت تموم شه)، لوکیشن‌های متنوع و سرعت بالا؛ یا سرویس نامحدود ۳۰ روزه با مصرف منصفانه. تأمین از شبکه اختصاصی دالاس — هر گیگ پایه ۳٬۰۰۰ تومان، فروش = پایه × ۱٫۶.</p>
-  <div class="meta"><span class="from">۴۸٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۴۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_0">خرید</a></div><div class="plan"><span class="plabel">۲۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۹۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_1">خرید</a></div><div class="plan"><span class="plabel">۳۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۱۴۴٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_2">خرید</a></div><div class="plan"><span class="plabel">۵۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۲۴۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_3">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۴۸۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_4">خرید</a></div><div class="plan"><span class="plabel">نامحدود ۳۰ روزه — ۱ کاربر (مصرف منصفانه)</span><span class="pprice">۲۵۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_5">خرید</a></div><div class="plan"><span class="plabel">نامحدود ۳۰ روزه — ۲ کاربر (مصرف منصفانه)</span><span class="pprice">۴۴۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_6">خرید</a></div><div class="plan"><span class="plabel">نامحدود ۳۰ روزه — ۳ کاربر (مصرف منصفانه)</span><span class="pprice">۸۰۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_7">خرید</a></div></div></div>
-  <div class="en"><h3>🌎 V2Ray Dynamic | Volume-based config</h3><p class="desc">V2Ray config with a dynamic IP — priced by volume with no time limit (use it until your data runs out), multiple locations and high speed; or a 30-day unlimited service with a fair-use policy. Powered by the Dallas network.</p>
-  <div class="meta"><span class="from">48,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">10 GB — no time limit</span><span class="pprice">48,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_0">Buy</a></div><div class="plan"><span class="plabel">20 GB — no time limit</span><span class="pprice">96,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_1">Buy</a></div><div class="plan"><span class="plabel">30 GB — no time limit</span><span class="pprice">144,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_2">Buy</a></div><div class="plan"><span class="plabel">50 GB — no time limit</span><span class="pprice">240,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_3">Buy</a></div><div class="plan"><span class="plabel">100 GB — no time limit</span><span class="pprice">480,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_4">Buy</a></div><div class="plan"><span class="plabel">Unlimited 30 days — 1 user (fair use)</span><span class="pprice">256,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_5">Buy</a></div><div class="plan"><span class="plabel">Unlimited 30 days — 2 users (fair use)</span><span class="pprice">448,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_6">Buy</a></div><div class="plan"><span class="plabel">Unlimited 30 days — 3 users (fair use)</span><span class="pprice">800,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_7">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="vpn" data-id="v2ray_gaming">
-  <div class="fa"><h3>🎮 V2Ray گیمینگ | وایرگارد مخصوص بازی</h3><p class="desc">وایرگارد (پاسارگارد) مخصوص بازی — پینگ پایین و اتصال پایدار، لوکیشن‌های متفاوت داخل اشتراک، بدون ضریب مصرف و بدون محدودیت زمانی؛ با ضمانت بازگشت وجه تأمین‌کننده. تأمین از شبکه اختصاصی دالاس — هر گیگ پایه ۳٬۰۰۰ تومان، فروش = پایه × ۱٫۶.</p>
-  <div class="meta"><span class="from">۴۸٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۴۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_0">خرید</a></div><div class="plan"><span class="plabel">۲۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۹۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_1">خرید</a></div><div class="plan"><span class="plabel">۳۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۱۴۴٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_2">خرید</a></div><div class="plan"><span class="plabel">۵۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۲۴۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_3">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ گیگ — بدون محدودیت زمانی</span><span class="pprice">۴۸۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_4">خرید</a></div></div></div>
-  <div class="en"><h3>🎮 V2Ray Gaming | WireGuard for gaming</h3><p class="desc">WireGuard (Pasargad) built for gaming — low ping and a stable connection, multiple locations inside one subscription, no usage multiplier and no time limit; covered by the supplier&#x27;s money-back guarantee.</p>
-  <div class="meta"><span class="from">48,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">10 GB — no time limit</span><span class="pprice">48,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_0">Buy</a></div><div class="plan"><span class="plabel">20 GB — no time limit</span><span class="pprice">96,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_1">Buy</a></div><div class="plan"><span class="plabel">30 GB — no time limit</span><span class="pprice">144,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_2">Buy</a></div><div class="plan"><span class="plabel">50 GB — no time limit</span><span class="pprice">240,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_3">Buy</a></div><div class="plan"><span class="plabel">100 GB — no time limit</span><span class="pprice">480,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_gaming_4">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="vpn" data-id="v2ray_fixed">
-  <div class="fa"><h3>🛡 V2Ray آی‌پی ثابت | مخصوص ترید و هوش مصنوعی</h3><p class="desc">کانفیگ با آی‌پی ثابت اختصاصی — مناسب ترید و صرافی‌ها، ساخت اکانت و استفاده از هوش مصنوعی؛ بدون محدودیت زمانی (تا اتمام حجم). تأمین از شبکه اختصاصی دالاس — هر گیگ پایه ۶٬۰۰۰ تومان (۳٬۰۰۰ گران‌تر از متغیر)، فروش = پایه × ۱٫۶.</p>
-  <div class="meta"><span class="from">۹۶٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱۰ گیگ — آی‌پی ثابت</span><span class="pprice">۹۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_0">خرید</a></div><div class="plan"><span class="plabel">۲۰ گیگ — آی‌پی ثابت</span><span class="pprice">۱۹۲٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_1">خرید</a></div><div class="plan"><span class="plabel">۳۰ گیگ — آی‌پی ثابت</span><span class="pprice">۲۸۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_2">خرید</a></div><div class="plan"><span class="plabel">۵۰ گیگ — آی‌پی ثابت</span><span class="pprice">۴۸۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_3">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ گیگ — آی‌پی ثابت</span><span class="pprice">۹۶۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_4">خرید</a></div></div></div>
-  <div class="en"><h3>🛡 V2Ray Fixed IP | For trading &amp; AI</h3><p class="desc">Config with a dedicated fixed IP — ideal for trading and exchanges, creating accounts and using AI tools; no time limit (until your volume runs out).</p>
-  <div class="meta"><span class="from">96,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">10 GB — fixed IP</span><span class="pprice">96,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_0">Buy</a></div><div class="plan"><span class="plabel">20 GB — fixed IP</span><span class="pprice">192,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_1">Buy</a></div><div class="plan"><span class="plabel">30 GB — fixed IP</span><span class="pprice">288,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_2">Buy</a></div><div class="plan"><span class="plabel">50 GB — fixed IP</span><span class="pprice">480,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_3">Buy</a></div><div class="plan"><span class="plabel">100 GB — fixed IP</span><span class="pprice">960,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_v2ray_fixed_4">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="vpn" data-id="nordvpn">
-  <div class="fa"><h3>🥏 NordVPN | اشتراک پریمیوم</h3><p class="desc">اشتراک پریمیوم NordVPN، قابل استفاده روی همه‌ی دستگاه‌ها.</p>
-  <div class="meta"><span class="from">۱٬۷۶۰٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه</span><span class="pprice">۱٬۷۶۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_nordvpn_0">خرید</a></div><div class="plan soon"><span class="plabel">۱ ساله</span><span class="pprice">به‌زودی</span><a class="buy ghost" href="https://t.me/Dallassvpnbot?start=p_nordvpn">به‌زودی</a></div><div class="plan soon"><span class="plabel">۲ ساله</span><span class="pprice">به‌زودی</span><a class="buy ghost" href="https://t.me/Dallassvpnbot?start=p_nordvpn">به‌زودی</a></div></div></div>
-  <div class="en"><h3>🥏 NordVPN | Premium subscription</h3><p class="desc">NordVPN premium subscription, usable on all your devices.</p>
-  <div class="meta"><span class="from">1,760,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month</span><span class="pprice">1,760,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_nordvpn_0">Buy</a></div><div class="plan soon"><span class="plabel">1 year</span><span class="pprice">Coming soon</span><a class="buy ghost" href="https://t.me/Dallassvpnbot?start=p_nordvpn">Coming soon</a></div><div class="plan soon"><span class="plabel">2 years</span><span class="pprice">Coming soon</span><a class="buy ghost" href="https://t.me/Dallassvpnbot?start=p_nordvpn">Coming soon</a></div></div></div>
-</article></div></section><section class="catsec" data-cat="design">
-  <h2 class="fa">🎨 طراحی و ویدیو</h2><h2 class="en">🎨 Design &amp; Video</h2>
-  <div class="grid"><article class="card" data-cat="design" data-id="figma_pro">
-  <div class="fa"><h3>📱 Figma Pro Edu | ابزار حرفه‌ای طراحی</h3><p class="desc">اشتراک Figma Pro نسخه Edu برای طراح‌ها؛ ابزار حرفه‌ای طراحی رابط کاربری.</p>
-  <div class="meta"><span class="from">۳٬۲۰۰٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ساله</span><span class="pprice">۳٬۲۰۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_figma_pro_0">خرید</a></div></div></div>
-  <div class="en"><h3>📱 Figma Pro Edu | Professional design tool</h3><p class="desc">Figma Pro Edu subscription for designers; the professional UI design tool.</p>
-  <div class="meta"><span class="from">3,200,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 year</span><span class="pprice">3,200,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_figma_pro_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="design" data-id="capcut_pro">
-  <div class="fa"><h3>🎬 CapCut Pro | ویرایش حرفه‌ای ویدیو</h3><p class="desc">اشتراک CapCut Pro با همه افکت‌ها و ابزارهای پریمیوم ویرایش ویدیو.</p>
-  <div class="meta"><span class="from">۱٬۰۳۸٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه</span><span class="pprice">۱٬۰۳۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_capcut_pro_0">خرید</a></div><div class="plan soon"><span class="plabel">۱ ساله</span><span class="pprice">به‌زودی</span><a class="buy ghost" href="https://t.me/Dallassvpnbot?start=p_capcut_pro">به‌زودی</a></div></div></div>
-  <div class="en"><h3>🎬 CapCut Pro | Professional video editing</h3><p class="desc">CapCut Pro subscription with all premium effects and video-editing tools.</p>
-  <div class="meta"><span class="from">1,038,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month</span><span class="pprice">1,038,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_capcut_pro_0">Buy</a></div><div class="plan soon"><span class="plabel">1 year</span><span class="pprice">Coming soon</span><a class="buy ghost" href="https://t.me/Dallassvpnbot?start=p_capcut_pro">Coming soon</a></div></div></div>
-</article>
-<article class="card" data-cat="design" data-id="canva_pro">
-  <div class="fa"><h3>🎨 Canva Pro | طراحی آنلاین</h3><p class="desc">اشتراک Canva Pro (عضویت تیم پرو) با قالب‌ها و المان‌های پریمیوم طراحی؛ شارژ روی اکانت شما.</p>
-  <div class="meta"><span class="from">۲۴۰٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۳ ماهه</span><span class="pprice">۲۴۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_canva_pro_0">خرید</a></div><div class="plan"><span class="plabel">۶ ماهه</span><span class="pprice">۴۸۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_canva_pro_1">خرید</a></div><div class="plan"><span class="plabel">۱۲ ماهه</span><span class="pprice">۱٬۹۰۲٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_canva_pro_2">خرید</a></div></div></div>
-  <div class="en"><h3>🎨 Canva Pro | Online design</h3><p class="desc">Canva Pro subscription (Pro team membership) with premium templates and design elements; topped up on your own account.</p>
-  <div class="meta"><span class="from">240,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">3 months</span><span class="pprice">240,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_canva_pro_0">Buy</a></div><div class="plan"><span class="plabel">6 months</span><span class="pprice">480,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_canva_pro_1">Buy</a></div><div class="plan"><span class="plabel">12 months</span><span class="pprice">1,902,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_canva_pro_2">Buy</a></div></div></div>
-</article></div></section><section class="catsec" data-cat="fun">
-  <h2 class="fa">🎵 سرگرمی</h2><h2 class="en">🎵 Entertainment</h2>
-  <div class="grid"><article class="card" data-cat="fun" data-id="telegram_premium">
-  <div class="fa"><h3>✈️ Telegram Premium | تلگرام پریمیوم</h3><p class="desc">فعال‌سازی رسمی تلگرام پریمیوم روی اکانت شما؛ بدون نیاز به پسورد.</p>
-  <div class="meta"><span class="from">۵٬۸۸۳٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۳ ماهه</span><span class="pprice">۵٬۸۸۳٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_telegram_premium_0">خرید</a></div><div class="plan"><span class="plabel">۶ ماهه</span><span class="pprice">۷٬۵۴۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_telegram_premium_1">خرید</a></div><div class="plan"><span class="plabel">۱۲ ماهه</span><span class="pprice">۱۳٬۱۷۴٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_telegram_premium_2">خرید</a></div></div></div>
-  <div class="en"><h3>✈️ Telegram Premium</h3><p class="desc">Official Telegram Premium activation on your own account; no password needed.</p>
-  <div class="meta"><span class="from">5,883,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">3 months</span><span class="pprice">5,883,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_telegram_premium_0">Buy</a></div><div class="plan"><span class="plabel">6 months</span><span class="pprice">7,540,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_telegram_premium_1">Buy</a></div><div class="plan"><span class="plabel">12 months</span><span class="pprice">13,174,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_telegram_premium_2">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="fun" data-id="spotify_premium">
-  <div class="fa"><h3>🎵 Spotify Premium | موزیک بدون تبلیغ</h3><p class="desc">اشتراک Spotify Premium؛ موزیک بدون تبلیغ و دانلود آفلاین.</p>
-  <div class="meta"><span class="from">۱٬۱۹۸٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه</span><span class="pprice">۱٬۱۹۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_spotify_premium_0">خرید</a></div><div class="plan"><span class="plabel">۱ ساله (Legal)</span><span class="pprice">۷٬۶۷۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_spotify_premium_1">خرید</a></div></div></div>
-  <div class="en"><h3>🎵 Spotify Premium | Ad-free music</h3><p class="desc">Spotify Premium subscription; ad-free music with offline downloads.</p>
-  <div class="meta"><span class="from">1,198,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month</span><span class="pprice">1,198,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_spotify_premium_0">Buy</a></div><div class="plan"><span class="plabel">1 year (Legal)</span><span class="pprice">7,678,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_spotify_premium_1">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="fun" data-id="youtube_premium">
-  <div class="fa"><h3>▶️ YouTube Premium | یوتیوب بدون تبلیغ</h3><p class="desc">اشتراک YouTube Premium؛ تماشای بدون تبلیغ و پخش در پس‌زمینه.</p>
-  <div class="meta"><span class="from">۱٬۱۱۵٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه</span><span class="pprice">۱٬۱۱۵٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_youtube_premium_0">خرید</a></div></div></div>
-  <div class="en"><h3>▶️ YouTube Premium | Ad-free YouTube</h3><p class="desc">YouTube Premium subscription; ad-free watching and background playback.</p>
-  <div class="meta"><span class="from">1,115,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month</span><span class="pprice">1,115,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_youtube_premium_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="fun" data-id="suno_ai">
-  <div class="fa"><h3>🎵 Suno AI | ساخت آهنگ با هوش مصنوعی</h3><p class="desc">از روی متنی که می‌دی، آهنگ کامل با وکال می‌سازه — ۲٬۵۰۰ کردیت ماهانه، دانلود آهنگ و حق استفاده تجاری؛ سلاح تولیدکننده‌های محتوا، پادکسترها و موزیسین‌ها. اشتراک رسمی، فعال‌سازی روی اکانت شما.</p>
-  <div class="meta"><span class="from">۵٬۳۵۳٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه PRO</span><span class="pprice">۵٬۳۵۳٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_suno_ai_0">خرید</a></div></div></div>
-  <div class="en"><h3>🎵 Suno AI | AI music creation</h3><p class="desc">Turn a text prompt into a full song with vocals — 2,500 credits per month, song downloads and commercial-use rights; the secret weapon of content creators, podcasters and musicians. Official subscription, activated on your own account.</p>
-  <div class="meta"><span class="from">5,353,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month PRO</span><span class="pprice">5,353,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_suno_ai_0">Buy</a></div></div></div>
-</article></div></section><section class="catsec" data-cat="learn">
-  <h2 class="fa">📚 یادگیری زبان</h2><h2 class="en">📚 Language Learning</h2>
-  <div class="grid"><article class="card" data-cat="learn" data-id="duolingo">
-  <div class="fa"><h3>👋 Duolingo Super | یادگیری زبان</h3><p class="desc">اشتراک Duolingo Super؛ یادگیری زبان بدون تبلیغ و با قلب نامحدود.</p>
-  <div class="meta"><span class="from">۴۷۸٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱ ماهه</span><span class="pprice">۴۷۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_duolingo_0">خرید</a></div><div class="plan"><span class="plabel">۱ ساله</span><span class="pprice">۳٬۵۰۲٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_duolingo_1">خرید</a></div></div></div>
-  <div class="en"><h3>👋 Duolingo Super | Language learning</h3><p class="desc">Duolingo Super subscription; learn languages ad-free with unlimited hearts.</p>
-  <div class="meta"><span class="from">478,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">1 month</span><span class="pprice">478,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_duolingo_0">Buy</a></div><div class="plan"><span class="plabel">1 year</span><span class="pprice">3,502,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_duolingo_1">Buy</a></div></div></div>
-</article></div></section><section class="catsec" data-cat="gift">
-  <h2 class="fa">🎁 گیفت‌کارت و بازی</h2><h2 class="en">🎁 Gift Cards &amp; Games</h2>
-  <div class="grid"><article class="card" data-cat="gift" data-id="gift_steam">
-  <div class="fa"><h3>🎮 گیفت‌کارت استیم | Steam</h3><p class="desc">گیفت‌کارت استیم — کد ریدیم تحویل داده می‌شود و خودتان روی اکانت استیم‌تان فعال می‌کنید. موجودی والت برای خرید بازی و آیتم.</p>
-  <div class="meta"><span class="from">۱٬۷۷۳٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۲۰ دلاری — گلوبال</span><span class="pprice">۱٬۷۷۳٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_steam_0">خرید</a></div><div class="plan"><span class="plabel">۲۵ دلاری — گلوبال</span><span class="pprice">۲٬۲۰۵٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_steam_1">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ دلاری — آمریکا (والت)</span><span class="pprice">۳۷٬۲۵۹٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_steam_2">خرید</a></div></div></div>
-  <div class="en"><h3>🎮 Steam Gift Card</h3><p class="desc">Steam gift card — you receive a redeem code and activate it on your own Steam account. Wallet credit for games and items.</p>
-  <div class="meta"><span class="from">1,773,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">$20 — Global</span><span class="pprice">1,773,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_steam_0">Buy</a></div><div class="plan"><span class="plabel">$25 — Global</span><span class="pprice">2,205,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_steam_1">Buy</a></div><div class="plan"><span class="plabel">$100 — US (wallet)</span><span class="pprice">37,259,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_steam_2">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="gift" data-id="gift_googleplay">
-  <div class="fa"><h3>▶️ گیفت‌کارت گوگل‌پلی | Google Play</h3><p class="desc">گیفت‌کارت گوگل‌پلی آمریکا — کد ریدیم برای شارژ حساب گوگل‌پلی و خرید اپ، بازی و اشتراک.</p>
-  <div class="meta"><span class="from">۲٬۴۸۸٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۵ دلاری — آمریکا</span><span class="pprice">۲٬۴۸۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_0">خرید</a></div><div class="plan"><span class="plabel">۱۰ دلاری — آمریکا</span><span class="pprice">۴٬۸۰۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_1">خرید</a></div><div class="plan"><span class="plabel">۱۵ دلاری — آمریکا</span><span class="pprice">۷٬۲۳۷٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_2">خرید</a></div><div class="plan"><span class="plabel">۲۵ دلاری — آمریکا</span><span class="pprice">۱۱٬۵۴۲٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_3">خرید</a></div><div class="plan"><span class="plabel">۵۰ دلاری — آمریکا</span><span class="pprice">۲۲٬۹۴۵٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_4">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ دلاری — آمریکا</span><span class="pprice">۴۵٬۳۹۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_5">خرید</a></div></div></div>
-  <div class="en"><h3>▶️ Google Play Gift Card (US)</h3><p class="desc">US Google Play gift card — redeem code to top up your Google Play balance for apps, games and subscriptions.</p>
-  <div class="meta"><span class="from">2,488,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">$5 — US</span><span class="pprice">2,488,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_0">Buy</a></div><div class="plan"><span class="plabel">$10 — US</span><span class="pprice">4,806,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_1">Buy</a></div><div class="plan"><span class="plabel">$15 — US</span><span class="pprice">7,237,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_2">Buy</a></div><div class="plan"><span class="plabel">$25 — US</span><span class="pprice">11,542,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_3">Buy</a></div><div class="plan"><span class="plabel">$50 — US</span><span class="pprice">22,945,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_4">Buy</a></div><div class="plan"><span class="plabel">$100 — US</span><span class="pprice">45,390,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_googleplay_5">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="gift" data-id="gift_itunes">
-  <div class="fa"><h3>🍎 گیفت‌کارت آیتونز | Apple iTunes</h3><p class="desc">گیفت‌کارت آیتونز/اپل آمریکا — کد ریدیم برای شارژ اپل‌آیدی و خرید از اپ‌استور و سرویس‌های اپل.</p>
-  <div class="meta"><span class="from">۲٬۳۰۷٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۵ دلاری — آمریکا</span><span class="pprice">۲٬۳۰۷٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_0">خرید</a></div><div class="plan"><span class="plabel">۱۰ دلاری — آمریکا</span><span class="pprice">۴٬۵۳۹٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_1">خرید</a></div><div class="plan"><span class="plabel">۲۵ دلاری — آمریکا</span><span class="pprice">۱۱٬۴۶۵٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_2">خرید</a></div><div class="plan"><span class="plabel">۵۰ دلاری — آمریکا</span><span class="pprice">۲۲٬۶۹۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_3">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ دلاری — آمریکا</span><span class="pprice">۴۴٬۶۸۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_4">خرید</a></div></div></div>
-  <div class="en"><h3>🍎 Apple iTunes Gift Card (US)</h3><p class="desc">US Apple/iTunes gift card — redeem code to top up your Apple ID for the App Store and Apple services.</p>
-  <div class="meta"><span class="from">2,307,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">$5 — US</span><span class="pprice">2,307,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_0">Buy</a></div><div class="plan"><span class="plabel">$10 — US</span><span class="pprice">4,539,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_1">Buy</a></div><div class="plan"><span class="plabel">$25 — US</span><span class="pprice">11,465,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_2">Buy</a></div><div class="plan"><span class="plabel">$50 — US</span><span class="pprice">22,696,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_3">Buy</a></div><div class="plan"><span class="plabel">$100 — US</span><span class="pprice">44,688,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_itunes_4">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="gift" data-id="gift_playstation">
-  <div class="fa"><h3>🎮 گیفت‌کارت پلی‌استیشن | PSN</h3><p class="desc">گیفت‌کارت پلی‌استیشن (PSN آمریکا) — کد ریدیم برای شارژ والت پلی‌استیشن و خرید بازی و پلاس.</p>
-  <div class="meta"><span class="from">۲٬۹۷۹٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۱۰ دلاری — آمریکا</span><span class="pprice">۲٬۹۷۹٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_0">خرید</a></div><div class="plan"><span class="plabel">۲۰ دلاری — آمریکا</span><span class="pprice">۵٬۹۴۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_1">خرید</a></div><div class="plan"><span class="plabel">۲۵ دلاری — آمریکا</span><span class="pprice">۷٬۲۴۲٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_2">خرید</a></div><div class="plan"><span class="plabel">۵۰ دلاری — آمریکا</span><span class="pprice">۱۷٬۱۱۵٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_3">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ دلاری — آمریکا</span><span class="pprice">۳۳٬۸۷۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_4">خرید</a></div></div></div>
-  <div class="en"><h3>🎮 PlayStation Gift Card (PSN US)</h3><p class="desc">US PlayStation (PSN) gift card — redeem code to top up your PlayStation wallet for games and Plus.</p>
-  <div class="meta"><span class="from">2,979,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">$10 — US</span><span class="pprice">2,979,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_0">Buy</a></div><div class="plan"><span class="plabel">$20 — US</span><span class="pprice">5,946,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_1">Buy</a></div><div class="plan"><span class="plabel">$25 — US</span><span class="pprice">7,242,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_2">Buy</a></div><div class="plan"><span class="plabel">$50 — US</span><span class="pprice">17,115,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_3">Buy</a></div><div class="plan"><span class="plabel">$100 — US</span><span class="pprice">33,870,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_playstation_4">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="gift" data-id="gift_amazon">
-  <div class="fa"><h3>📦 گیفت‌کارت آمازون | Amazon</h3><p class="desc">گیفت‌کارت آمازون آمریکا — کد ریدیم برای شارژ موجودی حساب آمازون و خرید از amazon.com.</p>
-  <div class="meta"><span class="from">۳٬۶۹۸٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۵ دلاری — آمریکا</span><span class="pprice">۳٬۶۹۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_0">خرید</a></div><div class="plan"><span class="plabel">۱۰ دلاری — آمریکا</span><span class="pprice">۶٬۷۳۸٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_1">خرید</a></div><div class="plan"><span class="plabel">۲۵ دلاری — آمریکا</span><span class="pprice">۱۳٬۹۴۹٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_2">خرید</a></div><div class="plan"><span class="plabel">۵۰ دلاری — آمریکا</span><span class="pprice">۲۳٬۶۳۷٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_3">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ دلاری — آمریکا</span><span class="pprice">۴۵٬۷۳۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_4">خرید</a></div></div></div>
-  <div class="en"><h3>📦 Amazon Gift Card (US)</h3><p class="desc">US Amazon gift card — redeem code to top up your Amazon balance for shopping on amazon.com.</p>
-  <div class="meta"><span class="from">3,698,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">$5 — US</span><span class="pprice">3,698,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_0">Buy</a></div><div class="plan"><span class="plabel">$10 — US</span><span class="pprice">6,738,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_1">Buy</a></div><div class="plan"><span class="plabel">$25 — US</span><span class="pprice">13,949,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_2">Buy</a></div><div class="plan"><span class="plabel">$50 — US</span><span class="pprice">23,637,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_3">Buy</a></div><div class="plan"><span class="plabel">$100 — US</span><span class="pprice">45,730,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_amazon_4">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="gift" data-id="gift_razergold">
-  <div class="fa"><h3>🪙 ریزر گلد | Razer Gold</h3><p class="desc">ریزر گلد آمریکا — کد ریدیم برای شارژ کیف پول Razer Gold و خرید درون‌بازی هزاران بازی.</p>
-  <div class="meta"><span class="from">۲٬۲۴۶٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۵ دلاری — آمریکا</span><span class="pprice">۲٬۲۴۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_razergold_0">خرید</a></div><div class="plan"><span class="plabel">۱۰ دلاری — آمریکا</span><span class="pprice">۳٬۷۰۱٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_razergold_1">خرید</a></div><div class="plan"><span class="plabel">۲۰ دلاری — آمریکا</span><span class="pprice">۸٬۹۸۵٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_razergold_2">خرید</a></div><div class="plan"><span class="plabel">۱۰۰ دلاری — آمریکا</span><span class="pprice">۳۷٬۱۳۱٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_razergold_3">خرید</a></div></div></div>
-  <div class="en"><h3>🪙 Razer Gold (US)</h3><p class="desc">US Razer Gold — redeem code to top up your Razer Gold wallet for in-game purchases across thousands of games.</p>
-  <div class="meta"><span class="from">2,246,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">$5 — US</span><span class="pprice">2,246,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_razergold_0">Buy</a></div><div class="plan"><span class="plabel">$10 — US</span><span class="pprice">3,701,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_razergold_1">Buy</a></div><div class="plan"><span class="plabel">$20 — US</span><span class="pprice">8,985,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_razergold_2">Buy</a></div><div class="plan"><span class="plabel">$100 — US</span><span class="pprice">37,131,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_gift_razergold_3">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="gift" data-id="coc_goldpass">
-  <div class="fa"><h3>⚔️ گلد پس کلش آف کلنز | Gold Pass</h3><p class="desc">گلد پس و ایونت پس کلش آف کلنز — شارژ مستقیم روی اکانت بازی شما با تگ بازیکن؛ بدون نیاز به رمز اکانت.</p>
-  <div class="meta"><span class="from">۸۵۶٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">گلد پس ۳ دلاری</span><span class="pprice">۸۵۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_coc_goldpass_0">خرید</a></div><div class="plan"><span class="plabel">گلد پس ۷ دلاری</span><span class="pprice">۱٬۹۴۹٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_coc_goldpass_1">خرید</a></div><div class="plan"><span class="plabel">ایونت پس</span><span class="pprice">۱٬۴۰۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_coc_goldpass_2">خرید</a></div></div></div>
-  <div class="en"><h3>⚔️ Clash of Clans Gold Pass</h3><p class="desc">Clash of Clans Gold Pass and Event Pass — topped up directly on your game account with your player tag; no password needed.</p>
-  <div class="meta"><span class="from">856,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">Gold Pass $3</span><span class="pprice">856,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_coc_goldpass_0">Buy</a></div><div class="plan"><span class="plabel">Gold Pass $7</span><span class="pprice">1,949,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_coc_goldpass_1">Buy</a></div><div class="plan"><span class="plabel">Event Pass</span><span class="pprice">1,400,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_coc_goldpass_2">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="gift" data-id="pubg_uc">
-  <div class="fa"><h3>🔫 یوسی پابجی موبایل | PUBG UC</h3><p class="desc">یوسی پابجی موبایل (UC) — شارژ با آیدی بازیکن، بدون نیاز به رمز اکانت.</p>
-  <div class="meta"><span class="from">۲۵۰٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۳۰ یوسی</span><span class="pprice">۲۵۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_pubg_uc_0">خرید</a></div></div></div>
-  <div class="en"><h3>🔫 PUBG Mobile UC</h3><p class="desc">PUBG Mobile UC — topped up with your player ID, no account password needed.</p>
-  <div class="meta"><span class="from">250,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">30 UC</span><span class="pprice">250,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_pubg_uc_0">Buy</a></div></div></div>
-</article>
-<article class="card" data-cat="gift" data-id="freefire_gems">
-  <div class="fa"><h3>💎 جم فری‌فایر | Free Fire</h3><p class="desc">جم فری‌فایر — شارژ سریع با آیدی بازیکن، بدون نیاز به رمز اکانت.</p>
-  <div class="meta"><span class="from">۱٬۶۰۱٬۰۰۰ تومان</span><span class="badge">قابل سفارش</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">۵۳۰ جم</span><span class="pprice">۱٬۶۰۱٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_freefire_gems_0">خرید</a></div><div class="plan"><span class="plabel">۱۰۶۰ جم</span><span class="pprice">۵٬۰۴۹٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_freefire_gems_1">خرید</a></div><div class="plan"><span class="plabel">۲۱۸۰ جم</span><span class="pprice">۹٬۷۲۰٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_freefire_gems_2">خرید</a></div><div class="plan"><span class="plabel">۴۴۰۰ جم</span><span class="pprice">۱۹٬۸۵۶٬۰۰۰ تومان</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_freefire_gems_3">خرید</a></div></div></div>
-  <div class="en"><h3>💎 Free Fire Diamonds</h3><p class="desc">Free Fire diamonds — fast top-up with your player ID, no account password needed.</p>
-  <div class="meta"><span class="from">1,601,000 Toman</span><span class="badge">Available to order</span></div>
-  <div class="plans"><div class="plan"><span class="plabel">530 diamonds</span><span class="pprice">1,601,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_freefire_gems_0">Buy</a></div><div class="plan"><span class="plabel">1060 diamonds</span><span class="pprice">5,049,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_freefire_gems_1">Buy</a></div><div class="plan"><span class="plabel">2180 diamonds</span><span class="pprice">9,720,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_freefire_gems_2">Buy</a></div><div class="plan"><span class="plabel">4400 diamonds</span><span class="pprice">19,856,000 Toman</span><a class="buy" href="https://t.me/Dallassvpnbot?start=buy_freefire_gems_3">Buy</a></div></div></div>
-</article></div></section>
-</main>
-<section style="margin:24px auto;max-width:900px;padding:20px;border:1px solid #d4af37;border-radius:14px;background:#17171c">
-  <div class="fa"><h2 style="color:#f5d76e">درباره‌ی دالاس</h2><p>دالاسِ آمریکا، فروشگاه اشتراک‌های اصل دیجیتال است: از V2Ray و ChatGPT و Gemini تا Spotify و تلگرام پریمیوم. قیمت‌ها شفاف‌اند — پایین‌ترین قیمت تأمین‌کننده + سود مشخص، بدون هزینه‌ی پنهان. سفارش داخل ربات تلگرام انجام می‌شود: محصول را انتخاب می‌کنی، کارت‌به‌کارت می‌کنی و رسید می‌فرستی، بعد از تأیید تحویل می‌گیری. همه‌ی اشتراک‌ها ضمانت تعویض دارند و پشتیبانی داخل همان ربات است.<br>🛍 فروشگاه: <a href="https://t.me/Dallassvpnbot">@Dallassvpnbot</a> — 📣 کانال: <a href="https://t.me/DallasShopIR">@DallasShopIR</a></p></div>
-  <div class="en"><h2 style="color:#f5d76e">About Dallas</h2><p>Dallas USA is a store for genuine digital subscriptions: from V2Ray, ChatGPT and Gemini to Spotify and Telegram Premium. Prices are transparent — the lowest supplier price plus a fixed margin, no hidden fees. Orders go through the Telegram bot: pick a product, pay card-to-card, send the receipt, and get delivery after approval. Every subscription carries a replacement guarantee, and support lives inside the same bot.<br>🛍 Shop: <a href="https://t.me/Dallassvpnbot">@Dallassvpnbot</a> — 📣 Channel: <a href="https://t.me/DallasShopIR">@DallasShopIR</a></p></div>
-</section>
-<footer>
-  <div class="fa">💳 پرداخت داخل ربات: کارت‌به‌کارت + ارسال رسید، تحویل بعد از تأیید<br>🛡 همه‌ی اشتراک‌ها با ضمانت تعویض<br>💬 پشتیبانی داخل ربات دالاس — <a href="https://t.me/Dallassvpnbot">@Dallassvpnbot</a></div>
-  <div class="en">💳 Payment inside the bot: card-to-card + receipt, delivery after approval<br>🛡 All subscriptions come with a replacement guarantee<br>💬 Support inside the Dallas bot — <a href="https://t.me/Dallassvpnbot">@Dallassvpnbot</a></div>
-</footer>
+
+  <div class="banner">🎟 خرید اول با کد <b>AVVAL</b> → ۱۵٪ تخفیف | 🎁 دعوت ۳ نفر → کد تخفیف ۲۰٪</div>
+
+  <div class="cats" id="cats"></div>
+  <div id="grid"></div>
+
+  <div class="foot">
+    💳 پرداخت ریالی (کارت‌به‌کارت) | ⚡️ تحویل سریع | 🛡 ضمانت تعویض<br>
+    💬 پشتیبانی: داخل ربات دالاس<br>
+    <b>★ DALLAS — BIG DEALS ONLY ★</b>
+  </div>
+
+  <div class="ovl" id="ovl">
+    <div class="sheet" id="sheet"></div>
+  </div>
+  <div class="toast" id="toast">کپی شد ✅</div>
+
 <script>
-var curFilter='all';
-function setLang(l){document.body.className='lang-'+l;document.documentElement.lang=l;document.documentElement.dir=(l==='fa'?'rtl':'ltr');document.getElementById('langBtn').textContent=(l==='fa'?'English':'فارسی');document.getElementById('q').placeholder=(l==='fa'?'جست‌وجوی محصول…':'Search products…');try{localStorage.setItem('dallas_lang',l)}catch(e){}}
-function toggleLang(){setLang(document.body.className==='lang-fa'?'en':'fa')}
-try{var s=localStorage.getItem('dallas_lang');if(s==='en')setLang('en')}catch(e){}
-document.querySelectorAll('#chips .chip').forEach(function(b){b.onclick=function(){document.querySelectorAll('#chips .chip').forEach(function(x){x.classList.remove('on')});b.classList.add('on');curFilter=b.dataset.filter;applyFilter()}});
-function applyFilter(){var q=(document.getElementById('q').value||'').trim().toLowerCase();document.querySelectorAll('.catsec').forEach(function(sec){var any=false;sec.querySelectorAll('.card').forEach(function(c){var okCat=(curFilter==='all'||c.dataset.cat===curFilter);var okQ=(!q||c.textContent.toLowerCase().indexOf(q)>=0);var show=okCat&&okQ;c.classList.toggle('hidden',!show);if(show)any=true});sec.classList.toggle('hidden',!any)})}
-/* Telegram WebApp bridge: inside Telegram, plain t.me anchors do not switch to the bot chat — route them through openTelegramLink. Outside Telegram, links behave normally. */
-try{var tg=window.Telegram&&window.Telegram.WebApp;if(tg){tg.ready();document.querySelectorAll('a[href^="https://t.me/"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();tg.openTelegramLink(a.getAttribute('href'))})})}}catch(e){}
+const BOT = "Dallassvpnbot";
+const CARD_NUMBER = "6037-9982-1606-6141";
+const CARD_DIGITS = "6037998216066141";
+const CARD_HOLDER = "مجتبی خوشحال";
+
+const CATS = [
+  ["all", "🔥 همه"],
+  ["ai", "🤖 هوش مصنوعی"],
+  ["vpn", "🌐 VPN و اینترنت"],
+  ["design", "🎨 طراحی و ویدیو"],
+  ["fun", "🎵 سرگرمی"],
+  ["learn", "📚 یادگیری زبان"],
+];
+const CAT_NAMES = { ai:"🤖 هوش مصنوعی", vpn:"🌐 VPN و اینترنت", design:"🎨 طراحی و ویدیو", fun:"🎵 سرگرمی", learn:"📚 یادگیری زبان" };
+
+/* plans: [برچسب, قیمت نمایشی, مبلغ خام برای کپی (۰ = به‌زودی)] */
+const PRODUCTS = [
+  {id:"v2ray", cat:"vpn", t:"🌎 V2Ray متغیر", d:"کانفیگ حجمی — بدون محدودیت زمانی، یا نامحدود ۳۰ روزه با مصرف منصفانه", plans:[["۱۰ گیگ · بدون محدودیت زمانی","۸۱٬۰۰۰",81000],["۲۰ گیگ · بدون محدودیت زمانی","۱۶۲٬۰۰۰",162000],["۳۰ گیگ · بدون محدودیت زمانی","۲۴۳٬۰۰۰",243000],["۵۰ گیگ · بدون محدودیت زمانی","۴۰۵٬۰۰۰",405000],["۱۰۰ گیگ · بدون محدودیت زمانی","۸۱۰٬۰۰۰",810000],["نامحدود ۳۰ روزه · ۱ کاربر","۴۳۲٬۰۰۰",432000],["نامحدود ۳۰ روزه · ۲ کاربر","۷۵۶٬۰۰۰",756000],["نامحدود ۳۰ روزه · ۳ کاربر","۱٬۳۵۰٬۰۰۰",1350000]]},
+  {id:"v2ray_gaming", cat:"vpn", t:"🎮 V2Ray گیمینگ", d:"وایرگارد مخصوص بازی — پینگ پایین و اتصال پایدار، بدون محدودیت زمانی", plans:[["۱۰ گیگ · بدون محدودیت زمانی","۸۱٬۰۰۰",81000],["۲۰ گیگ · بدون محدودیت زمانی","۱۶۲٬۰۰۰",162000],["۳۰ گیگ · بدون محدودیت زمانی","۲۴۳٬۰۰۰",243000],["۵۰ گیگ · بدون محدودیت زمانی","۴۰۵٬۰۰۰",405000],["۱۰۰ گیگ · بدون محدودیت زمانی","۸۱۰٬۰۰۰",810000]]},
+  {id:"v2ray_fixed", cat:"vpn", t:"🛡 V2Ray آی‌پی ثابت", d:"آی‌پی ثابت اختصاصی — مخصوص ترید، صرافی و هوش مصنوعی، بدون محدودیت زمانی", plans:[["۱۰ گیگ · آی‌پی ثابت","۱۵۰٬۰۰۰",150000],["۲۰ گیگ · آی‌پی ثابت","۳۰۰٬۰۰۰",300000],["۳۰ گیگ · آی‌پی ثابت","۴۵۰٬۰۰۰",450000],["۵۰ گیگ · آی‌پی ثابت","۷۵۰٬۰۰۰",750000],["۱۰۰ گیگ · آی‌پی ثابت","۱٬۵۰۰٬۰۰۰",1500000]]},
+  {id:"gemini", cat:"ai", t:"📱 Gemini", d:"هوش مصنوعی گوگل — ۱۸ ماهه", plans:[["۱۸ ماهه","۴۱۴٬۰۰۰",414000]]},
+  {id:"chatgpt_k12", cat:"ai", t:"📱 ChatGPT K12 Edu", d:"اشتراک ۲ ساله", plans:[["۲ ساله","۴٬۸۰۰٬۰۰۰",4800000]]},
+  {id:"claude_pro", cat:"ai", t:"🤖 Claude Pro", d:"هوش مصنوعی Anthropic", plans:[["۱ ماهه","۱٬۲۷۸٬۰۰۰",1278000]]},
+  {id:"nordvpn", cat:"vpn", t:"🥏 NordVPN", d:"اشتراک پریمیوم", plans:[["۱ ماهه","۱٬۷۶۰٬۰۰۰",1760000],["۱ ساله","به‌زودی",0],["۲ ساله","به‌زودی",0]]},
+  {id:"figma_pro", cat:"design", t:"📱 Figma Pro Edu", d:"ابزار حرفه‌ای طراحی", plans:[["۱ ساله","۳٬۲۰۰٬۰۰۰",3200000]]},
+  {id:"capcut_pro", cat:"design", t:"🎬 CapCut Pro", d:"ویرایش حرفه‌ای ویدیو", plans:[["۱ ماهه","۱٬۰۳۸٬۰۰۰",1038000],["۱ ساله","به‌زودی",0]]},
+  {id:"canva_pro", cat:"design", t:"🎨 Canva Pro", d:"طراحی آنلاین — عضویت تیم پرو", plans:[["۳ ماهه","۲۴۰٬۰۰۰",240000],["۶ ماهه","۴۸۰٬۰۰۰",480000],["۱۲ ماهه","۱٬۹۰۲٬۰۰۰",1902000]]},
+  {id:"spotify_premium", cat:"fun", t:"🎵 Spotify Premium", d:"موزیک بدون تبلیغ", plans:[["۱ ماهه","۱٬۱۹۸٬۰۰۰",1198000],["۱ ساله","۷٬۶۷۸٬۰۰۰",7678000]]},
+  {id:"youtube_premium", cat:"fun", t:"▶️ YouTube Premium", d:"یوتیوب بدون تبلیغ", plans:[["۱ ماهه","۱٬۱۱۵٬۰۰۰",1115000]]},
+  {id:"microsoft365", cat:"ai", t:"📄 Microsoft 365", d:"آفیس + کوپایلت — شارژ اکانت شخصی", plans:[["۱ ماهه","۵۰۲٬۰۰۰",502000],["۶ ماهه","۱٬۶۹۸٬۰۰۰",1698000],["۱ ساله","۲٬۴۸۰٬۰۰۰",2480000]]},
+  {id:"telegram_premium", cat:"fun", t:"✈️ Telegram Premium", d:"فعال‌سازی رسمی روی اکانت شما", plans:[["۳ ماهه","۶٬۱۴۴٬۰۰۰",6144000],["۶ ماهه","۸٬۱۷۶٬۰۰۰",8176000],["۱۲ ماهه","۱۳٬۵۱۷٬۰۰۰",13517000]]},
+  {id:"duolingo", cat:"learn", t:"👋 Duolingo Super", d:"یادگیری زبان", plans:[["۱ ماهه","۴۷۸٬۰۰۰",478000],["۱ ساله","۳٬۵۰۲٬۰۰۰",3502000]]},
+];
+
+const tg = window.Telegram && window.Telegram.WebApp;
+if (tg) { tg.ready(); tg.expand(); }
+
+const grid = document.getElementById('grid');
+const catsEl = document.getElementById('cats');
+let activeCat = 'all';
+
+CATS.forEach(([key, name], i) => {
+  const b = document.createElement('button');
+  b.className = 'cat-btn' + (i === 0 ? ' on' : '');
+  b.textContent = name;
+  b.onclick = () => {
+    activeCat = key;
+    document.querySelectorAll('.cat-btn').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    render();
+  };
+  catsEl.appendChild(b);
+});
+
+function render() {
+  grid.innerHTML = '';
+  const order = ["ai", "vpn", "design", "fun", "learn"];
+  order.forEach(cat => {
+    if (activeCat !== 'all' && activeCat !== cat) return;
+    const items = PRODUCTS.filter(p => p.cat === cat);
+    if (!items.length) return;
+    const h = document.createElement('div');
+    h.className = 'sec-title';
+    h.textContent = CAT_NAMES[cat];
+    grid.appendChild(h);
+    items.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      let html = `<h3>${p.t}</h3><p>${p.d}</p>`;
+      p.plans.forEach((pl, idx) => {
+        const btn = pl[2] > 0
+          ? `<button class="buy" onclick="openCheckout('${p.id}',${idx})">خرید 🛒</button>`
+          : `<button class="soon" onclick="notifyMe('${p.id}')">🔔 خبرم کن</button>`;
+        html += `<div class="plan"><span class="lbl">${pl[0]}</span><span class="prc">${pl[1]} تومان</span>${btn}</div>`;
+      });
+      card.innerHTML = html;
+      grid.appendChild(card);
+    });
+  });
+}
+render();
+
+function openBotLink(url) {
+  try { if (tg && typeof tg.openTelegramLink === 'function') { tg.openTelegramLink(url); return; } } catch(e){}
+  try { if (tg && typeof tg.openLink === 'function') { tg.openLink(url); return; } } catch(e){}
+  try { window.open(url, '_blank'); return; } catch(e){}
+  location.href = url;
+}
+function notifyMe(pid) {
+  openBotLink(`https://t.me/${BOT}?start=buy_${pid}`);
+}
+
+/* ---------- فلو خرید داخل مینی‌اپ ---------- */
+const ovl = document.getElementById('ovl');
+const sheet = document.getElementById('sheet');
+let cur = null;
+
+function openCheckout(pid, idx) {
+  const p = PRODUCTS.find(x => x.id === pid);
+  const pl = p.plans[idx];
+  cur = { p, pl, idx };
+  sheet.innerHTML = `
+    <h3>${p.t}</h3>
+    <div class="pl">پلن: ${pl[0]}</div>
+    <div class="amount">${pl[1]} <small>تومان</small></div>
+    <div class="bank">
+      💳 شماره کارت: <span class="num">${CARD_NUMBER}</span><br>
+      👤 به نام: ${CARD_HOLDER}
+    </div>
+    <div class="copyrow">
+      <button class="copybtn" onclick="copyTxt('${pl[2]}')">📋 کپی مبلغ دقیق</button>
+      <button class="copybtn" onclick="copyTxt('${CARD_DIGITS}')">💳 کپی شماره کارت</button>
+    </div>
+    <div class="note">فقط با <b>برنامه بانکی (کارت‌به‌کارت)</b> واریز کن؛ مبلغ و شماره کارت رو با دکمه‌های بالا دقیق کپی کن. بعد از واریز، رسید رو <b>داخل بات</b> می‌فرستی — سفارشت بر اساس همین خرید بررسی و بعد از تأیید تحویل داده می‌شه.</div>
+    <label class="tick"><input type="checkbox" id="tick" onchange="document.getElementById('payBtn').disabled=!this.checked">
+      <span>این طرح رو می‌خوام و مبلغش رو واریز می‌کنم ✅</span></label>
+    <button class="cta" id="payBtn" disabled onclick="sendReceipt()">✅ واریز کردم — ارسال رسید در بات</button>
+    <button class="ghost" onclick="closeSheet()">انصراف</button>`;
+  ovl.classList.add('open');
+}
+
+function sendReceipt() {
+  openBotLink(`https://t.me/${BOT}?start=buy_${cur.p.id}_${cur.idx}`);
+}
+function closeSheet() { ovl.classList.remove('open'); }
+ovl.addEventListener('click', e => { if (e.target === ovl) closeSheet(); });
+
+function copyTxt(txt) {
+  const done = () => {
+    const t = document.getElementById('toast');
+    t.style.display = 'block';
+    setTimeout(() => t.style.display = 'none', 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(txt).then(done).catch(() => fallbackCopy(txt, done));
+  } else fallbackCopy(txt, done);
+}
+function fallbackCopy(txt, done) {
+  const ta = document.createElement('textarea');
+  ta.value = txt;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  done();
+}
 </script>
 </body>
 </html>
