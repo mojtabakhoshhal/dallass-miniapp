@@ -5,75 +5,123 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>دالاس | DALLAS — اشتراکِ اصل، قیمتِ دالاس</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <style>
   * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  body { font-family: Tahoma, 'Segoe UI', sans-serif; background:#0a0a0f; color:#f2f2f2; padding:16px 14px 90px; }
-  .hero { text-align:center; padding:22px 10px 4px; }
-  .star { font-size:44px; color:#f0c75e; text-shadow:0 0 26px rgba(240,199,94,.65); }
+  body { font-family:'Vazirmatn', Tahoma, sans-serif; background:#0a0a0f; color:#f2f2f2; padding:0 14px 90px; }
+  .banner { background:linear-gradient(90deg,#8a6a1f,#f0c75e,#8a6a1f); color:#191204; font-weight:800; font-size:13px; text-align:center; padding:9px 10px; margin:0 -14px; }
+  .banner b { background:#191204; color:#f0c75e; padding:1px 8px; border-radius:6px; letter-spacing:1px; }
+  .hero { text-align:center; padding:26px 10px 6px; }
+  .star { font-size:46px; color:#f0c75e; text-shadow:0 0 26px rgba(240,199,94,.65); line-height:1; }
   .logo { font-size:42px; font-weight:900; letter-spacing:6px; color:#f0c75e; text-shadow:0 2px 18px rgba(240,199,94,.35); }
-  .tag { margin-top:6px; font-size:15px; font-weight:bold; }
-  .sub { margin-top:8px; font-size:12.5px; color:#bdbdbd; line-height:2; }
-  .chip { display:inline-block; margin-top:10px; padding:5px 14px; border:1px solid #f0c75e; border-radius:999px; color:#f0c75e; font-size:11.5px; letter-spacing:1px; }
-  .banner { margin:14px 0 2px; background:linear-gradient(90deg,#241c05,#3a2f08); border:1px solid #f0c75e; color:#f1d98a; border-radius:12px; padding:10px; text-align:center; font-size:13px; }
-  .cats { display:flex; gap:8px; overflow-x:auto; padding:16px 2px 6px; scrollbar-width:none; }
+  .tag { margin-top:6px; font-size:15px; font-weight:700; color:#fff; }
+  .sub { margin-top:4px; font-size:12.5px; color:#a7a7b3; }
+  .trust { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:18px 0 6px; }
+  .trust div { background:#12121c; border:1px solid #26263a; border-radius:12px; padding:9px 4px; text-align:center; font-size:11px; font-weight:700; color:#e8e8f0; }
+  .trust span { display:block; font-size:17px; margin-bottom:3px; }
+  .search { width:100%; margin:14px 0 4px; background:#12121c; border:1px solid #2c2c44; border-radius:12px; padding:12px 14px; color:#fff; font-family:inherit; font-size:14px; outline:none; }
+  .search:focus { border-color:#f0c75e; }
+  .cats { display:flex; gap:8px; overflow-x:auto; padding:12px 2px 4px; scrollbar-width:none; }
   .cats::-webkit-scrollbar { display:none; }
-  .cat-btn { flex:0 0 auto; padding:9px 16px; border-radius:999px; border:1px solid #333; background:#15151d; color:#ddd; font-size:13.5px; cursor:pointer; }
-  .cat-btn.on { background:#f0c75e; color:#111; font-weight:bold; border-color:#f0c75e; }
-  .sec-title { margin:22px 2px 10px; font-size:17px; font-weight:bold; color:#f0c75e; }
-  .card { background:linear-gradient(160deg,#17171f,#101016); border:1px solid #2a2a35; border-radius:16px; padding:16px; margin-bottom:12px; }
-  .card h3 { font-size:17px; margin-bottom:4px; }
-  .card p { font-size:12.5px; color:#a9a9a9; line-height:1.9; margin-bottom:10px; }
-  .plan { display:flex; align-items:center; justify-content:space-between; gap:8px; background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:10px 12px; margin-top:8px; }
-  .plan .lbl { font-size:13.5px; }
-  .plan .prc { font-size:13.5px; color:#f0c75e; font-weight:bold; white-space:nowrap; }
-  .buy { background:#f0c75e; color:#111; border:none; border-radius:10px; padding:9px 18px; font-size:13.5px; font-weight:bold; cursor:pointer; white-space:nowrap; }
-  .soon { background:#26262f; color:#bbb; border:none; border-radius:10px; padding:9px 14px; font-size:12.5px; cursor:pointer; white-space:nowrap; }
-  .foot { text-align:center; color:#8a8a8a; font-size:12px; line-height:2.1; margin-top:26px; }
-  .foot b { color:#f0c75e; letter-spacing:2px; }
-  .ovl { position:fixed; inset:0; background:rgba(0,0,0,.72); display:none; z-index:50; }
-  .ovl.open { display:block; }
-  .sheet { position:absolute; left:0; right:0; bottom:0; background:#12121a; border-top:2px solid #f0c75e; border-radius:22px 22px 0 0; padding:20px 18px 26px; max-height:88vh; overflow-y:auto; }
-  .sheet h3 { font-size:18px; margin-bottom:2px; }
-  .sheet .pl { color:#f0c75e; font-weight:bold; font-size:15px; margin-bottom:10px; }
-  .amount { text-align:center; font-size:30px; font-weight:900; color:#f0c75e; margin:12px 0 4px; }
-  .amount small { font-size:13px; color:#bbb; font-weight:normal; }
-  .bank { background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:12px 14px; font-size:14px; line-height:2.1; margin:12px 0; }
-  .bank .num { direction:ltr; unicode-bidi:embed; font-weight:bold; letter-spacing:1px; }
-  .tick { display:flex; align-items:center; gap:10px; background:#0d0d12; border:1px solid #26262f; border-radius:12px; padding:12px 14px; font-size:14px; margin:12px 0; cursor:pointer; }
-  .tick input { width:20px; height:20px; accent-color:#f0c75e; }
-  .cta { width:100%; background:#f0c75e; color:#111; border:none; border-radius:14px; padding:15px; font-size:16px; font-weight:900; cursor:pointer; margin-top:8px; }
-  .cta:disabled { background:#333; color:#777; cursor:not-allowed; }
-  .ghost { width:100%; background:transparent; color:#bbb; border:1px solid #333; border-radius:14px; padding:12px; font-size:14px; cursor:pointer; margin-top:10px; }
-  .copyrow { display:flex; gap:10px; margin-top:10px; }
-  .copybtn { flex:1; background:#1b1b24; color:#f0c75e; border:1px solid #f0c75e; border-radius:12px; padding:14px 8px; font-size:14px; font-weight:bold; cursor:pointer; }
-  .note { font-size:12.5px; color:#a9a9a9; line-height:2; margin-top:12px; }
-  .toast { position:fixed; bottom:26px; left:50%; transform:translateX(-50%); background:#f0c75e; color:#111; font-weight:bold; padding:10px 22px; border-radius:999px; font-size:14px; display:none; z-index:99; }
+  .cat-btn { flex:0 0 auto; background:#15151f; color:#cfcfe0; border:1px solid #2a2a3e; border-radius:999px; padding:8px 14px; font-family:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+  .cat-btn.on { background:#f0c75e; color:#191204; border-color:#f0c75e; }
+  .sec-title { font-size:16px; font-weight:900; color:#f0c75e; margin:20px 2px 10px; }
+  .card { background:#12121c; border:1px solid #26263a; border-radius:16px; padding:14px; margin-bottom:12px; position:relative; }
+  .card h3 { font-size:15.5px; font-weight:800; margin-bottom:4px; padding-left:52px; }
+  .card p { font-size:12.5px; color:#a7a7b3; line-height:1.9; margin-bottom:8px; }
+  .badge { position:absolute; top:12px; left:12px; font-size:10.5px; font-weight:800; padding:3px 9px; border-radius:999px; }
+  .b-new { background:#f0c75e; color:#191204; }
+  .b-hot { background:#e5484d; color:#fff; }
+  .plan { display:flex; align-items:center; gap:8px; padding:8px 0; border-top:1px dashed #26263a; }
+  .plan .lbl { flex:1; font-size:13px; }
+  .plan .prc { font-size:13px; font-weight:800; color:#f0c75e; white-space:nowrap; }
+  .buy { background:#f0c75e; color:#191204; border:none; border-radius:10px; padding:7px 13px; font-family:inherit; font-weight:800; font-size:12.5px; cursor:pointer; }
+  .soon { background:#26263a; color:#cfcfe0; border:none; border-radius:10px; padding:7px 13px; font-family:inherit; font-weight:700; font-size:12.5px; cursor:pointer; }
+  .pop-row { display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
+  .pop-row::-webkit-scrollbar { display:none; }
+  .pop { flex:0 0 148px; background:linear-gradient(160deg,#17171f,#101018); border:1px solid #3a3a55; border-radius:14px; padding:12px; cursor:pointer; }
+  .pop .pt { font-size:13.5px; font-weight:800; margin-bottom:4px; }
+  .pop .pd { font-size:11px; color:#a7a7b3; line-height:1.8; min-height:34px; }
+  .pop .pp { font-size:12.5px; font-weight:800; color:#f0c75e; margin-top:6px; }
+  .steps { background:#12121c; border:1px solid #26263a; border-radius:16px; padding:14px; margin-top:6px; }
+  .steps .st { display:flex; gap:10px; padding:8px 0; border-top:1px dashed #26263a; font-size:13px; line-height:1.9; }
+  .steps .st:first-of-type { border-top:none; }
+  .steps .n { flex:0 0 26px; height:26px; border-radius:50%; background:#f0c75e; color:#191204; font-weight:900; text-align:center; line-height:26px; font-size:13px; }
+  .lib-banner { background:linear-gradient(120deg,#1a1430,#12121c); border:1px solid #8b2fc9; border-radius:16px; padding:16px 14px; margin-top:20px; text-align:center; }
+  .lib-banner h3 { font-size:16px; font-weight:900; margin-bottom:5px; }
+  .lib-banner p { font-size:12.5px; color:#c9c4e8; line-height:1.9; margin-bottom:10px; }
+  .lib-banner button { background:#8b2fc9; color:#fff; border:none; border-radius:10px; padding:9px 18px; font-family:inherit; font-weight:800; font-size:13px; cursor:pointer; }
+  footer { text-align:center; color:#77778c; font-size:12px; line-height:2.1; margin-top:26px; }
+  footer a { color:#f0c75e; text-decoration:none; font-weight:700; }
+  #ovl { position:fixed; inset:0; background:rgba(0,0,0,.66); display:none; z-index:50; }
+  #ovl.open { display:block; }
+  #sheet { position:absolute; left:0; right:0; bottom:0; background:#14141f; border-radius:20px 20px 0 0; border-top:2px solid #f0c75e; padding:20px 16px 26px; max-height:88vh; overflow-y:auto; }
+  #sheet h3 { font-size:16px; font-weight:900; }
+  #sheet .pl { color:#a7a7b3; font-size:13px; margin-top:4px; }
+  #sheet .amount { font-size:26px; font-weight:900; color:#f0c75e; margin:12px 0; }
+  #sheet .amount small { font-size:13px; }
+  .bank { background:#0d0d15; border:1px dashed #3a3a55; border-radius:12px; padding:12px; font-size:14px; line-height:2.1; }
+  .bank .num { font-weight:900; letter-spacing:1px; color:#fff; }
+  .copyrow { display:flex; gap:8px; margin:12px 0; }
+  .copybtn { flex:1; background:#26263a; color:#fff; border:none; border-radius:10px; padding:10px 6px; font-family:inherit; font-weight:700; font-size:12.5px; cursor:pointer; }
+  .note { font-size:12.5px; color:#c9c9d8; line-height:2; background:#101018; border-radius:12px; padding:10px 12px; }
+  .tick { display:flex; gap:8px; align-items:flex-start; margin:14px 0; font-size:13.5px; font-weight:700; cursor:pointer; }
+  .tick input { margin-top:3px; width:18px; height:18px; accent-color:#f0c75e; }
+  .cta { width:100%; background:#f0c75e; color:#191204; border:none; border-radius:12px; padding:13px; font-family:inherit; font-weight:900; font-size:15px; cursor:pointer; }
+  .cta:disabled { opacity:.4; cursor:default; }
+  .ghost { width:100%; background:none; color:#a7a7b3; border:none; padding:11px; font-family:inherit; font-size:13px; cursor:pointer; }
+  #toast { position:fixed; top:16px; left:50%; transform:translateX(-50%); background:#f0c75e; color:#191204; font-weight:800; font-size:13px; padding:9px 18px; border-radius:999px; display:none; z-index:99; }
+  .hidden { display:none !important; }
 </style>
 </head>
 <body>
-  <div class="hero">
-    <div class="star">★</div>
-    <div class="logo">DALLAS</div>
-    <div class="tag">اشتراکِ اصل، قیمتِ دالاس 🤠</div>
-    <div class="sub">اینجا دالاسه — همه‌چی گنده‌ست، جز قیمت‌ها.<br>ضمانت تعویض + تحویل فوری، به سبک تگزاس.</div>
-    <div class="chip">★ TEXAS ENERGY — TEHRAN PRICES ★</div>
-  </div>
+<div class="banner">🎉 با کد <b>AVVAL</b> روی اولین خریدت ۱۵٪ تخفیف بگیر</div>
 
-  <div class="banner">🎟 خرید اول با کد <b>AVVAL</b> → ۱۵٪ تخفیف | 🎁 دعوت ۳ نفر → کد تخفیف ۲۰٪</div>
+<div class="hero">
+  <div class="star">★</div>
+  <div class="logo">DALLAS</div>
+  <div class="tag">اشتراکِ اصل، قیمتِ دالاس</div>
+  <div class="sub">خرید اشتراک‌های اصل و VPN — تحویل سریع، پشتیبانی واقعی</div>
+</div>
 
-  <div class="cats" id="cats"></div>
-  <div id="grid"></div>
+<div class="trust">
+  <div><span>⚡</span>تحویل سریع</div>
+  <div><span>🛡</span>اشتراک اصل</div>
+  <div><span>💳</span>پرداخت امن</div>
+  <div><span>🎧</span>پشتیبانی واقعی</div>
+</div>
 
-  <div class="foot">
-    💳 پرداخت ریالی (کارت‌به‌کارت) | ⚡️ تحویل سریع | 🛡 ضمانت تعویض<br>
-    💬 پشتیبانی: داخل ربات دالاس<br>
-    <b>★ DALLAS — BIG DEALS ONLY ★</b>
-  </div>
+<input class="search" id="search" type="text" placeholder="🔎 دنبال چی می‌گردی؟ مثلاً جمینای، اسپاتیفای…">
+<div class="cats" id="cats"></div>
 
-  <div class="ovl" id="ovl">
-    <div class="sheet" id="sheet"></div>
-  </div>
-  <div class="toast" id="toast">کپی شد ✅</div>
+<div id="popWrap">
+  <div class="sec-title">⭐ محبوب‌ترین‌ها</div>
+  <div class="pop-row" id="popRow"></div>
+</div>
+
+<div id="grid"></div>
+
+<div class="sec-title">🛒 روش خرید — ساده و سریع در سه قدم</div>
+<div class="steps">
+  <div class="st"><div class="n">۱</div><div>محصول و پلن رو انتخاب کن و «خرید» رو بزن — همه‌چیز همین‌جا داخل مینی‌اپ انجام می‌شه.</div></div>
+  <div class="st"><div class="n">۲</div><div>مبلغ و شماره کارت رو با دکمه‌های کپی بردار و کارت‌به‌کارت واریز کن، بعد تیک تأیید رو بزن.</div></div>
+  <div class="st"><div class="n">۳</div><div>رسید رو داخل بات بفرست؛ سفارشت بررسی و بعد از تأیید، تحویل داده می‌شه.</div></div>
+</div>
+
+<div class="lib-banner">
+  <h3>🖼 کتابخانه پرامپت دالاس</h3>
+  <p>۷٬۹۶۴ پرامپت تصویری آماده با تصویر نمونه و جست‌وجو — برای ساخت عکس با هوش مصنوعی. مجموعه کامل + نسخه آنلاین اختصاصی.</p>
+  <button onclick="gotoProduct('dallas_prompts')">مشاهده کتابخانه پرامپت</button>
+</div>
+
+<footer>
+  ★ DALLAS — اشتراکِ اصل، قیمتِ دالاس<br>
+  پشتیبانی: از داخل <a href="https://t.me/Dallassvpnbot">بات دالاس</a> پیام بده<br>
+  کانال: <a href="https://t.me/DallasShopIR">@DallasShopIR</a>
+</footer>
+
+<div id="ovl"><div id="sheet"></div></div>
+<div id="toast">کپی شد ✅</div>
 
 <script>
 const BOT = "Dallassvpnbot";
@@ -90,26 +138,40 @@ const CATS = [
   ["learn", "📚 یادگیری زبان"],
 ];
 const CAT_NAMES = { ai:"🤖 هوش مصنوعی", vpn:"🌐 VPN و اینترنت", design:"🎨 طراحی و ویدیو", fun:"🎵 سرگرمی", learn:"📚 یادگیری زبان" };
+const NEW_IDS = ["gemini_plus","grok_plus","cursor_grok","muse_ai","lovable_pro","lovable_lite","elevenlabs","turnitin","zoom_pro","canva_edu","adobe_express","dallas_prompts"];
+const HOT_IDS = ["v2ray","gemini","chatgpt_plus","telegram_premium"];
+const POP_IDS = ["v2ray","gemini","chatgpt_plus","telegram_premium","spotify_premium"];
 
-/* plans: [برچسب, قیمت نمایشی, مبلغ خام برای کپی (۰ = به‌زودی)] */
 const PRODUCTS = [
-  {id:"v2ray", cat:"vpn", t:"🌎 V2Ray متغیر", d:"کانفیگ حجمی — بدون محدودیت زمانی، یا نامحدود ۳۰ روزه با مصرف منصفانه", plans:[["۱۰ گیگ · بدون محدودیت زمانی","۸۱٬۰۰۰",81000],["۲۰ گیگ · بدون محدودیت زمانی","۱۶۲٬۰۰۰",162000],["۳۰ گیگ · بدون محدودیت زمانی","۲۴۳٬۰۰۰",243000],["۵۰ گیگ · بدون محدودیت زمانی","۴۰۵٬۰۰۰",405000],["۱۰۰ گیگ · بدون محدودیت زمانی","۸۱۰٬۰۰۰",810000],["نامحدود ۳۰ روزه · ۱ کاربر","۴۳۲٬۰۰۰",432000],["نامحدود ۳۰ روزه · ۲ کاربر","۷۵۶٬۰۰۰",756000],["نامحدود ۳۰ روزه · ۳ کاربر","۱٬۳۵۰٬۰۰۰",1350000]]},
-  {id:"v2ray_gaming", cat:"vpn", t:"🎮 V2Ray گیمینگ", d:"وایرگارد مخصوص بازی — پینگ پایین و اتصال پایدار، بدون محدودیت زمانی", plans:[["۱۰ گیگ · بدون محدودیت زمانی","۸۱٬۰۰۰",81000],["۲۰ گیگ · بدون محدودیت زمانی","۱۶۲٬۰۰۰",162000],["۳۰ گیگ · بدون محدودیت زمانی","۲۴۳٬۰۰۰",243000],["۵۰ گیگ · بدون محدودیت زمانی","۴۰۵٬۰۰۰",405000],["۱۰۰ گیگ · بدون محدودیت زمانی","۸۱۰٬۰۰۰",810000]]},
-  {id:"v2ray_fixed", cat:"vpn", t:"🛡 V2Ray آی‌پی ثابت", d:"آی‌پی ثابت اختصاصی — مخصوص ترید، صرافی و هوش مصنوعی، بدون محدودیت زمانی", plans:[["۱۰ گیگ · آی‌پی ثابت","۱۵۰٬۰۰۰",150000],["۲۰ گیگ · آی‌پی ثابت","۳۰۰٬۰۰۰",300000],["۳۰ گیگ · آی‌پی ثابت","۴۵۰٬۰۰۰",450000],["۵۰ گیگ · آی‌پی ثابت","۷۵۰٬۰۰۰",750000],["۱۰۰ گیگ · آی‌پی ثابت","۱٬۵۰۰٬۰۰۰",1500000]]},
-  {id:"gemini", cat:"ai", t:"📱 Gemini", d:"هوش مصنوعی گوگل — ۱۸ ماهه", plans:[["۱۸ ماهه","۱٬۰۷۶٬۰۰۰",1076000]]},
+  {id:"v2ray", cat:"vpn", t:"🌎 V2Ray متغیر", d:"کانفیگ حجمی — بدون محدودیت زمانی، یا نامحدود ۳۰ روزه با مصرف منصفانه", plans:[["۱۰ گیگ · بدون محدودیت زمانی","۴۵٬۰۰۰",45000],["۲۰ گیگ · بدون محدودیت زمانی","۹۰٬۰۰۰",90000],["۳۰ گیگ · بدون محدودیت زمانی","۱۳۴٬۰۰۰",134000],["۵۰ گیگ · بدون محدودیت زمانی","۲۲۳٬۰۰۰",223000],["۱۰۰ گیگ · بدون محدودیت زمانی","۴۴۶٬۰۰۰",446000],["نامحدود ۳۰ روزه · ۱ کاربر (مصرف منصفانه)","۲۳۸٬۰۰۰",238000],["نامحدود ۳۰ روزه · ۲ کاربر (مصرف منصفانه)","۴۱۶٬۰۰۰",416000],["نامحدود ۳۰ روزه · ۳ کاربر (مصرف منصفانه)","۷۴۳٬۰۰۰",743000]]},
+  {id:"v2ray_gaming", cat:"vpn", t:"🎮 V2Ray گیمینگ", d:"وایرگارد مخصوص بازی — پینگ پایین و اتصال پایدار، بدون محدودیت زمانی", plans:[["۱۰ گیگ · بدون محدودیت زمانی","۴۵٬۰۰۰",45000],["۲۰ گیگ · بدون محدودیت زمانی","۹۰٬۰۰۰",90000],["۳۰ گیگ · بدون محدودیت زمانی","۱۳۴٬۰۰۰",134000],["۵۰ گیگ · بدون محدودیت زمانی","۲۲۳٬۰۰۰",223000],["۱۰۰ گیگ · بدون محدودیت زمانی","۴۴۶٬۰۰۰",446000]]},
+  {id:"v2ray_fixed", cat:"vpn", t:"🛡 V2Ray آی‌پی ثابت", d:"آی‌پی ثابت اختصاصی — مخصوص ترید، صرافی و هوش مصنوعی، بدون محدودیت زمانی", plans:[["۱۰ گیگ · آی‌پی ثابت","۷۵٬۰۰۰",75000],["۲۰ گیگ · آی‌پی ثابت","۱۴۹٬۰۰۰",149000],["۳۰ گیگ · آی‌پی ثابت","۲۲۳٬۰۰۰",223000],["۵۰ گیگ · آی‌پی ثابت","۳۷۲٬۰۰۰",372000],["۱۰۰ گیگ · آی‌پی ثابت","۷۴۳٬۰۰۰",743000]]},
+  {id:"gemini", cat:"ai", t:"📱 Gemini", d:"هوش مصنوعی گوگل — ۳ ماهه", plans:[["۳ ماهه (لینک فعال‌سازی)","۹۵۳٬۰۰۰",953000]]},
   {id:"chatgpt_k12", cat:"ai", t:"📱 ChatGPT K12 Edu", d:"اشتراک ۲ ساله", plans:[["۲ ساله","به‌زودی",0]]},
-  {id:"chatgpt_plus", cat:"ai", t:"💬 ChatGPT Plus", d:"اشتراک رسمی — Plus و Go روی اکانت شخصی", plans:[["Plus · ۱ ماهه (اکانت شخصی)","۶٬۳۱۷٬۰۰۰",6317000],["Go · ۱ ماهه (اکانت شخصی)","۴٬۴۰۶٬۰۰۰",4406000]]},
-  {id:"claude_pro", cat:"ai", t:"🤖 Claude Pro", d:"هوش مصنوعی Anthropic", plans:[["۱ ماهه","۷٬۶۰۴٬۰۰۰",7604000]]},
+  {id:"chatgpt_plus", cat:"ai", t:"💬 ChatGPT Plus", d:"اشتراک رسمی — Plus و Go روی اکانت شخصی", plans:[["Plus · ۱ ماهه (اکانت شخصی)","۳٬۱۷۰٬۰۰۰",3170000],["Go · ۱ ماهه (اکانت شخصی)","۳٬۱۹۵٬۰۰۰",3195000]]},
   {id:"nordvpn", cat:"vpn", t:"🥏 NordVPN", d:"اشتراک پریمیوم", plans:[["۱ ماهه","۲٬۶۴۰٬۰۰۰",2640000],["۱ ساله","به‌زودی",0],["۲ ساله","به‌زودی",0]]},
-  {id:"figma_pro", cat:"design", t:"📱 Figma Pro Edu", d:"ابزار حرفه‌ای طراحی", plans:[["۱ ساله","۶٬۶۷۰٬۰۰۰",6670000]]},
-  {id:"capcut_pro", cat:"design", t:"🎬 CapCut Pro", d:"ویرایش حرفه‌ای ویدیو", plans:[["۱ ماهه","۹۰۰٬۰۰۰",900000],["۱ ساله","به‌زودی",0]]},
-  {id:"canva_pro", cat:"design", t:"🎨 Canva Pro", d:"طراحی آنلاین — عضویت تیم پرو", plans:[["۳ ماهه","۲۶۴٬۰۰۰",264000],["۶ ماهه","۳۸۴٬۰۰۰",384000],["۱۲ ماهه","۲٬۱۶۰٬۰۰۰",2160000]]},
-  {id:"spotify_premium", cat:"fun", t:"🎵 Spotify Premium", d:"موزیک بدون تبلیغ", plans:[["۱ ماهه","۱٬۷۹۷٬۰۰۰",1797000],["۱ ساله","۱۱٬۵۱۷٬۰۰۰",11517000]]},
-  {id:"youtube_premium", cat:"fun", t:"▶️ YouTube Premium", d:"یوتیوب بدون تبلیغ", plans:[["۱ ماهه","۱٬۹۸۷٬۰۰۰",1987000]]},
-  {id:"netflix_premium", cat:"fun", t:"🎬 Netflix Premium", d:"فیلم و سریال با کیفیت 4K — پروفایل اختصاصی، قابل تمدید", plans:[["۱ ماهه","۱٬۱۰۳٬۰۰۰",1103000],["۲ ماهه","۲٬۱۲۳٬۰۰۰",2123000]]},
-  {id:"microsoft365", cat:"ai", t:"📄 Microsoft 365", d:"آفیس + کوپایلت — شارژ اکانت شخصی", plans:[["۱ ماهه","۷۵۳٬۰۰۰",753000],["۶ ماهه","۲٬۵۴۷٬۰۰۰",2547000],["۱ ساله","۳٬۷۲۰٬۰۰۰",3720000]]},
-  {id:"telegram_premium", cat:"fun", t:"✈️ Telegram Premium", d:"فعال‌سازی رسمی روی اکانت شما", plans:[["۳ ماهه","۹٬۲۱۶٬۰۰۰",9216000],["۶ ماهه","۱۲٬۲۶۴٬۰۰۰",12264000],["۱۲ ماهه","۲۰٬۲۷۶٬۰۰۰",20276000]]},
-  {id:"duolingo", cat:"learn", t:"👋 Duolingo Super", d:"یادگیری زبان", plans:[["۱ ماهه","۷۱۷٬۰۰۰",717000],["۱ ساله","۵٬۲۵۳٬۰۰۰",5253000]]},
+  {id:"figma_pro", cat:"design", t:"📱 Figma Pro Edu", d:"ابزار حرفه‌ای طراحی", plans:[["۱ ساله","۷٬۰۸۷٬۰۰۰",7087000]]},
+  {id:"duolingo", cat:"learn", t:"👋 Duolingo Super", d:"یادگیری زبان", plans:[["۱ ماهه","۴۴۵٬۰۰۰",445000],["۱ ساله","۵۲۳٬۰۰۰",523000]]},
+  {id:"telegram_premium", cat:"fun", t:"✈️ Telegram Premium", d:"فعال‌سازی رسمی روی اکانت شما", plans:[["۳ ماهه","۴٬۰۸۶٬۰۰۰",4086000],["۶ ماهه","۵٬۴۲۳٬۰۰۰",5423000],["۱۲ ماهه","۹٬۸۰۶٬۰۰۰",9806000]]},
+  {id:"claude_pro", cat:"ai", t:"🤖 Claude Pro", d:"هوش مصنوعی Anthropic", plans:[["۱ ماهه","۷٬۶۰۴٬۰۰۰",7604000]]},
+  {id:"capcut_pro", cat:"design", t:"🎬 CapCut Pro", d:"ویرایش حرفه‌ای ویدیو", plans:[["۱ ماهه","۵۵۸٬۰۰۰",558000],["اشتراکی","۸۹۶٬۰۰۰",896000],["۱ ساله","به‌زودی",0]]},
+  {id:"canva_pro", cat:"design", t:"🎨 Canva Pro", d:"طراحی آنلاین — عضویت تیم پرو", plans:[["۱۲ ماهه","۱٬۳۳۸٬۰۰۰",1338000]]},
+  {id:"spotify_premium", cat:"fun", t:"🎵 Spotify Premium", d:"موزیک بدون تبلیغ", plans:[["۱ ماهه","۱٬۰۲۶٬۰۰۰",1026000],["۳ ماهه (پرومو رسمی)","۱٬۲۱۳٬۰۰۰",1213000],["۱ ساله (Legal)","۵٬۷۹۵٬۰۰۰",5795000]]},
+  {id:"youtube_premium", cat:"fun", t:"▶️ YouTube Premium", d:"یوتیوب بدون تبلیغ", plans:[["۱ ماهه","۲٬۱۰۹٬۰۰۰",2109000],["۳ ماهه (لینک فعال‌سازی)","۱٬۴۱۰٬۰۰۰",1410000],["۱۲ ماهه (فمیلی)","۵٬۵۶۴٬۰۰۰",5564000]]},
+  {id:"netflix_premium", cat:"fun", t:"🎬 Netflix Premium", d:"فیلم و سریال با کیفیت 4K — پروفایل اختصاصی، قابل تمدید", plans:[["۱ ماهه","۹۶۵٬۰۰۰",965000],["۲ ماهه","۱٬۸۵۶٬۰۰۰",1856000]]},
+  {id:"microsoft365", cat:"ai", t:"📄 Microsoft 365", d:"آفیس + کوپایلت — شارژ اکانت شخصی", plans:[["۱ ماهه · قابل تمدید","۴۳۹٬۰۰۰",439000],["۶ ماهه","۱٬۴۸۵٬۰۰۰",1485000],["۱ ساله","۶۵۴٬۰۰۰",654000]]},
+  {id:"gemini_plus", cat:"ai", t:"📱 Gemini Plus", d:"هوش مصنوعی گوگل — فعال‌سازی ۶ ماهه روی اکانت شما", plans:[["۶ ماهه (لینک فعال‌سازی)","۵۹۴٬۰۰۰",594000]]},
+  {id:"grok_plus", cat:"ai", t:"📱 Grok Plus", d:"هوش مصنوعی X — اشتراک ۱ ماهه", plans:[["۱ ماهه","۲٬۰۵۱٬۰۰۰",2051000]]},
+  {id:"cursor_grok", cat:"ai", t:"📱 Cursor Premium + Grok", d:"بسته برنامه‌نویسی Cursor + Grok", plans:[["۱ ماهه","۵٬۲۰۶٬۰۰۰",5206000]]},
+  {id:"muse_ai", cat:"ai", t:"🎨 Muse AI", d:"ساخت عکس و ویدیو با هوش مصنوعی", plans:[["۱ میلیارد توکن","۴۲۰٬۰۰۰",420000],["۲ میلیارد توکن","۵۶۰٬۰۰۰",560000],["۳۱ میلیارد توکن","۷۰۰٬۰۰۰",700000]]},
+  {id:"lovable_pro", cat:"ai", t:"📱 Lovable Pro", d:"ساخت سایت و اپ با هوش مصنوعی", plans:[["۱ ماهه","۱٬۰۴۳٬۰۰۰",1043000]]},
+  {id:"lovable_lite", cat:"ai", t:"📱 Lovable Pro Lite", d:"ساخت سایت و اپ — ۱۲ ماهه", plans:[["۱۲ ماهه","۲٬۸۷۲٬۰۰۰",2872000]]},
+  {id:"elevenlabs", cat:"ai", t:"🎙 ElevenLabs Creator", d:"ساخت صدای هوش مصنوعی — Creator سه‌ماهه", plans:[["۳ ماهه","۲٬۶۵۹٬۰۰۰",2659000]]},
+  {id:"turnitin", cat:"learn", t:"📄 Turnitin", d:"بررسی سرقت ادبی + تشخیص متن AI", plans:[["بررسی ۱ فایل","۱٬۸۵۴٬۰۰۰",1854000]]},
+  {id:"zoom_pro", cat:"ai", t:"📱 Zoom Pro", d:"جلسه و کلاس آنلاین بدون محدودیت", plans:[["۱ ماهه","۱٬۷۰۱٬۰۰۰",1701000]]},
+  {id:"canva_edu", cat:"design", t:"🎨 Canva Edu", d:"امکانات نزدیک به Pro — ۳ ساله", plans:[["۳ ساله","۸۱۸٬۰۰۰",818000]]},
+  {id:"adobe_express", cat:"design", t:"🎨 Adobe Express Premium", d:"طراحی با ابزارهای Adobe — ۱۲ ماهه", plans:[["۱۲ ماهه","۴۹۰٬۰۰۰",490000]]},
+  {id:"dallas_prompts", cat:"ai", t:"🖼 کتابخانه پرامپت دالاس", d:"۷٬۹۶۴ پرامپت تصویری با نمونه و جست‌وجو", plans:[["مجموعه کامل (دانلود + آنلاین)","۱۳۹٬۰۰۰",139000]]},
 ];
 
 const tg = window.Telegram && window.Telegram.WebApp;
@@ -117,7 +179,10 @@ if (tg) { tg.ready(); tg.expand(); }
 
 const grid = document.getElementById('grid');
 const catsEl = document.getElementById('cats');
+const popRow = document.getElementById('popRow');
+const popWrap = document.getElementById('popWrap');
 let activeCat = 'all';
+let query = '';
 
 CATS.forEach(([key, name], i) => {
   const b = document.createElement('button');
@@ -131,13 +196,34 @@ CATS.forEach(([key, name], i) => {
   };
   catsEl.appendChild(b);
 });
+document.getElementById('search').addEventListener('input', e => { query = e.target.value.trim(); render(); });
+
+function badge(p) {
+  if (NEW_IDS.includes(p.id)) return '<span class="badge b-new">جدید</span>';
+  if (HOT_IDS.includes(p.id)) return '<span class="badge b-hot">پرفروش</span>';
+  return '';
+}
+function firstPriced(p) { const i = p.plans.findIndex(pl => pl[2] > 0); return i < 0 ? 0 : i; }
+
+POP_IDS.forEach(pid => {
+  const p = PRODUCTS.find(x => x.id === pid);
+  if (!p) return;
+  const idx = firstPriced(p);
+  const d = document.createElement('div');
+  d.className = 'pop';
+  d.innerHTML = `<div class="pt">${p.t}</div><div class="pd">${p.d}</div><div class="pp">از ${p.plans[idx][1]} تومان</div>`;
+  d.onclick = () => openCheckout(pid, idx);
+  popRow.appendChild(d);
+});
 
 function render() {
+  popWrap.classList.toggle('hidden', !(activeCat === 'all' && !query));
   grid.innerHTML = '';
   const order = ["ai", "vpn", "design", "fun", "learn"];
   order.forEach(cat => {
     if (activeCat !== 'all' && activeCat !== cat) return;
-    const items = PRODUCTS.filter(p => p.cat === cat);
+    let items = PRODUCTS.filter(p => p.cat === cat);
+    if (query) items = items.filter(p => (p.t + ' ' + p.d).includes(query));
     if (!items.length) return;
     const h = document.createElement('div');
     h.className = 'sec-title';
@@ -146,7 +232,8 @@ function render() {
     items.forEach(p => {
       const card = document.createElement('div');
       card.className = 'card';
-      let html = `<h3>${p.t}</h3><p>${p.d}</p>`;
+      card.id = 'card-' + p.id;
+      let html = badge(p) + `<h3>${p.t}</h3><p>${p.d}</p>`;
       p.plans.forEach((pl, idx) => {
         const btn = pl[2] > 0
           ? `<button class="buy" onclick="openCheckout('${p.id}',${idx})">خرید 🛒</button>`
@@ -160,17 +247,23 @@ function render() {
 }
 render();
 
+function gotoProduct(pid) {
+  activeCat = 'all'; query = '';
+  document.getElementById('search').value = '';
+  document.querySelectorAll('.cat-btn').forEach((x, i) => x.classList.toggle('on', i === 0));
+  render();
+  const el = document.getElementById('card-' + pid);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
 function openBotLink(url) {
   try { if (tg && typeof tg.openTelegramLink === 'function') { tg.openTelegramLink(url); return; } } catch(e){}
   try { if (tg && typeof tg.openLink === 'function') { tg.openLink(url); return; } } catch(e){}
   try { window.open(url, '_blank'); return; } catch(e){}
   location.href = url;
 }
-function notifyMe(pid) {
-  openBotLink(`https://t.me/${BOT}?start=buy_${pid}`);
-}
+function notifyMe(pid) { openBotLink(`https://t.me/${BOT}?start=buy_${pid}`); }
 
-/* ---------- فلو خرید داخل مینی‌اپ ---------- */
 const ovl = document.getElementById('ovl');
 const sheet = document.getElementById('sheet');
 let cur = null;
@@ -198,10 +291,7 @@ function openCheckout(pid, idx) {
     <button class="ghost" onclick="closeSheet()">انصراف</button>`;
   ovl.classList.add('open');
 }
-
-function sendReceipt() {
-  openBotLink(`https://t.me/${BOT}?start=buy_${cur.p.id}_${cur.idx}`);
-}
+function sendReceipt() { openBotLink(`https://t.me/${BOT}?start=buy_${cur.p.id}_${cur.idx}`); }
 function closeSheet() { ovl.classList.remove('open'); }
 ovl.addEventListener('click', e => { if (e.target === ovl) closeSheet(); });
 
@@ -212,12 +302,12 @@ function copyTxt(txt) {
     setTimeout(() => t.style.display = 'none', 1600);
   };
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(txt).then(done).catch(() => fallbackCopy(txt, done));
+    navigator.clipboard.writeText(String(txt)).then(done).catch(() => fallbackCopy(txt, done));
   } else fallbackCopy(txt, done);
 }
 function fallbackCopy(txt, done) {
   const ta = document.createElement('textarea');
-  ta.value = txt;
+  ta.value = String(txt);
   ta.style.position = 'fixed'; ta.style.opacity = '0';
   document.body.appendChild(ta);
   ta.select();
