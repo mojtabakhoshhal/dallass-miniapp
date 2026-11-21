@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-21T11:31:51",
- "generated_ts": 1795248111,
+ "generated_at": "2026-11-21T08:05:49",
+ "generated_ts": 1795248349,
  "source": "dallas-bot products.py + price_overrides (live read)",
  "campaign": {
   "active": true,
   "off_pct": 20,
   "until": "2026-11-27",
-  "until_ts": 1795811399,
+  "until_ts": 1795823999,
   "until_fa": "۶ آذر ۱۴۰۵"
  },
  "cat_labels": {
