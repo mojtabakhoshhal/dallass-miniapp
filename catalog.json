@@ -1,0 +1,4117 @@
+{
+ "generated_at": "2026-11-21T11:31:51",
+ "generated_ts": 1795248111,
+ "source": "dallas-bot products.py + price_overrides (live read)",
+ "campaign": {
+  "active": true,
+  "off_pct": 20,
+  "until": "2026-11-27",
+  "until_ts": 1795811399,
+  "until_fa": "۶ آذر ۱۴۰۵"
+ },
+ "cat_labels": {
+  "ai": "هوش مصنوعی",
+  "vpn": "VPN و اینترنت",
+  "design": "طراحی",
+  "learn": "آموزش",
+  "fun": "سرگرمی"
+ },
+ "products": [
+  {
+   "id": "v2ray",
+   "cat": "vpn",
+   "name": "V2Ray متغیر",
+   "title": "🌎 V2Ray متغیر | کانفیگ حجمی",
+   "desc": "کانفیگ V2Ray با آی‌پی متغیر — قیمت بر اساس حجم و بدون محدودیت زمانی (تا وقتی حجمت تموم شه)، لوکیشن‌های متنوع و سرعت بالا؛ یا سرویس نامحدود ۳۰ روزه با مصرف منصفانه. تأمین از شبکه اختصاصی دالاس — هر گیگ پایه ۳٬۰۰۰ تومان.",
+   "available": true,
+   "from_final": 33600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱۰ گیگ — بدون محدودیت زمانی",
+     "price": 42000,
+     "final": 33600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۲۰ گیگ — بدون محدودیت زمانی",
+     "price": 84000,
+     "final": 67200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۳۰ گیگ — بدون محدودیت زمانی",
+     "price": 126000,
+     "final": 100800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۵۰ گیگ — بدون محدودیت زمانی",
+     "price": 210000,
+     "final": 168000,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "۱۰۰ گیگ — بدون محدودیت زمانی",
+     "price": 420000,
+     "final": 336000,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "نامحدود ۳۰ روزه — ۱ کاربر (مصرف منصفانه)",
+     "price": 224000,
+     "final": 179200,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "نامحدود ۳۰ روزه — ۲ کاربر (مصرف منصفانه)",
+     "price": 392000,
+     "final": 313600,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "نامحدود ۳۰ روزه — ۳ کاربر (مصرف منصفانه)",
+     "price": 700000,
+     "final": 560000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "v2ray_gaming",
+   "cat": "vpn",
+   "name": "V2Ray گیمینگ",
+   "title": "🎮 V2Ray گیمینگ | وایرگارد مخصوص بازی",
+   "desc": "وایرگارد (پاسارگارد) مخصوص بازی — پینگ پایین و اتصال پایدار، لوکیشن‌های متفاوت داخل اشتراک، بدون ضریب مصرف و بدون محدودیت زمانی؛ با ضمانت بازگشت وجه تأمین‌کننده. تأمین از شبکه اختصاصی دالاس — هر گیگ پایه ۳٬۰۰۰ تومان.",
+   "available": true,
+   "from_final": 33600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱۰ گیگ — بدون محدودیت زمانی",
+     "price": 42000,
+     "final": 33600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۲۰ گیگ — بدون محدودیت زمانی",
+     "price": 84000,
+     "final": 67200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۳۰ گیگ — بدون محدودیت زمانی",
+     "price": 126000,
+     "final": 100800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۵۰ گیگ — بدون محدودیت زمانی",
+     "price": 210000,
+     "final": 168000,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "۱۰۰ گیگ — بدون محدودیت زمانی",
+     "price": 420000,
+     "final": 336000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "v2ray_fixed",
+   "cat": "vpn",
+   "name": "V2Ray آی‌پی ثابت",
+   "title": "🛡 V2Ray آی‌پی ثابت | مخصوص ترید و هوش مصنوعی",
+   "desc": "کانفیگ با آی‌پی ثابت اختصاصی — مناسب ترید و صرافی‌ها، ساخت اکانت و استفاده از هوش مصنوعی؛ بدون محدودیت زمانی (تا اتمام حجم). تأمین از شبکه اختصاصی دالاس — هر گیگ پایه ۵٬۰۰۰ تومان (۲٬۰۰۰ گران‌تر از متغیر).",
+   "available": true,
+   "from_final": 56000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱۰ گیگ — آی‌پی ثابت",
+     "price": 70000,
+     "final": 56000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۲۰ گیگ — آی‌پی ثابت",
+     "price": 140000,
+     "final": 112000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۳۰ گیگ — آی‌پی ثابت",
+     "price": 210000,
+     "final": 168000,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۵۰ گیگ — آی‌پی ثابت",
+     "price": 350000,
+     "final": 280000,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "۱۰۰ گیگ — آی‌پی ثابت",
+     "price": 700000,
+     "final": 560000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "gemini",
+   "cat": "ai",
+   "name": "Gemini",
+   "title": "📱 Gemini | هوش مصنوعی گوگل",
+   "desc": "اشتراک Gemini (هوش مصنوعی گوگل)، فعال‌سازی روی ایمیل شخصی شما.",
+   "available": true,
+   "from_final": 718400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه (لینک فعال‌سازی)",
+     "price": 898000,
+     "final": 718400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "chatgpt_k12",
+   "cat": "ai",
+   "name": "ChatGPT K12 Edu",
+   "title": "📱 ChatGPT K12 Edu | اشتراک ۲ ساله",
+   "desc": "اشتراک ChatGPT نسخه K12 Edu با اعتبار ۲ ساله، تحویل سریع بعد از تأیید پرداخت.",
+   "available": false,
+   "from_final": null,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۲ ساله",
+     "price": 0,
+     "final": 0,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": "chatgpt_plus",
+   "cat": "ai",
+   "name": "ChatGPT Plus",
+   "title": "💬 ChatGPT Plus | اشتراک رسمی",
+   "desc": "اشتراک رسمی ChatGPT روی اکانت شخصی خودت — مدل‌های پیشرفته، Deep Research، ساخت تصویر و کدنویسی؛ فعال‌سازی بدون پسورد، قابل تمدید. پلن Go همون Plus اقتصادی‌تره. تأمین: رز دیجیتال.",
+   "available": true,
+   "from_final": 607200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Plus — ۱ ماهه (اکانت شخصی)",
+     "price": 3213000,
+     "final": 2570400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Go — ۱ ماهه (اکانت شخصی)",
+     "price": 3010000,
+     "final": 2408000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Plus — ۱ ماهه (اکانت آماده)",
+     "price": 5689000,
+     "final": 4551200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Plus — ۱ ماهه (اشتراکی ۶ نفره)",
+     "price": 759000,
+     "final": 607200,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Business — ۱ ماهه",
+     "price": 8014000,
+     "final": 6411200,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "Pro 5X — ۱ ماهه",
+     "price": 40617000,
+     "final": 32493600,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "Pro 20X — ۱ ماهه",
+     "price": 75920000,
+     "final": 60736000,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "Go — ۱ ماهه (اکانت آماده)",
+     "price": 2846000,
+     "final": 2276800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "nordvpn",
+   "cat": "vpn",
+   "name": "NordVPN",
+   "title": "🥏 NordVPN | اشتراک پریمیوم",
+   "desc": "اشتراک پریمیوم NordVPN، قابل استفاده روی همه‌ی دستگاه‌ها.",
+   "available": true,
+   "from_final": 1232000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 1540000,
+     "final": 1232000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 0,
+     "final": 0,
+     "available": false
+    },
+    {
+     "idx": 2,
+     "label": "۲ ساله",
+     "price": 0,
+     "final": 0,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": "figma_pro",
+   "cat": "design",
+   "name": "Figma Pro Edu",
+   "title": "📱 Figma Pro Edu | ابزار حرفه‌ای طراحی",
+   "desc": "اشتراک Figma Pro نسخه Edu برای طراح‌ها؛ ابزار حرفه‌ای طراحی رابط کاربری.",
+   "available": true,
+   "from_final": 5342400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ساله",
+     "price": 6678000,
+     "final": 5342400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "duolingo",
+   "cat": "learn",
+   "name": "Duolingo Super",
+   "title": "👋 Duolingo Super | یادگیری زبان",
+   "desc": "اشتراک Duolingo Super؛ یادگیری زبان بدون تبلیغ و با قلب نامحدود.",
+   "available": true,
+   "from_final": 335200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 419000,
+     "final": 335200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 530000,
+     "final": 424000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۳ ماهه",
+     "price": 1049000,
+     "final": 839200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۶ ماهه",
+     "price": 1749000,
+     "final": 1399200,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Max — ۱ ماهه",
+     "price": 693000,
+     "final": 554400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "telegram_premium",
+   "cat": "fun",
+   "name": "Telegram Premium",
+   "title": "✈️ Telegram Premium | تلگرام پریمیوم",
+   "desc": "فعال‌سازی رسمی تلگرام پریمیوم روی اکانت شما؛ بدون نیاز به پسورد.",
+   "available": true,
+   "from_final": 3080000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 3850000,
+     "final": 3080000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 5110000,
+     "final": 4088000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱۲ ماهه",
+     "price": 9240000,
+     "final": 7392000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "claude_pro",
+   "cat": "ai",
+   "name": "Claude Pro",
+   "title": "🤖 Claude Pro | هوش مصنوعی Anthropic",
+   "desc": "اشتراک Claude Pro؛ دستیار هوش مصنوعی قدرتمند برای نوشتن، برنامه‌نویسی و تحلیل.",
+   "available": true,
+   "from_final": 6083200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 7604000,
+     "final": 6083200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Max 5X — ۱ ماهه",
+     "price": 81432000,
+     "final": 65145600,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Max 20X — ۱ ماهه",
+     "price": 128776000,
+     "final": 103020800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "capcut_pro",
+   "cat": "design",
+   "name": "CapCut Pro",
+   "title": "🎬 CapCut Pro | ویرایش حرفه‌ای ویدیو",
+   "desc": "اشتراک CapCut Pro با همه افکت‌ها و ابزارهای پریمیوم ویرایش ویدیو.",
+   "available": true,
+   "from_final": 420000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 525000,
+     "final": 420000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "اشتراکی",
+     "price": 1196000,
+     "final": 956800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱ ساله",
+     "price": 16344000,
+     "final": 13075200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۶ ماهه",
+     "price": 8225000,
+     "final": 6580000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "canva_pro",
+   "cat": "design",
+   "name": "Canva Pro",
+   "title": "🎨 Canva Pro | طراحی آنلاین",
+   "desc": "اشتراک Canva Pro (عضویت تیم پرو) با قالب‌ها و المان‌های پریمیوم طراحی؛ شارژ روی اکانت شما.",
+   "available": true,
+   "from_final": 895200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱۲ ماهه",
+     "price": 1260000,
+     "final": 1008000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۳ ماهه (Education)",
+     "price": 1119000,
+     "final": 895200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۶ ماهه (Education)",
+     "price": 1679000,
+     "final": 1343200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۱ ماهه (اختصاصی)",
+     "price": 1621000,
+     "final": 1296800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "spotify_premium",
+   "cat": "fun",
+   "name": "Spotify Premium",
+   "title": "🎵 Spotify Premium | موزیک بدون تبلیغ",
+   "desc": "اشتراک Spotify Premium؛ موزیک بدون تبلیغ و دانلود آفلاین.",
+   "available": true,
+   "from_final": 503200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 966000,
+     "final": 772800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۳ ماهه (پرومو رسمی)",
+     "price": 1230000,
+     "final": 984000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱ ساله (Legal)",
+     "price": 5460000,
+     "final": 4368000,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "اقتصادی (Family) — ۱ ماهه",
+     "price": 629000,
+     "final": 503200,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "اقتصادی (Family) — ۳ ماهه",
+     "price": 1386000,
+     "final": 1108800,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "اقتصادی (Family) — ۶ ماهه",
+     "price": 2366000,
+     "final": 1892800,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "اقتصادی (Family) — ۱ ساله",
+     "price": 3626000,
+     "final": 2900800,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "Individual — ۶ ماهه",
+     "price": 4886000,
+     "final": 3908800,
+     "available": true
+    },
+    {
+     "idx": 8,
+     "label": "Individual — ۱ ساله",
+     "price": 8260000,
+     "final": 6608000,
+     "available": true
+    },
+    {
+     "idx": 9,
+     "label": "Family Legal — ۱ ماهه",
+     "price": 686000,
+     "final": 548800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "youtube_premium",
+   "cat": "fun",
+   "name": "YouTube Premium",
+   "title": "▶️ YouTube Premium | یوتیوب بدون تبلیغ",
+   "desc": "اشتراک YouTube Premium؛ تماشای بدون تبلیغ و پخش در پس‌زمینه.",
+   "available": true,
+   "from_final": 1128000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 1987000,
+     "final": 1589600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۳ ماهه (لینک فعال‌سازی)",
+     "price": 1410000,
+     "final": 1128000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱۲ ماهه (فمیلی)",
+     "price": 5564000,
+     "final": 4451200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "netflix_premium",
+   "cat": "fun",
+   "name": "Netflix Premium",
+   "title": "🎬 Netflix Premium | فیلم و سریال",
+   "desc": "نتفلیکس پریمیوم با کیفیت 4K و پروفایل اختصاصی — فیلم و سریال‌های روز دنیا، قابل تمدید؛ تحویل پروفایل از تأمین‌کننده. تأمین: پریمیفای.",
+   "available": true,
+   "from_final": 727200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 909000,
+     "final": 727200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۲ ماهه",
+     "price": 1749000,
+     "final": 1399200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "کامل ۵ کاربره (اکانت اختصاصی) — ۱ ماهه",
+     "price": 5319000,
+     "final": 4255200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "microsoft365",
+   "cat": "ai",
+   "name": "Microsoft 365",
+   "title": "📄 Microsoft 365 | آفیس و کوپایلت",
+   "desc": "آفیس کامل روی اکانت شخصی خودت — Word و Excel و PowerPoint و Outlook، همراه کوپایلت هوش مصنوعی و فضای OneDrive؛ شارژ اکانت شخصی، قابل تمدید، با ضمانت دوره اشتراک از تأمین‌کننده. تأمین: پارس پرمیوم.",
+   "available": true,
+   "from_final": 330400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه — قابل تمدید",
+     "price": 413000,
+     "final": 330400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 1399000,
+     "final": 1119200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱ ساله",
+     "price": 663000,
+     "final": 530400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "gemini_plus",
+   "cat": "ai",
+   "name": "Gemini Plus",
+   "title": "📱 Gemini Plus | فعال‌سازی ۶ ماهه",
+   "desc": "لینک فعال‌سازی Gemini Plus شش‌ماهه روی اکانت گوگل شخصی شما — بدون نیاز به کارت بانکی و بدون ارسال رمز عبور؛ تحویل لینک فعال‌سازی.",
+   "available": true,
+   "from_final": 481600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۶ ماهه (لینک فعال‌سازی)",
+     "price": 602000,
+     "final": 481600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "grok_plus",
+   "cat": "ai",
+   "name": "Grok Plus",
+   "title": "📱 Grok Plus | هوش مصنوعی ایکس",
+   "desc": "اشتراک Grok Plus یک‌ماهه (هوش مصنوعی X)؛ اکانت با ایمیل و رمز ورود تحویل داده می‌شود. اتصال اکانت به X را بعد از تحویل قطع نکنید.",
+   "available": true,
+   "from_final": 1640800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 2051000,
+     "final": 1640800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "cursor_grok",
+   "cat": "ai",
+   "name": "Cursor Premium + Grok",
+   "title": "📱 Cursor Premium + Grok | بسته برنامه‌نویسی",
+   "desc": "بسته یک‌ماهه Cursor Premium به‌همراه Grok برای برنامه‌نویسی با هوش مصنوعی؛ اکانت آماده تحویل داده می‌شود.",
+   "available": true,
+   "from_final": 4221600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 5277000,
+     "final": 4221600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "muse_ai",
+   "cat": "ai",
+   "name": "Muse AI",
+   "title": "🎨 Muse AI | ساخت عکس و ویدیو",
+   "desc": "اکانت Muse AI برای ساخت عکس و ویدیو با هوش مصنوعی — از کلیپ کوتاه تا ویدیوهای طولانی؛ ایمیل و دسترسی به ایمیل همراه اکانت تحویل داده می‌شود.",
+   "available": true,
+   "from_final": 336000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ میلیارد توکن",
+     "price": 420000,
+     "final": 336000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۲ میلیارد توکن",
+     "price": 560000,
+     "final": 448000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۳۱ میلیارد توکن",
+     "price": 700000,
+     "final": 560000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "lovable_pro",
+   "cat": "ai",
+   "name": "Lovable Pro",
+   "title": "📱 Lovable Pro | ساخت سایت و اپ با هوش مصنوعی",
+   "desc": "اشتراک یک‌ماهه Lovable Pro با ۱۰۰ کردیت ماهانه برای ساخت سایت و اپلیکیشن با هوش مصنوعی.",
+   "available": true,
+   "from_final": 786400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 983000,
+     "final": 786400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "lovable_lite",
+   "cat": "ai",
+   "name": "Lovable Pro Lite",
+   "title": "📱 Lovable Pro Lite | ساخت سایت و اپ",
+   "desc": "اشتراک دوازده‌ماهه Lovable Pro Lite روی اکانت خودتان: ۳۰۰ کردیت یک‌باره و ۵ کردیت روزانه؛ فقط برای اکانتی که قبلاً پلن نداشته است.",
+   "available": true,
+   "from_final": 2328800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱۲ ماهه",
+     "price": 2911000,
+     "final": 2328800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "elevenlabs",
+   "cat": "ai",
+   "name": "ElevenLabs Creator",
+   "title": "🎙 ElevenLabs Creator | ساخت صدای هوش مصنوعی",
+   "desc": "اکانت ElevenLabs Creator سه‌ماهه برای تولید صدا و تبدیل متن به گفتار با کیفیت بالا؛ ۱۳۱ هزار کردیت در هر ماه؛ اطلاعات ورود بعد از پرداخت تحویل داده می‌شود.",
+   "available": true,
+   "from_final": 2156000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 2695000,
+     "final": 2156000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Creator — ۱ ماهه",
+     "price": 5799000,
+     "final": 4639200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Creator — ۱ ساله",
+     "price": 30579000,
+     "final": 24463200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "turnitin",
+   "cat": "learn",
+   "name": "Turnitin",
+   "title": "📄 Turnitin | بررسی سرقت ادبی و تشخیص AI",
+   "desc": "بررسی یک فایل (مقاله، پایان‌نامه یا گزارش) در Turnitin همراه با گزارش درصد مشابهت و تشخیص متن تولیدشده با هوش مصنوعی.",
+   "available": true,
+   "from_final": 1503200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "بررسی ۱ فایل",
+     "price": 1879000,
+     "final": 1503200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "zoom_pro",
+   "cat": "ai",
+   "name": "Zoom Pro",
+   "title": "📱 Zoom Pro | جلسه و کلاس آنلاین",
+   "desc": "اکانت Zoom Pro یک‌ماهه برای جلسه و کلاس آنلاین بدون محدودیت ۴۰ دقیقه؛ اطلاعات ورود تحویل داده می‌شود.",
+   "available": true,
+   "from_final": 1380000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 1725000,
+     "final": 1380000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "canva_edu",
+   "cat": "design",
+   "name": "Canva Edu",
+   "title": "🎨 Canva Edu | اشتراک ۳ ساله",
+   "desc": "اکانت یا لینک دعوت Canva Edu با امکاناتی حدود ۹۹٪ مشابه Canva Pro؛ تحویل سریع بعد از پرداخت.",
+   "available": true,
+   "from_final": 663200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ساله",
+     "price": 829000,
+     "final": 663200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "adobe_express",
+   "cat": "design",
+   "name": "Adobe Express Premium",
+   "title": "🎨 Adobe Express Premium | طراحی با ادوبی",
+   "desc": "اکانت آماده Adobe Express Premium یک‌ساله برای طراحی پست، استوری، لوگو و ویدیوی کوتاه با قالب‌ها و ابزارهای هوش مصنوعی Adobe Firefly؛ تحویل ایمیل و رمز.",
+   "available": true,
+   "from_final": 392000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱۲ ماهه",
+     "price": 490000,
+     "final": 392000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "dallas_prompts",
+   "cat": "ai",
+   "name": "کتابخانه پرامپت دالاس",
+   "title": "🖼 کتابخانه پرامپت دالاس | مجموعه کامل",
+   "desc": "مجموعه کامل کتابخانه تصویری پرامپت‌های دالاس: ۸٬۳۹۷ رکورد در ۸ دسته و ۷٬۹۶۴ متن پرامپت یکتا با تصاویر نمونه و جست‌وجو؛ دانلود کامل + نسخه آنلاین اختصاصی بعد از پرداخت.",
+   "available": true,
+   "from_final": 111200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "مجموعه کامل (دانلود + آنلاین)",
+     "price": 139000,
+     "final": 111200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "perplexity_pro",
+   "cat": "ai",
+   "name": "Perplexity Pro",
+   "title": "🔍 Perplexity Pro | جست‌وجوی هوشمند با منبع",
+   "desc": "اشتراک Perplexity Pro یک‌ماهه؛ موتور جست‌وجوی هوش مصنوعی که هر جواب را با لینک و ارجاع واقعی می‌دهد — برای تحقیق دانشگاهی، گزارش کاری و تولید محتوا. تأمین: پریمیفای.",
+   "available": true,
+   "from_final": 4030400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 5038000,
+     "final": 4030400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "telegram_stars",
+   "cat": "fun",
+   "name": "Telegram Stars",
+   "title": "⭐ Telegram Stars | استارز تلگرام",
+   "desc": "استارز رسمی تلگرام برای خرید داخل ربات‌ها و هدیه. تحویل سریع روی اکانت خودت. (تأمین: استارزیوا / پرمیفای)",
+   "available": true,
+   "from_final": 196000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۵۰ استار",
+     "price": 245000,
+     "final": 196000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱۰۰ استار",
+     "price": 1052000,
+     "final": 841600,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱۵۰ استار",
+     "price": 1578000,
+     "final": 1262400,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۲۵۰ استار",
+     "price": 1225000,
+     "final": 980000,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "۳۵۰ استار",
+     "price": 3240000,
+     "final": 2592000,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "۵۰۰ استار",
+     "price": 2450000,
+     "final": 1960000,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "۷۵۰ استار",
+     "price": 5596000,
+     "final": 4476800,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "۱۰۰۰ استار",
+     "price": 7201000,
+     "final": 5760800,
+     "available": true
+    },
+    {
+     "idx": 8,
+     "label": "۱۵۰۰ استار",
+     "price": 10898000,
+     "final": 8718400,
+     "available": true
+    },
+    {
+     "idx": 9,
+     "label": "۲۵۰۰ استار",
+     "price": 18163000,
+     "final": 14530400,
+     "available": true
+    },
+    {
+     "idx": 10,
+     "label": "۵۰۰۰ استار",
+     "price": 34460000,
+     "final": 27568000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "apple_id",
+   "cat": "fun",
+   "name": "Apple ID",
+   "title": "🍎 Apple ID | اپل آیدی",
+   "desc": "اپل آیدی آماده یا ساخته‌شده با ایمیل خودت، آماده استفاده در اپ‌استور. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 1063200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "آماده",
+     "price": 1329000,
+     "final": 1063200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "شخصی (با ایمیل خودت)",
+     "price": 2029000,
+     "final": 1623200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "apple_gift_card",
+   "cat": "fun",
+   "name": "Apple Gift Card",
+   "title": "🎁 Apple Gift Card | گیفت کارت اپل (لیر ترکیه)",
+   "desc": "گیفت کارت اپل ریجن ترکیه برای شارژ اپل آیدی و خرید اشتراک. کد دیجیتال، تحویل سریع. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 235200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۲۵ لیر",
+     "price": 294000,
+     "final": 235200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۵۰ لیر",
+     "price": 524000,
+     "final": 419200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۷۵ لیر",
+     "price": 741000,
+     "final": 592800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۱۰۰ لیر",
+     "price": 978000,
+     "final": 782400,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "۲۰۰ لیر",
+     "price": 1858000,
+     "final": 1486400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "ps_giftcard",
+   "cat": "fun",
+   "name": "PlayStation Gift Card",
+   "title": "🎮 PlayStation Gift Card | گیفت کارت پلی‌استیشن",
+   "desc": "گیفت کارت پلی‌استیشن برای ریجن‌های آلمان، امارات، انگلیس و آمریکا. کد دیجیتال فوری. (تأمین: ایران اسپاتیفای)",
+   "available": true,
+   "from_final": 1749600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "🇩🇪 آلمان — ۵ یورو",
+     "price": 2187000,
+     "final": 1749600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "🇩🇪 آلمان — ۱۰ یورو",
+     "price": 4374000,
+     "final": 3499200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "🇩🇪 آلمان — ۱۵ یورو",
+     "price": 6247000,
+     "final": 4997600,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "🇩🇪 آلمان — ۲۰ یورو",
+     "price": 8330000,
+     "final": 6664000,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "🇩🇪 آلمان — ۵۰ یورو",
+     "price": 20825000,
+     "final": 16660000,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "🇩🇪 آلمان — ۱۰۰ یورو",
+     "price": 41649000,
+     "final": 33319200,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "🇦🇪 امارات — ۱۰۰ دلار",
+     "price": 37796000,
+     "final": 30236800,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "🇦🇪 امارات — ۵۰ دلار",
+     "price": 18898000,
+     "final": 15118400,
+     "available": true
+    },
+    {
+     "idx": 8,
+     "label": "🇦🇪 امارات — ۱۰ دلار",
+     "price": 3969000,
+     "final": 3175200,
+     "available": true
+    },
+    {
+     "idx": 9,
+     "label": "🇦🇪 امارات — ۲۰ دلار",
+     "price": 7938000,
+     "final": 6350400,
+     "available": true
+    },
+    {
+     "idx": 10,
+     "label": "🇬🇧 انگلیس — ۱۵۰ پوند",
+     "price": 74735000,
+     "final": 59788000,
+     "available": true
+    },
+    {
+     "idx": 11,
+     "label": "🇬🇧 انگلیس — ۱۰۰ پوند",
+     "price": 49824000,
+     "final": 39859200,
+     "available": true
+    },
+    {
+     "idx": 12,
+     "label": "🇬🇧 انگلیس — ۵۰ پوند",
+     "price": 26158000,
+     "final": 20926400,
+     "available": true
+    },
+    {
+     "idx": 13,
+     "label": "🇬🇧 انگلیس — ۲۰ پوند",
+     "price": 10962000,
+     "final": 8769600,
+     "available": true
+    },
+    {
+     "idx": 14,
+     "label": "🇬🇧 انگلیس — ۱۰ پوند",
+     "price": 5481000,
+     "final": 4384800,
+     "available": true
+    },
+    {
+     "idx": 15,
+     "label": "🇺🇸 آمریکا — ۲۰۰ دلار",
+     "price": 79372000,
+     "final": 63497600,
+     "available": true
+    },
+    {
+     "idx": 16,
+     "label": "🇺🇸 آمریکا — ۱۵۰ دلار",
+     "price": 59529000,
+     "final": 47623200,
+     "available": true
+    },
+    {
+     "idx": 17,
+     "label": "🇺🇸 آمریکا — ۱۰۰ دلار",
+     "price": 39686000,
+     "final": 31748800,
+     "available": true
+    },
+    {
+     "idx": 18,
+     "label": "🇺🇸 آمریکا — ۷۵ دلار",
+     "price": 29765000,
+     "final": 23812000,
+     "available": true
+    },
+    {
+     "idx": 19,
+     "label": "🇺🇸 آمریکا — ۵۰ دلار",
+     "price": 19843000,
+     "final": 15874400,
+     "available": true
+    },
+    {
+     "idx": 20,
+     "label": "🇺🇸 آمریکا — ۲۵ دلار",
+     "price": 9922000,
+     "final": 7937600,
+     "available": true
+    },
+    {
+     "idx": 21,
+     "label": "🇺🇸 آمریکا — ۱۰ دلار",
+     "price": 3969000,
+     "final": 3175200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "discord_nitro",
+   "cat": "fun",
+   "name": "Discord Nitro",
+   "title": "🎮 Discord Nitro | دیسکورد نیترو",
+   "desc": "نیترو کامل دیسکورد با بوست سرور و ایموجی/استریم باکیفیت. فعال‌سازی روی اکانت خودت. (تأمین: ایران اسپاتیفای)",
+   "available": true,
+   "from_final": 2041600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 2552000,
+     "final": 2041600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 15875000,
+     "final": 12700000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "disney_plus",
+   "cat": "fun",
+   "name": "Disney+",
+   "title": "🏰 Disney+ | دیزنی پلاس",
+   "desc": "دیزنی پلاس با آرشیو کامل دیزنی، پیکسار، مارول و استاروارز. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 1960000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 2450000,
+     "final": 1960000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 4620000,
+     "final": 3696000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "paramount_plus",
+   "cat": "fun",
+   "name": "Paramount+",
+   "title": "⛰️ Paramount+ | پارامونت پلاس",
+   "desc": "پارامونت پلاس؛ فیلم و سریال و فوتبال زنده. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 783200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 979000,
+     "final": 783200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 1259000,
+     "final": 1007200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "sling_tv",
+   "cat": "fun",
+   "name": "Sling TV",
+   "title": "📺 Sling TV | اسلینگ تی‌وی",
+   "desc": "تلویزیون اینترنتی اسلینگ آمریکا؛ کانال‌های زنده و ورزشی. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 200800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Orange",
+     "price": 251000,
+     "final": 200800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Blue",
+     "price": 251000,
+     "final": 200800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Orange + Blue",
+     "price": 335000,
+     "final": 268000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "shudder",
+   "cat": "fun",
+   "name": "Shudder",
+   "title": "👻 Shudder | شادر",
+   "desc": "شادر؛ سرویس تخصصی فیلم و سریال ترسناک. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 268800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ساله",
+     "price": 336000,
+     "final": 268800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "curiosity_stream",
+   "cat": "fun",
+   "name": "Curiosity Stream",
+   "title": "🔭 Curiosity Stream | کیوریاسیتی استریم",
+   "desc": "مستندهای علمی و تاریخی با کیفیت بالا. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 784000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 980000,
+     "final": 784000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 1260000,
+     "final": 1008000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "history_vault",
+   "cat": "fun",
+   "name": "History Vault",
+   "title": "🏛️ History Vault | هیستوری والت",
+   "desc": "آرشیو کامل مستندهای شبکه History. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 728000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 910000,
+     "final": 728000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 1386000,
+     "final": 1108800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "apple_music",
+   "cat": "fun",
+   "name": "Apple Music",
+   "title": "🎧 Apple Music | اپل موزیک",
+   "desc": "اپل موزیک با کیفیت Lossless و آرشیو کامل. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 951200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۲ ماهه",
+     "price": 1189000,
+     "final": 951200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۳ ماهه",
+     "price": 1679000,
+     "final": 1343200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۶ ماهه",
+     "price": 3219000,
+     "final": 2575200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "wattpad",
+   "cat": "fun",
+   "name": "Wattpad Premium",
+   "title": "📖 Wattpad Premium | وات‌پد",
+   "desc": "وات‌پد پریمیوم و پلاس؛ خواندن بدون تبلیغ و دسترسی کامل به داستان‌ها. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 2704000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۱ ماهه",
+     "price": 3380000,
+     "final": 2704000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Plus — ۱ ماهه",
+     "price": 4091000,
+     "final": 3272800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Premium — ۱ ساله",
+     "price": 11864000,
+     "final": 9491200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Plus — ۱ ساله",
+     "price": 19799000,
+     "final": 15839200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "gaia",
+   "cat": "fun",
+   "name": "Gaia",
+   "title": "🧘 Gaia | گایا",
+   "desc": "گایا؛ یوگا، مدیتیشن و محتوای آگاهی و سلامت. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 548000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 685000,
+     "final": 548000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 965000,
+     "final": 772000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "calm",
+   "cat": "fun",
+   "name": "Calm",
+   "title": "🌙 Calm | کالم",
+   "desc": "کالم؛ مدیتیشن، خواب و کاهش استرس. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 469600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۶ ماهه",
+     "price": 587000,
+     "final": 469600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "dailyburn",
+   "cat": "fun",
+   "name": "Daily Burn",
+   "title": "🏋️ Daily Burn | دیلی برن",
+   "desc": "دیلی برن؛ برنامه‌های تمرینی و فیتنس در خانه. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 212800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 266000,
+     "final": 212800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 406000,
+     "final": 324800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "di_fm",
+   "cat": "fun",
+   "name": "DI.FM Premium",
+   "title": "🎚️ DI.FM Premium | دی‌آی اف‌ام",
+   "desc": "رادیوهای الکترونیک DI.FM بدون تبلیغ و با کیفیت بالا. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 895200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۶ ماهه",
+     "price": 1119000,
+     "final": 895200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "shahid_vip",
+   "cat": "fun",
+   "name": "Shahid VIP",
+   "title": "📺 Shahid VIP | شاهد VIP",
+   "desc": "شاهد VIP؛ سریال و فیلم عربی و پخش زنده ورزشی. فعال‌سازی روی اکانت خودت. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 223200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "VIP — ۱ ماهه (اشتراکی)",
+     "price": 279000,
+     "final": 223200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "VIP — ۱ ماهه (شخصی)",
+     "price": 2012000,
+     "final": 1609600,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Bigtime — ۱ ماهه",
+     "price": 3415000,
+     "final": 2732000,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "VIP Sport — ۱ ماهه",
+     "price": 4173000,
+     "final": 3338400,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Ultimate — ۱ ماهه",
+     "price": 6070000,
+     "final": 4856000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "headspace",
+   "cat": "fun",
+   "name": "Headspace",
+   "title": "🧘 Headspace | هداسپیس",
+   "desc": "هداسپیس؛ مدیتیشن هدایت‌شده و بهبود خواب. فعال‌سازی روی اکانت خودت. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 296800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 371000,
+     "final": 296800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 3036000,
+     "final": 2428800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "fabulous",
+   "cat": "fun",
+   "name": "Fabulous",
+   "title": "🌟 Fabulous | فبیولس",
+   "desc": "فبیولس؛ ساخت عادت‌های خوب و روتین روزانه. فعال‌سازی روی اکانت خودت. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 290400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 363000,
+     "final": 290400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 6299000,
+     "final": 5039200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "flo_premium",
+   "cat": "fun",
+   "name": "Flo Premium",
+   "title": "🌸 Flo Premium | فلو پریمیوم",
+   "desc": "فلو پریمیوم؛ نسخه کامل اپ سلامت و چرخه. فعال‌سازی روی اکانت خودت. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 391200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 489000,
+     "final": 391200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 2235000,
+     "final": 1788000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "forest_focus",
+   "cat": "fun",
+   "name": "Forest Focus",
+   "title": "🌲 Forest Focus | فارست",
+   "desc": "فارست؛ تمرکز با کاشت درخت مجازی و دوری از گوشی. فعال‌سازی روی اکانت خودت. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 1214400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 1518000,
+     "final": 1214400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 7208000,
+     "final": 5766400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "breeze_app",
+   "cat": "fun",
+   "name": "Breeze Premium",
+   "title": "🍃 Breeze Premium | بریز",
+   "desc": "بریز پریمیوم؛ تنفس، آرامش و سلامت ذهن. فعال‌سازی روی اکانت خودت. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 290400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 363000,
+     "final": 290400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "higgsfield",
+   "cat": "ai",
+   "name": "Higgsfield AI",
+   "title": "🎬 Higgsfield AI | هیگزفیلد",
+   "desc": "هیگزفیلد؛ ساخت ویدیوهای سینمایی با هوش مصنوعی و کنترل دوربین حرفه‌ای. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 3358400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Basic — ۱ ماهه",
+     "price": 4198000,
+     "final": 3358400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Starter — ۱ ماهه",
+     "price": 9217000,
+     "final": 7373600,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Plus — ۱ ماهه",
+     "price": 24505000,
+     "final": 19604000,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Ultra — ۱ ماهه",
+     "price": 48209000,
+     "final": 38567200,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Plus — ۱ ساله",
+     "price": 130412000,
+     "final": 104329600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "hailuo",
+   "cat": "ai",
+   "name": "Hailuo AI",
+   "title": "🎥 Hailuo AI | هایلو",
+   "desc": "هایلو (MiniMax)؛ ساخت ویدیو از متن و عکس با کیفیت بالا. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 3927200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Standard — ۱ ماهه",
+     "price": 4909000,
+     "final": 3927200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۱ ماهه",
+     "price": 16466000,
+     "final": 13172800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Master — ۱ ماهه",
+     "price": 36654000,
+     "final": 29323200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "suno",
+   "cat": "ai",
+   "name": "Suno AI",
+   "title": "🎼 Suno AI | سونو",
+   "desc": "سونو؛ ساخت آهنگ کامل با هوش مصنوعی از روی متن. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 3599200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه",
+     "price": 4499000,
+     "final": 3599200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Premier — ۱ ماهه",
+     "price": 12865000,
+     "final": 10292000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Pro — ۱ ساله",
+     "price": 38663000,
+     "final": 30930400,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Premier — ۱ ساله",
+     "price": 116900000,
+     "final": 93520000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "runway",
+   "cat": "ai",
+   "name": "Runway",
+   "title": "🎞️ Runway | ران‌وی",
+   "desc": "ران‌وی؛ ویدیوساز هوش مصنوعی Gen-4 برای ساخت و ویرایش ویدیو. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 5512000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Standard — ۱ ماهه",
+     "price": 6890000,
+     "final": 5512000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۱ ماهه",
+     "price": 14622000,
+     "final": 11697600,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Max — ۱ ماهه",
+     "price": 40068000,
+     "final": 32054400,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Standard — ۱ ساله",
+     "price": 58908000,
+     "final": 47126400,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Pro — ۱ ساله",
+     "price": 30368000,
+     "final": 24294400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "midjourney",
+   "cat": "ai",
+   "name": "Midjourney",
+   "title": "🎨 Midjourney | میدجورنی",
+   "desc": "میدجورنی؛ قوی‌ترین تولیدکننده عکس هنری با هوش مصنوعی. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 3375200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Basic — ۱ ماهه",
+     "price": 4219000,
+     "final": 3375200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Basic — ۱ ساله",
+     "price": 40490000,
+     "final": 32392000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Standard — ۱ ماهه",
+     "price": 12794000,
+     "final": 10235200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Standard — ۱ ساله",
+     "price": 115143000,
+     "final": 92114400,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Pro — ۱ ماهه",
+     "price": 25237000,
+     "final": 20189600,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "Pro — ۱ ساله",
+     "price": 227475000,
+     "final": 181980000,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "Mega — ۱ ماهه",
+     "price": 50332000,
+     "final": 40265600,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "Mega — ۱ ساله",
+     "price": 452419000,
+     "final": 361935200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "google_one",
+   "cat": "ai",
+   "name": "Google One AI Pro",
+   "title": "☁️ Google One AI Pro | گوگل وان",
+   "desc": "گوگل وان AI Pro؛ فضای ابری گوگل + دسترسی به Gemini پیشرفته. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 2336800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 2921000,
+     "final": 2336800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 4828000,
+     "final": 3862400,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱ ساله",
+     "price": 8346000,
+     "final": 6676800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "quillbot",
+   "cat": "ai",
+   "name": "QuillBot Premium",
+   "title": "✍️ QuillBot Premium | کوییل‌بات",
+   "desc": "کوییل‌بات پریمیوم؛ بازنویسی و پارافریز حرفه‌ای متن انگلیسی. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 996800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 1246000,
+     "final": 996800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "supergrok",
+   "cat": "ai",
+   "name": "SuperGrok",
+   "title": "🚀 SuperGrok | سوپر گروک",
+   "desc": "سوپر گروک؛ نسخه پیشرفته Grok با مدل‌های قوی‌تر و سقف استفاده بالاتر. فعال‌سازی روی ایمیل خودت. (تأمین: ممد جی‌پی‌تی / مایندزی)",
+   "available": true,
+   "from_final": 9102400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 11378000,
+     "final": 9102400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۳ ماهه",
+     "price": 28469000,
+     "final": 22775200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Heavy — ۱ ماهه (بدون گارانتی)",
+     "price": 18473000,
+     "final": 14778400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "mistral",
+   "cat": "ai",
+   "name": "Mistral AI",
+   "title": "🌬️ Mistral AI | میسترال",
+   "desc": "میسترال (Le Chat) پرو + کردیت API؛ مدل‌های اروپایی قوی برای چت و کدنویسی. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 1744000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه",
+     "price": 6467000,
+     "final": 5173600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "کردیت API — ۵ دلار",
+     "price": 2180000,
+     "final": 1744000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "کردیت API — ۱۰ دلار",
+     "price": 4359000,
+     "final": 3487200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "کردیت API — ۲۰ دلار",
+     "price": 8717000,
+     "final": 6973600,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "کردیت API — ۳۰ دلار",
+     "price": 12724000,
+     "final": 10179200,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "کردیت API — ۴۰ دلار",
+     "price": 15606000,
+     "final": 12484800,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "کردیت API — ۵۰ دلار",
+     "price": 20807000,
+     "final": 16645600,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "کردیت API — ۶۰ دلار",
+     "price": 24885000,
+     "final": 19908000,
+     "available": true
+    },
+    {
+     "idx": 8,
+     "label": "کردیت API — ۷۰ دلار",
+     "price": 28821000,
+     "final": 23056800,
+     "available": true
+    },
+    {
+     "idx": 9,
+     "label": "کردیت API — ۸۰ دلار",
+     "price": 33320000,
+     "final": 26656000,
+     "available": true
+    },
+    {
+     "idx": 10,
+     "label": "کردیت API — ۹۰ دلار",
+     "price": 40771000,
+     "final": 32616800,
+     "available": true
+    },
+    {
+     "idx": 11,
+     "label": "کردیت API — ۱۰۰ دلار",
+     "price": 41897000,
+     "final": 33517600,
+     "available": true
+    },
+    {
+     "idx": 12,
+     "label": "کردیت API — ۲۰۰ دلار",
+     "price": 81683000,
+     "final": 65346400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "kimi",
+   "cat": "ai",
+   "name": "Kimi AI",
+   "title": "🌙 Kimi AI | کیمی",
+   "desc": "کیمی (Moonshot AI)؛ چت‌بات قدرتمند با حافظه متنی خیلی بلند. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 6647200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Plus — ۱ ماهه",
+     "price": 8309000,
+     "final": 6647200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۱ ماهه",
+     "price": 16590000,
+     "final": 13272000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Max — ۱ ماهه",
+     "price": 41615000,
+     "final": 33292000,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Ultra — ۱ ماهه",
+     "price": 82246000,
+     "final": 65796800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "manus",
+   "cat": "ai",
+   "name": "Manus AI",
+   "title": "🤖 Manus AI | مانوس",
+   "desc": "مانوس؛ ایجنت خودکار هوش مصنوعی برای انجام کارها و پروژه‌ها. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 6074400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Standard — ۱ ماهه",
+     "price": 7593000,
+     "final": 6074400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Standard — ۱ ساله",
+     "price": 32476000,
+     "final": 25980800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Customizable — ۸۰۰۰ کردیت",
+     "price": 16800000,
+     "final": 13440000,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Customizable — ۱۲۰۰۰ کردیت",
+     "price": 24604000,
+     "final": 19683200,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Extended — ۴۰۰۰۰ کردیت",
+     "price": 81542000,
+     "final": 65233600,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "Extended — ۸۵۰۰۰ کردیت",
+     "price": 161679000,
+     "final": 129343200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "kiro",
+   "cat": "ai",
+   "name": "Kiro",
+   "title": "💻 Kiro | کیرو",
+   "desc": "کیرو؛ محیط کدنویسی ایجنتی آمازون (AWS) برای ساخت پروژه با AI. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 18220800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro دانشجویی — ۱ ساله",
+     "price": 22776000,
+     "final": 18220800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Dev Power — ۱ ماهه",
+     "price": 59330000,
+     "final": 47464000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "v0_dev",
+   "cat": "ai",
+   "name": "v0 by Vercel",
+   "title": "▲ v0 by Vercel | وی‌زیرو",
+   "desc": "v0؛ ساخت رابط کاربری و اپ با هوش مصنوعی ورسل. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 10179200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Plus — ۱ ماهه",
+     "price": 12724000,
+     "final": 10179200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Business — ۱ ماهه",
+     "price": 42600000,
+     "final": 34080000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "devin",
+   "cat": "ai",
+   "name": "Devin AI",
+   "title": "🧑‍💻 Devin AI | دوین",
+   "desc": "دوین؛ مهندس نرم‌افزار خودکار هوش مصنوعی. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 6748000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه",
+     "price": 8435000,
+     "final": 6748000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Max — ۱ ماهه",
+     "price": 81542000,
+     "final": 65233600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "openrouter",
+   "cat": "ai",
+   "name": "OpenRouter",
+   "title": "🔀 OpenRouter | اوپن‌روتر",
+   "desc": "شارژ اوپن‌روتر؛ دسترسی به صدها مدل AI با یک API. کردیت روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 3284000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱۰ دلار",
+     "price": 4105000,
+     "final": 3284000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۲۰ دلار",
+     "price": 8213000,
+     "final": 6570400,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۳۰ دلار",
+     "price": 12556000,
+     "final": 10044800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "۴۰ دلار",
+     "price": 17467000,
+     "final": 13973600,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "۵۰ دلار",
+     "price": 21482000,
+     "final": 17185600,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "۱۰۰ دلار",
+     "price": 42318000,
+     "final": 33854400,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "۲۰۰ دلار",
+     "price": 83933000,
+     "final": 67146400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "minimax",
+   "cat": "ai",
+   "name": "MiniMax",
+   "title": "🔊 MiniMax | مینی‌مکس",
+   "desc": "مینی‌مکس؛ پلن‌های صدا (TTS)، طراحی و ساخت اپ با AI. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 2530400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Audio Starter — ماهانه",
+     "price": 3163000,
+     "final": 2530400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "GO — ماهانه",
+     "price": 5483000,
+     "final": 4386400,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Design Starter — ماهانه",
+     "price": 5906000,
+     "final": 4724800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Audio Creator — ماهانه",
+     "price": 6960000,
+     "final": 5568000,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Explore — ماهانه",
+     "price": 12021000,
+     "final": 9616800,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "Audio Standard — ماهانه",
+     "price": 14341000,
+     "final": 11472800,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "Build — ماهانه",
+     "price": 30579000,
+     "final": 24463200,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "Design Plus — ماهانه",
+     "price": 31633000,
+     "final": 25306400,
+     "available": true
+    },
+    {
+     "idx": 8,
+     "label": "Audio Pro — ماهانه",
+     "price": 43843000,
+     "final": 35074400,
+     "available": true
+    },
+    {
+     "idx": 9,
+     "label": "Design Pro — ماهانه",
+     "price": 64183000,
+     "final": 51346400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "heygen",
+   "cat": "ai",
+   "name": "HeyGen",
+   "title": "🎭 HeyGen | هی‌جن",
+   "desc": "هی‌جن؛ ساخت ویدیو با آواتار و صدای هوش مصنوعی. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 9785600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Creator — ۱ ماهه",
+     "price": 12232000,
+     "final": 9785600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۱۰۰۰ کردیت",
+     "price": 20667000,
+     "final": 16533600,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Pro — ۱۵۰۰ کردیت",
+     "price": 30156000,
+     "final": 24124800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Pro — ۲۰۰۰ کردیت",
+     "price": 39014000,
+     "final": 31211200,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Pro — ۳۰۰۰ کردیت",
+     "price": 61157000,
+     "final": 48925600,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "Pro — ۵۰۰۰ کردیت",
+     "price": 99116000,
+     "final": 79292800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "kling",
+   "cat": "ai",
+   "name": "Kling AI",
+   "title": "🎬 Kling AI | کلینگ",
+   "desc": "کلینگ؛ ویدیوساز هوش مصنوعی با حرکت واقعی و کیفیت سینمایی. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 2530400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Standard — ۱ ماهه",
+     "price": 3163000,
+     "final": 2530400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۱ ماهه",
+     "price": 10460000,
+     "final": 8368000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Premier — ۸۰۰۰ کردیت",
+     "price": 26361000,
+     "final": 21088800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Premier — ۱۸۰۰۰ کردیت",
+     "price": 56517000,
+     "final": 45213600,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Premier — ۲۸۰۰۰ کردیت",
+     "price": 84355000,
+     "final": 67484000,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "Premier — ۳۸۰۰۰ کردیت",
+     "price": 112824000,
+     "final": 90259200,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "Ultra — ۸۰۰۰ کردیت",
+     "price": 162382000,
+     "final": 129905600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "zai",
+   "cat": "ai",
+   "name": "Z.AI",
+   "title": "⚡ Z.AI | زد ای‌آی",
+   "desc": "Z.AI (مدل‌های GLM)؛ اکانت آماده فعال‌شده. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 6268800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Lite — ۱ ماهه",
+     "price": 7836000,
+     "final": 6268800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Lite — ۳ ماهه",
+     "price": 17503000,
+     "final": 14002400,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Lite — ۱ ساله",
+     "price": 57994000,
+     "final": 46395200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Pro — ۱ ماهه",
+     "price": 28681000,
+     "final": 22944800,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Pro — ۳ ماهه",
+     "price": 70647000,
+     "final": 56517600,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "Pro — ۱ ساله",
+     "price": 244417000,
+     "final": 195533600,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "Max — ۱ ماهه",
+     "price": 61663000,
+     "final": 49330400,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "Max — ۳ ماهه",
+     "price": 144245000,
+     "final": 115396000,
+     "available": true
+    },
+    {
+     "idx": 8,
+     "label": "Max — ۱ ساله",
+     "price": 506124000,
+     "final": 404899200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "openart",
+   "cat": "ai",
+   "name": "OpenArt",
+   "title": "🖼️ OpenArt | اوپن‌آرت",
+   "desc": "اوپن‌آرت؛ ساخت و ویرایش عکس با مدل‌های مختلف AI. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 5938400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Starter — ۱ ماهه",
+     "price": 7423000,
+     "final": 5938400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Plus — ۱ ماهه",
+     "price": 15015000,
+     "final": 12012000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Pro — ۱ ماهه",
+     "price": 21425000,
+     "final": 17140000,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Wonder — ۱ ماهه",
+     "price": 84292000,
+     "final": 67433600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "syntx",
+   "cat": "ai",
+   "name": "Syntx AI",
+   "title": "🧩 Syntx AI | سینتکس",
+   "desc": "سینتکس؛ دسترسی یکجا به چند مدل و ابزار AI. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 4555200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Basic — ۱ ماهه",
+     "price": 5694000,
+     "final": 4555200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Basic — ۳ ماهه",
+     "price": 13708000,
+     "final": 10966400,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Basic — ۶ ماهه",
+     "price": 22566000,
+     "final": 18052800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Basic — ۱۲ ماهه",
+     "price": 39647000,
+     "final": 31717600,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "Pro — ۱ ماهه",
+     "price": 8984000,
+     "final": 7187200,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "Pro — ۳ ماهه",
+     "price": 22987000,
+     "final": 18389600,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "Pro — ۶ ماهه",
+     "price": 41123000,
+     "final": 32898400,
+     "available": true
+    },
+    {
+     "idx": 7,
+     "label": "Pro — ۱۲ ماهه",
+     "price": 71648000,
+     "final": 57318400,
+     "available": true
+    },
+    {
+     "idx": 8,
+     "label": "VIP — ۱ ماهه",
+     "price": 20034000,
+     "final": 16027200,
+     "available": true
+    },
+    {
+     "idx": 9,
+     "label": "VIP — ۳ ماهه",
+     "price": 51667000,
+     "final": 41333600,
+     "available": true
+    },
+    {
+     "idx": 10,
+     "label": "VIP — ۶ ماهه",
+     "price": 90639000,
+     "final": 72511200,
+     "available": true
+    },
+    {
+     "idx": 11,
+     "label": "VIP — ۱۲ ماهه",
+     "price": 168602000,
+     "final": 134881600,
+     "available": true
+    },
+    {
+     "idx": 12,
+     "label": "Elite — ۱ ماهه",
+     "price": 28469000,
+     "final": 22775200,
+     "available": true
+    },
+    {
+     "idx": 13,
+     "label": "Elite — ۳ ماهه",
+     "price": 73388000,
+     "final": 58710400,
+     "available": true
+    },
+    {
+     "idx": 14,
+     "label": "Elite — ۶ ماهه",
+     "price": 133069000,
+     "final": 106455200,
+     "available": true
+    },
+    {
+     "idx": 15,
+     "label": "Elite — ۱۲ ماهه",
+     "price": 252640000,
+     "final": 202112000,
+     "available": true
+    },
+    {
+     "idx": 16,
+     "label": "Ultra Elite — ۱ ماهه",
+     "price": 51856000,
+     "final": 41484800,
+     "available": true
+    },
+    {
+     "idx": 17,
+     "label": "Ultra Elite — ۳ ماهه",
+     "price": 137034000,
+     "final": 109627200,
+     "available": true
+    },
+    {
+     "idx": 18,
+     "label": "Ultra Elite — ۶ ماهه",
+     "price": 254434000,
+     "final": 203547200,
+     "available": true
+    },
+    {
+     "idx": 19,
+     "label": "Ultra Elite — ۱۲ ماهه",
+     "price": 471653000,
+     "final": 377322400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "veo3_ultra",
+   "cat": "ai",
+   "name": "Google Veo 3 Ultra",
+   "title": "🎥 Google Veo 3 Ultra | وئو ۳ اولترا",
+   "desc": "وئو ۳ اولترا؛ قوی‌ترین ویدیوساز گوگل با صدای داخلی. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 7592000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه (کردیت رندوم)",
+     "price": 9490000,
+     "final": 7592000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ماهه (۲۵۰۰۰ کردیت)",
+     "price": 26361000,
+     "final": 21088800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱ ماهه (۵۰۰۰۰ کردیت)",
+     "price": 40047000,
+     "final": 32037600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "replit",
+   "cat": "ai",
+   "name": "Replit Core",
+   "title": "💻 Replit Core | رپلیت",
+   "desc": "رپلیت Core؛ ساخت و انتشار اپ با کمک AI در مرورگر. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 7760800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 9701000,
+     "final": 7760800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 21062000,
+     "final": 16849600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "apify",
+   "cat": "ai",
+   "name": "Apify",
+   "title": "🕷️ Apify | اپیفای",
+   "desc": "اپیفای؛ اسکرپینگ و اتوماسیون وب با صدها Actor آماده. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 3796000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Creator — ۶ ماهه",
+     "price": 4745000,
+     "final": 3796000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Starter",
+     "price": 9891000,
+     "final": 7912800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Scale",
+     "price": 82246000,
+     "final": 65796800,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Business",
+     "price": 393301000,
+     "final": 314640800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "google_ai_ultra",
+   "cat": "ai",
+   "name": "Google AI Ultra",
+   "title": "💎 Google AI Ultra | گوگل AI اولترا",
+   "desc": "گوگل AI اولترا؛ بالاترین سطح اشتراک هوش مصنوعی گوگل. فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 8419200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه (5x — کردیت رندوم)",
+     "price": 10524000,
+     "final": 8419200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ماهه (20x — بدون کردیت ویدیو)",
+     "price": 12421000,
+     "final": 9936800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱ ماهه (20x — ۲۵۰۰۰ کردیت)",
+     "price": 29102000,
+     "final": 23281600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "github_student",
+   "cat": "ai",
+   "name": "GitHub Student Pack",
+   "title": "🎓 GitHub Student Pack | گیت‌هاب دانشجویی",
+   "desc": "پک دانشجویی گیت‌هاب؛ Copilot و ده‌ها ابزار رایگان دانشجویی. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 5568000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "فعال‌سازی پک دانشجویی",
+     "price": 6960000,
+     "final": 5568000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "n8n",
+   "cat": "ai",
+   "name": "n8n",
+   "title": "🔗 n8n | ان‌هشت‌ان",
+   "desc": "n8n؛ اتوماسیون گردش‌کار و اتصال سرویس‌ها. فعال‌سازی روی اکانت خودت. (تأمین: پارس پرمیوم / مایندزی)",
+   "available": true,
+   "from_final": 9104800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Starter — ۱ ماهه",
+     "price": 11381000,
+     "final": 9104800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۱ ماهه",
+     "price": 26175000,
+     "final": 20940000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Starter — ۱ ساله",
+     "price": 15078000,
+     "final": 12062400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "tradingview",
+   "cat": "ai",
+   "name": "TradingView",
+   "title": "📈 TradingView | تریدینگ‌ویو",
+   "desc": "تریدینگ‌ویو پریمیوم و پلاس؛ چارت حرفه‌ای و اندیکاتور نامحدود. (تأمین: ایران اسپاتیفای)",
+   "available": true,
+   "from_final": 7937600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Plus — ۱ ماهه",
+     "price": 9922000,
+     "final": 7937600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Premium — ۱ ماهه",
+     "price": 15591000,
+     "final": 12472800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Premium — ۱ ساله",
+     "price": 198428000,
+     "final": 158742400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "grammarly",
+   "cat": "ai",
+   "name": "Grammarly",
+   "title": "📝 Grammarly | گرامرلی",
+   "desc": "گرامرلی پریمیوم؛ گرامر، نگارش و بازنویسی AI برای متن انگلیسی. (تأمین: پرمیفای / ایران اسپاتیفای)",
+   "available": true,
+   "from_final": 783200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "اشتراکی — ۱ ماهه",
+     "price": 979000,
+     "final": 783200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "اشتراکی — ۳ ماهه",
+     "price": 1889000,
+     "final": 1511200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "اشتراکی — ۶ ماهه",
+     "price": 3359000,
+     "final": 2687200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "اشتراکی — ۱ ساله",
+     "price": 6159000,
+     "final": 4927200,
+     "available": true
+    },
+    {
+     "idx": 4,
+     "label": "شخصی — ۱ ماهه",
+     "price": 2139000,
+     "final": 1711200,
+     "available": true
+    },
+    {
+     "idx": 5,
+     "label": "شخصی — ۳ ماهه",
+     "price": 4390000,
+     "final": 3512000,
+     "available": true
+    },
+    {
+     "idx": 6,
+     "label": "شخصی — ۱ ساله",
+     "price": 10131000,
+     "final": 8104800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "cursor_pro",
+   "cat": "ai",
+   "name": "Cursor Pro",
+   "title": "🖱️ Cursor Pro | کرسر پرو",
+   "desc": "کرسر؛ ادیتور کدنویسی AI. پلن‌های Premium و Super و Ultra، فعال‌سازی روی اکانت خودت. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 6242400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۱ ماهه",
+     "price": 7803000,
+     "final": 6242400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Super — ۱ ماهه",
+     "price": 24885000,
+     "final": 19908000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Ultra — ۱ ماهه",
+     "price": 49348000,
+     "final": 39478400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "genspark",
+   "cat": "ai",
+   "name": "GenSpark",
+   "title": "✨ GenSpark | جن‌اسپارک",
+   "desc": "جن‌اسپارک؛ موتور جستجو و ایجنت AI با کردیت ماهانه. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 9104800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه — ۱۰٬۰۰۰ کردیت",
+     "price": 11381000,
+     "final": 9104800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ماهه — ۲۱٬۰۰۰ کردیت",
+     "price": 21623000,
+     "final": 17298400,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱ ماهه — ۳۲٬۰۰۰ کردیت",
+     "price": 34900000,
+     "final": 27920000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "elicit",
+   "cat": "ai",
+   "name": "Elicit",
+   "title": "🔬 Elicit | الیسیت",
+   "desc": "الیسیت؛ دستیار پژوهش AI برای مرور مقالات علمی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 783200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه (اکانت آماده)",
+     "price": 979000,
+     "final": 783200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۱ ماهه (شارژ اکانت شخصی)",
+     "price": 34021000,
+     "final": 27216800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Scale — ۱ ماهه (شارژ اکانت شخصی)",
+     "price": 136082000,
+     "final": 108865600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "huggingface",
+   "cat": "ai",
+   "name": "Hugging Face",
+   "title": "🤗 Hugging Face | هاگینگ‌فیس",
+   "desc": "هاگینگ‌فیس Pro و Team؛ دسترسی کامل به مدل‌ها و Spaces. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 3945600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه",
+     "price": 4932000,
+     "final": 3945600,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Team — ۱ ماهه",
+     "price": 9105000,
+     "final": 7284000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "felo_ai",
+   "cat": "ai",
+   "name": "Felo AI",
+   "title": "🔎 Felo AI | فلو AI",
+   "desc": "فلو AI پریمیوم؛ جستجوی هوشمند و ارائه‌ساز AI. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 6070400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۱ ماهه",
+     "price": 7588000,
+     "final": 6070400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "manychat",
+   "cat": "ai",
+   "name": "Manychat Pro",
+   "title": "💬 Manychat Pro | منی‌چت پرو",
+   "desc": "منی‌چت پرو؛ اتوماسیون دایرکت اینستاگرام و پیام‌رسان‌ها. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 13925600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه",
+     "price": 17407000,
+     "final": 13925600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "qodo",
+   "cat": "ai",
+   "name": "Qodo",
+   "title": "🧑‍💻 Qodo | کودو",
+   "desc": "کودو (Codium سابق)؛ دستیار کدنویسی و ریویوی AI برای تیم‌ها. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 5823200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Teams — ۱ ماهه",
+     "price": 7279000,
+     "final": 5823200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "rytr",
+   "cat": "ai",
+   "name": "Rytr",
+   "title": "🖊️ Rytr | رایتر",
+   "desc": "رایتر؛ نویسنده AI برای متن‌های بازاریابی و محتوا. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 3642400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Lite — ۱ ماهه",
+     "price": 4553000,
+     "final": 3642400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Personal — ۱ ماهه",
+     "price": 9105000,
+     "final": 7284000,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Pro — ۱ ماهه",
+     "price": 21243000,
+     "final": 16994400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "tabnine",
+   "cat": "ai",
+   "name": "Tabnine",
+   "title": "⌨️ Tabnine | تب‌ناین",
+   "desc": "تب‌ناین Dev؛ تکمیل‌کننده کد AI برای همه ادیتورها. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 2239200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Dev — ۱ ماهه",
+     "price": 2799000,
+     "final": 2239200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "vercel_pro",
+   "cat": "ai",
+   "name": "Vercel Pro",
+   "title": "▲ Vercel Pro | ورسل پرو",
+   "desc": "ورسل پرو؛ هاست و دیپلوی حرفه‌ای برای Next.js و وب‌اپ‌ها. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 3359200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه",
+     "price": 4199000,
+     "final": 3359200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "zapier",
+   "cat": "ai",
+   "name": "Zapier",
+   "title": "⚡ Zapier | زپیر",
+   "desc": "زپیر؛ اتوماسیون بین هزاران اپ + ایجنت و چت‌بات AI. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 2687200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Professional — ۱ ماهه",
+     "price": 5376000,
+     "final": 4300800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Agents Pro — ۱ ماهه",
+     "price": 6999000,
+     "final": 5599200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Chatbots Pro — ۱ ماهه",
+     "price": 3359000,
+     "final": 2687200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "jetbrains",
+   "cat": "ai",
+   "name": "JetBrains",
+   "title": "🧰 JetBrains | جت‌برینز",
+   "desc": "لایسنس قانونی جت‌برینز؛ همه IDEها + AI Pro. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 3135200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "AI Pro — ۱ ماهه",
+     "price": 3919000,
+     "final": 3135200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "dotUltimate — ۱ ماهه",
+     "price": 7419000,
+     "final": 5935200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "All Products Pack — ۱ ماهه",
+     "price": 9379000,
+     "final": 7503200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "AI Ultimate — ۱ ماهه",
+     "price": 11199000,
+     "final": 8959200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "onedrive_1tb",
+   "cat": "ai",
+   "name": "OneDrive 1TB",
+   "title": "☁️ OneDrive 1TB | وان‌درایو ۱ ترابایت",
+   "desc": "افزایش فضای وان‌درایو به ۱ ترابایت روی اکانت شخصی، بدون نیاز به لاگین. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 330400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه",
+     "price": 413000,
+     "final": 330400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 1399000,
+     "final": 1119200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱ ساله",
+     "price": 2043000,
+     "final": 1634400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "mobbin",
+   "cat": "design",
+   "name": "Mobbin",
+   "title": "📱 Mobbin | موبین",
+   "desc": "موبین؛ بزرگ‌ترین کتابخانه اسکرین‌شات و فلوهای اپ‌های معروف برای طراحان UI/UX. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 9110400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ساله",
+     "price": 11388000,
+     "final": 9110400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Team — ۱ ساله",
+     "price": 15185000,
+     "final": 12148000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "autodesk_student",
+   "cat": "design",
+   "name": "Autodesk Student",
+   "title": "📐 Autodesk Student | اتودسک دانشجویی",
+   "desc": "دسترسی دانشجویی اتودسک؛ AutoCAD و بقیه ابزارهای مهندسی. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 1519200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "دانشجویی",
+     "price": 1899000,
+     "final": 1519200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "framer",
+   "cat": "design",
+   "name": "Framer Pro",
+   "title": "🖥️ Framer Pro | فریمر",
+   "desc": "فریمر پرو؛ طراحی و انتشار سایت بدون کدنویسی. (تأمین: مایندزی)",
+   "available": true,
+   "from_final": 8323200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ساله",
+     "price": 10404000,
+     "final": 8323200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "faceapp",
+   "cat": "design",
+   "name": "FaceApp Pro",
+   "title": "📸 FaceApp Pro | فیس‌اپ پرو",
+   "desc": "فیس‌اپ پرو؛ ویرایش حرفه‌ای چهره و سلفی (نسخه iOS). فعال‌سازی روی اکانت خودت. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 1079200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ساله (اختصاصی — iOS)",
+     "price": 1349000,
+     "final": 1079200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "freepik",
+   "cat": "design",
+   "name": "Freepik Premium",
+   "title": "🖼️ Freepik Premium | فری‌پیک",
+   "desc": "فری‌پیک پریمیوم؛ دانلود نامحدود عکس، وکتور و فایل گرافیکی. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 1903200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 2379000,
+     "final": 1903200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "pngtree",
+   "cat": "design",
+   "name": "Pngtree",
+   "title": "🌳 Pngtree | پی‌ان‌جی‌تری",
+   "desc": "پی‌ان‌جی‌تری پریمیوم؛ میلیون‌ها فایل PNG و قالب گرافیکی. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 996000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۳ ماهه",
+     "price": 1245000,
+     "final": 996000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۶ ماهه",
+     "price": 1889000,
+     "final": 1511200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "photoroom",
+   "cat": "design",
+   "name": "PhotoRoom",
+   "title": "📷 PhotoRoom | فوتوروم",
+   "desc": "فوتوروم؛ حذف پس‌زمینه و ساخت عکس محصول حرفه‌ای با AI. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 783200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه",
+     "price": 979000,
+     "final": 783200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Max — ۱ ماهه",
+     "price": 2519000,
+     "final": 2015200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Pro — ۱ ساله",
+     "price": 6299000,
+     "final": 5039200,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Max — ۱ ساله",
+     "price": 19179000,
+     "final": 15343200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "picsart",
+   "cat": "design",
+   "name": "PicsArt Pro",
+   "title": "🎨 PicsArt Pro | پیکس‌آرت",
+   "desc": "پیکس‌آرت پرو؛ ویرایش عکس و ویدیو با ابزار AI. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 335200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه (اشتراکی)",
+     "price": 419000,
+     "final": 335200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۱ ماهه (شخصی)",
+     "price": 7318000,
+     "final": 5854400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "reelsapp",
+   "cat": "design",
+   "name": "ReelsApp Pro",
+   "title": "🎬 ReelsApp Pro | ریلز اپ",
+   "desc": "ریلز اپ پرو؛ ساخت ریلز و ویدیوهای ترند اینستاگرام (iOS). (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 671200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱۲ ماهه (iOS)",
+     "price": 839000,
+     "final": 671200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "remini",
+   "cat": "design",
+   "name": "Remini Pro",
+   "title": "✨ Remini Pro | رمینی",
+   "desc": "رمینی Business نامحدود؛ افزایش کیفیت عکس و ویدیو با AI روی وب. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 4457600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Business نامحدود — ۱۲ ماهه (وب)",
+     "price": 5572000,
+     "final": 4457600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "facetune",
+   "cat": "design",
+   "name": "Facetune Premium",
+   "title": "💄 Facetune Premium | فیس‌تون",
+   "desc": "فیس‌تون پریمیوم؛ روتوش حرفه‌ای سلفی (iOS). فعال‌سازی اختصاصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 218400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۱ ماهه (iOS)",
+     "price": 273000,
+     "final": 218400,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "elsa_speak",
+   "cat": "learn",
+   "name": "ELSA Speak",
+   "title": "🗣️ ELSA Speak | السا",
+   "desc": "السا؛ مربی تلفظ انگلیسی با هوش مصنوعی و بازخورد لحظه‌ای. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 8122400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۳ ماهه",
+     "price": 10153000,
+     "final": 8122400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Premium — ۱ ساله",
+     "price": 23366000,
+     "final": 18692800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "masterclass",
+   "cat": "learn",
+   "name": "MasterClass",
+   "title": "🎓 MasterClass | مسترکلاس",
+   "desc": "مسترکلاس؛ کلاس‌های بهترین‌های دنیا در هنر، بیزنس و آشپزی. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 940800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ساله",
+     "price": 1176000,
+     "final": 940800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "codecademy",
+   "cat": "learn",
+   "name": "Codecademy",
+   "title": "💻 Codecademy | کدکادمی",
+   "desc": "کدکادمی Pro؛ یادگیری تعاملی برنامه‌نویسی با پروژه و مسیر شغلی. (تأمین: پارس پرمیوم / پرمیفای)",
+   "available": true,
+   "from_final": 223200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه (اشتراک اول)",
+     "price": 279000,
+     "final": 223200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۳ ماهه",
+     "price": 1190000,
+     "final": 952000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "memrise",
+   "cat": "learn",
+   "name": "Memrise",
+   "title": "🧠 Memrise | ممرایز",
+   "desc": "ممرایز؛ یادگیری زبان با فلش‌کارت و ویدیوی نیتیوها. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 537600,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۶ ماهه",
+     "price": 672000,
+     "final": 537600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "mondly",
+   "cat": "learn",
+   "name": "Mondly",
+   "title": "🌍 Mondly | موندلی",
+   "desc": "موندلی؛ یادگیری ۴۱ زبان با مکالمه تعاملی. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 592800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۶ ماهه",
+     "price": 741000,
+     "final": 592800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 1231000,
+     "final": 984800,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "yousician",
+   "cat": "learn",
+   "name": "Yousician",
+   "title": "🎸 Yousician | یوسیشن",
+   "desc": "یوسیشن؛ یادگیری گیتار، پیانو و خوانندگی با بازخورد زنده. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 783200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۶ ماهه",
+     "price": 979000,
+     "final": 783200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۱ ساله",
+     "price": 1259000,
+     "final": 1007200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "busuu",
+   "cat": "learn",
+   "name": "Busuu",
+   "title": "🗣️ Busuu | بوسو",
+   "desc": "بوسو پریمیوم و پلاس؛ یادگیری زبان با برنامه شخصی و تصحیح نیتیوها. (تأمین: پرمیفای)",
+   "available": true,
+   "from_final": 9818400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۱ ساله",
+     "price": 12273000,
+     "final": 9818400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Plus — ۱ ساله",
+     "price": 16364000,
+     "final": 13091200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "blinkist",
+   "cat": "learn",
+   "name": "Blinkist",
+   "title": "📚 Blinkist | بلینکیست",
+   "desc": "بلینکیست؛ خلاصه صوتی و متنی بهترین کتاب‌های غیرداستانی. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 1092800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "۱ ماهه (شخصی)",
+     "price": 1366000,
+     "final": 1092800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "۳ ماهه (شخصی)",
+     "price": 3794000,
+     "final": 3035200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "۱۲ ماهه (شخصی)",
+     "price": 8232000,
+     "final": 6585600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "chegg",
+   "cat": "learn",
+   "name": "Chegg Study",
+   "title": "📖 Chegg Study | چگ",
+   "desc": "چگ Study؛ حل تمرین و پاسخ کتاب‌های درسی دانشگاهی. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 727200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Study — ۱ ماهه",
+     "price": 909000,
+     "final": 727200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Study Pack — ۱ ماهه",
+     "price": 6125000,
+     "final": 4900000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "hellotalk",
+   "cat": "learn",
+   "name": "HelloTalk VIP",
+   "title": "👋 HelloTalk VIP | هلوتاک",
+   "desc": "هلوتاک VIP؛ تبادل زبان با نیتیوها و ترجمه نامحدود. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 5160000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "VIP — ۱ ماهه",
+     "price": 6450000,
+     "final": 5160000,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "VIP — ۱ ساله",
+     "price": 26554000,
+     "final": 21243200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "mindvalley",
+   "cat": "learn",
+   "name": "Mindvalley",
+   "title": "🌱 Mindvalley | مایندولی",
+   "desc": "مایندولی؛ دوره‌های رشد فردی و موفقیت از بهترین مربی‌های دنیا. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 7839200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۱ ماهه",
+     "price": 9799000,
+     "final": 7839200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "rosetta_stone",
+   "cat": "learn",
+   "name": "Rosetta Stone",
+   "title": "🗿 Rosetta Stone | رزتا استون",
+   "desc": "رزتا استون؛ متد معروف یادگیری زبان با غوطه‌وری کامل. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 8464000,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۱ ماهه",
+     "price": 10580000,
+     "final": 8464000,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "smalltalk2me",
+   "cat": "learn",
+   "name": "SmallTalk2Me",
+   "title": "💬 SmallTalk2Me | اسمال‌تاک",
+   "desc": "اسمال‌تاک؛ تمرین مکالمه انگلیسی با مربی AI و ارزیابی IELTS. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 2194400,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Pro — ۱ ماهه",
+     "price": 2743000,
+     "final": 2194400,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Pro — ۳ ماهه",
+     "price": 6999000,
+     "final": 5599200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Pro — ۶ ماهه",
+     "price": 12488000,
+     "final": 9990400,
+     "available": true
+    },
+    {
+     "idx": 3,
+     "label": "Pro — ۱ ساله",
+     "price": 18802000,
+     "final": 15041600,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "talkpal",
+   "cat": "learn",
+   "name": "Talkpal Premium",
+   "title": "🗨️ Talkpal Premium | تاک‌پال",
+   "desc": "تاک‌پال؛ معلم زبان AI برای مکالمه روزانه. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 256800,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۱ ماهه",
+     "price": 321000,
+     "final": 256800,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Premium — ۳ ماهه",
+     "price": 6324000,
+     "final": 5059200,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Premium — ۱ ساله",
+     "price": 16999000,
+     "final": 13599200,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": "praktika",
+   "cat": "learn",
+   "name": "Praktika",
+   "title": "🧑‍🏫 Praktika | پرکتیکا",
+   "desc": "پرکتیکا؛ معلم خصوصی زبان با آواتار AI و مکالمه واقعی. شارژ روی اکانت شخصی. (تأمین: پارس پرمیوم)",
+   "available": true,
+   "from_final": 783200,
+   "plans": [
+    {
+     "idx": 0,
+     "label": "Premium — ۲۱ روزه",
+     "price": 979000,
+     "final": 783200,
+     "available": true
+    },
+    {
+     "idx": 1,
+     "label": "Premium — ۳ ماهه",
+     "price": 8781000,
+     "final": 7024800,
+     "available": true
+    },
+    {
+     "idx": 2,
+     "label": "Premium — ۱ ساله",
+     "price": 31360000,
+     "final": 25088000,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

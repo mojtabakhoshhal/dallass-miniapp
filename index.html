@@ -1,412 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>دالاس | DALLAS — اشتراکِ اصل، قیمتِ دالاس</title>
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark">
+<title>DALLAS | فروشگاه دالاس — نسخه آزمایشی متصل به کاتالوگ بات</title>
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  body { font-family:'Vazirmatn', Tahoma, sans-serif; background:#0a0a0f; color:#f2f2f2; padding:0 14px 90px; }
-  .banner { background:linear-gradient(90deg,#8a6a1f,#f0c75e,#8a6a1f); color:#191204; font-weight:800; font-size:13px; text-align:center; padding:9px 10px; margin:0 -14px; }
-  .banner b { background:#191204; color:#f0c75e; padding:1px 8px; border-radius:6px; letter-spacing:1px; }
-  .hero { text-align:center; padding:26px 10px 6px; }
-  .star { font-size:46px; color:#f0c75e; text-shadow:0 0 26px rgba(240,199,94,.65); line-height:1; }
-  .logo { font-size:42px; font-weight:900; letter-spacing:6px; color:#f0c75e; text-shadow:0 2px 18px rgba(240,199,94,.35); }
-  .tag { margin-top:6px; font-size:15px; font-weight:700; color:#fff; }
-  .sub { margin-top:4px; font-size:12.5px; color:#a7a7b3; }
-  .trust { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:18px 0 6px; }
-  .trust div { background:#12121c; border:1px solid #26263a; border-radius:12px; padding:9px 4px; text-align:center; font-size:11px; font-weight:700; color:#e8e8f0; }
-  .trust span { display:block; font-size:17px; margin-bottom:3px; }
-  .search { width:100%; margin:14px 0 4px; background:#12121c; border:1px solid #2c2c44; border-radius:12px; padding:12px 14px; color:#fff; font-family:inherit; font-size:14px; outline:none; }
-  .search:focus { border-color:#f0c75e; }
-  .cats { display:flex; gap:8px; overflow-x:auto; padding:12px 2px 4px; scrollbar-width:none; }
-  .cats::-webkit-scrollbar { display:none; }
-  .cat-btn { flex:0 0 auto; background:#15151f; color:#cfcfe0; border:1px solid #2a2a3e; border-radius:999px; padding:8px 14px; font-family:inherit; font-size:13px; font-weight:700; cursor:pointer; }
-  .cat-btn.on { background:#f0c75e; color:#191204; border-color:#f0c75e; }
-  .sec-title { font-size:16px; font-weight:900; color:#f0c75e; margin:20px 2px 10px; }
-  .card { background:#12121c; border:1px solid #26263a; border-radius:16px; padding:14px; margin-bottom:12px; position:relative; }
-  .card h3 { font-size:15.5px; font-weight:800; margin-bottom:4px; padding-left:52px; }
-  .card p { font-size:12.5px; color:#a7a7b3; line-height:1.9; margin-bottom:8px; }
-  .badge { position:absolute; top:12px; left:12px; font-size:10.5px; font-weight:800; padding:3px 9px; border-radius:999px; }
-  .b-new { background:#f0c75e; color:#191204; }
-  .b-hot { background:#e5484d; color:#fff; }
-  .plan { display:flex; align-items:center; gap:8px; padding:8px 0; border-top:1px dashed #26263a; }
-  .plan .lbl { flex:1; font-size:13px; }
-  .plan .prc { font-size:13px; font-weight:800; color:#f0c75e; white-space:nowrap; }
-  .buy { background:#f0c75e; color:#191204; border:none; border-radius:10px; padding:7px 13px; font-family:inherit; font-weight:800; font-size:12.5px; cursor:pointer; }
-  .soon { background:#26263a; color:#cfcfe0; border:none; border-radius:10px; padding:7px 13px; font-family:inherit; font-weight:700; font-size:12.5px; cursor:pointer; }
-  .pop-row { display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none; }
-  .pop-row::-webkit-scrollbar { display:none; }
-  .pop { flex:0 0 148px; background:linear-gradient(160deg,#17171f,#101018); border:1px solid #3a3a55; border-radius:14px; padding:12px; cursor:pointer; }
-  .pop .pt { font-size:13.5px; font-weight:800; margin-bottom:4px; }
-  .pop .pd { font-size:11px; color:#a7a7b3; line-height:1.8; min-height:34px; }
-  .pop .pp { font-size:12.5px; font-weight:800; color:#f0c75e; margin-top:6px; }
-  .steps { background:#12121c; border:1px solid #26263a; border-radius:16px; padding:14px; margin-top:6px; }
-  .steps .st { display:flex; gap:10px; padding:8px 0; border-top:1px dashed #26263a; font-size:13px; line-height:1.9; }
-  .steps .st:first-of-type { border-top:none; }
-  .steps .n { flex:0 0 26px; height:26px; border-radius:50%; background:#f0c75e; color:#191204; font-weight:900; text-align:center; line-height:26px; font-size:13px; }
-  .lib-banner { background:linear-gradient(120deg,#1a1430,#12121c); border:1px solid #8b2fc9; border-radius:16px; padding:16px 14px; margin-top:20px; text-align:center; }
-  .lib-banner h3 { font-size:16px; font-weight:900; margin-bottom:5px; }
-  .lib-banner p { font-size:12.5px; color:#c9c4e8; line-height:1.9; margin-bottom:10px; }
-  .lib-banner button { background:#8b2fc9; color:#fff; border:none; border-radius:10px; padding:9px 18px; font-family:inherit; font-weight:800; font-size:13px; cursor:pointer; }
-  footer { text-align:center; color:#77778c; font-size:12px; line-height:2.1; margin-top:26px; }
-  footer a { color:#f0c75e; text-decoration:none; font-weight:700; }
-  #ovl { position:fixed; inset:0; background:rgba(0,0,0,.66); display:none; z-index:50; }
-  #ovl.open { display:block; }
-  #sheet { position:absolute; left:0; right:0; bottom:0; background:#14141f; border-radius:20px 20px 0 0; border-top:2px solid #f0c75e; padding:20px 16px 26px; max-height:88vh; overflow-y:auto; }
-  #sheet h3 { font-size:16px; font-weight:900; }
-  #sheet .pl { color:#a7a7b3; font-size:13px; margin-top:4px; }
-  #sheet .amount { font-size:26px; font-weight:900; color:#f0c75e; margin:12px 0; }
-  #sheet .amount small { font-size:13px; }
-  .bank { background:#0d0d15; border:1px dashed #3a3a55; border-radius:12px; padding:12px; font-size:14px; line-height:2.1; }
-  .bank .num { font-weight:900; letter-spacing:1px; color:#fff; }
-  .copyrow { display:flex; gap:8px; margin:12px 0; }
-  .copybtn { flex:1; background:#26263a; color:#fff; border:none; border-radius:10px; padding:10px 6px; font-family:inherit; font-weight:700; font-size:12.5px; cursor:pointer; }
-  .note { font-size:12.5px; color:#c9c9d8; line-height:2; background:#101018; border-radius:12px; padding:10px 12px; }
-  .tick { display:flex; gap:8px; align-items:flex-start; margin:14px 0; font-size:13.5px; font-weight:700; cursor:pointer; }
-  .tick input { margin-top:3px; width:18px; height:18px; accent-color:#f0c75e; }
-  .cta { width:100%; background:#f0c75e; color:#191204; border:none; border-radius:12px; padding:13px; font-family:inherit; font-weight:900; font-size:15px; cursor:pointer; }
-  .cta:disabled { opacity:.4; cursor:default; }
-  .ghost { width:100%; background:none; color:#a7a7b3; border:none; padding:11px; font-family:inherit; font-size:13px; cursor:pointer; }
-  #toast { position:fixed; top:16px; left:50%; transform:translateX(-50%); background:#f0c75e; color:#191204; font-weight:800; font-size:13px; padding:9px 18px; border-radius:999px; display:none; z-index:99; }
-  .hidden { display:none !important; }
+:root{--bg:#090a0e;--panel:#151820;--panel2:#1c202a;--line:#2a2e39;--gold:#e5ba68;--red:#ed364d;--text:#f6f4f1;--mut:#aab0bc}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% -10%,#3a2425 0%,transparent 44%),var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;padding-bottom:90px;line-height:1.7}button,input,a{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.wrap{max-width:750px;margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:17px 18px;border-bottom:1px solid #ffffff13}.logo{font-family:Arial,sans-serif;letter-spacing:.13em;font-size:23px;font-weight:900}.logo i{color:var(--gold);font-style:normal}.small{color:var(--mut);font-size:11px;letter-spacing:0}.support{font-size:12px;background:#22252d;border:1px solid #44444b;border-radius:999px;padding:8px 12px}.hero{margin:19px 15px 8px;border:1px solid #6d4b48;border-radius:24px;overflow:hidden;background:linear-gradient(125deg,#25171b,#121620 60%,#20212a);padding:23px 21px;position:relative}.eyebrow{color:var(--gold);font-size:11px;font-weight:bold;letter-spacing:.05em}.hero h1{margin:10px 0 5px;font-size:clamp(22px,5vw,31px);line-height:1.45}.hero h1 em{font-style:normal;color:var(--gold)}.hero p{margin:0;color:#c7c7cc;font-size:13px;max-width:490px}.demo{background:#2e2522;color:#f3ce91;border:1px solid #7c5e36;border-radius:9px;padding:7px 10px;font-size:11px;display:inline-block;margin-top:14px}.camp{display:none;margin:12px 15px 0;background:#000;border:1px solid var(--red);border-radius:14px;padding:11px 15px;font-size:13px;text-align:center}.camp b{color:var(--red)}.camp .till{color:var(--gold);font-weight:bold}.stalebar{display:none;margin:12px 15px 0;background:#2e2513;border:1px solid #a97e2f;border-radius:14px;padding:11px 15px;font-size:12.5px;color:#f3ce91;text-align:center;line-height:1.9}.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 15px}.trust span{padding:10px 7px;text-align:center;border:1px solid var(--line);border-radius:12px;background:#16191fd9;font-size:11px;color:#c8cbd1}.trust b{color:var(--gold);display:block;font-size:18px}.head{display:flex;justify-content:space-between;align-items:center;margin:25px 16px 12px;gap:15px}.head h2{font-size:19px;margin:0}.count{font-size:11px;color:var(--mut)}.search{margin:0 15px}.search input{display:block;width:100%;border:1px solid #41434d;border-radius:13px;background:#181b23;color:var(--text);padding:13px 15px;outline:none}.search input:focus{border-color:var(--gold)}.cats{display:flex;gap:8px;overflow:auto;padding:14px 15px;scrollbar-width:none}.cat{white-space:nowrap;background:#191c24;border:1px solid #393c46;border-radius:999px;color:#c5c5ce;padding:8px 14px;font-size:12px}.cat.on{background:var(--gold);border-color:var(--gold);color:#17110b;font-weight:bold}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:0 15px}.card{background:linear-gradient(160deg,#1d2029,#12151c);border:1px solid #323640;border-radius:18px;padding:15px;display:flex;flex-direction:column;min-height:215px}.symbol{height:44px;width:44px;border:1px solid #66523d;border-radius:12px;display:grid;place-items:center;color:var(--gold);font-weight:bold;font-size:19px;background:#25222a}.card h3{font-size:14px;margin:12px 0 3px;line-height:1.45}.plan{font-size:11px;color:var(--mut);min-height:32px}.status{font-size:11px;color:#d1b985;margin:auto 0 2px}.price{font-size:15px;font-weight:bold;color:var(--gold);margin-bottom:9px}.price small{font-size:11px;color:var(--mut);font-weight:normal}.buy{display:block;width:100%;text-align:center;padding:10px;background:var(--gold);border:0;border-radius:10px;color:#1b150e;font-weight:bold;font-size:12px}.buy.notify{background:#22252d;color:#d8c491;border:1px solid #66523d}.off{display:inline-block;background:var(--red);color:#fff;font-size:10.5px;font-weight:bold;border-radius:999px;padding:2px 8px;margin-right:6px;vertical-align:middle}.empty{display:none;margin:28px 15px;text-align:center;color:var(--mut)}.errstate{display:none;margin:30px 15px;text-align:center;border:1px dashed #7c3b3b;border-radius:16px;padding:26px 18px;color:#e8b4b4;line-height:2}.errstate a{display:inline-block;margin-top:10px;background:var(--gold);color:#1b150e;font-weight:bold;border-radius:10px;padding:10px 18px;font-size:13px}.footnote{font-size:11px;line-height:1.9;color:var(--mut);padding:15px;margin:18px 15px;border:1px dashed #44454d;border-radius:12px}.nav{position:fixed;bottom:0;left:0;right:0;display:flex;align-items:stretch;justify-content:center;border-top:1px solid #343640;background:#11131aeb;backdrop-filter:blur(15px);z-index:10}.nav-inner{display:flex;width:min(750px,100%)}.nav button,.nav a{flex:1;background:none;border:0;color:#aeb2bc;padding:10px 4px 13px;text-align:center;font-size:11px}.nav strong{display:block;font-size:18px;color:var(--gold);font-weight:400}.nav .on{color:var(--gold)}
+.ovl{position:fixed;inset:0;background:#000a;display:none;z-index:40}.ovl.open{display:block}.sheet{position:fixed;right:0;left:0;bottom:0;z-index:41;background:#14161d;border-top:1.5px solid #66523d;border-radius:22px 22px 0 0;padding:20px 18px 26px;max-height:82vh;overflow:auto;transform:translateY(105%);transition:transform .25s;max-width:750px;margin:auto}.sheet.open{transform:translateY(0)}.sheet h3{margin:0 0 4px;font-size:16.5px}.sheet .desc{color:var(--mut);font-size:12px;line-height:1.9;margin-bottom:12px}.planrow{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:#1a1d26;border:1px solid #343743;border-radius:13px;padding:12px 13px;margin-bottom:9px;color:var(--text);text-align:right}.planrow .lbl{font-size:12.5px}.planrow .pr{text-align:left;white-space:nowrap}.planrow .pr s{color:#767e90;font-size:11px;display:block}.planrow .pr b{color:var(--gold);font-size:14px}.planrow:disabled{opacity:.45;cursor:default}.planrow.sel{border-color:var(--gold);background:#23202a}.cta{display:block;width:100%;text-align:center;background:var(--gold);color:#1b150e;font-weight:bold;border:0;border-radius:12px;padding:14px;font-size:14px;margin-top:6px}.cta:disabled{opacity:.4}.ghost{display:block;width:100%;background:none;border:0;color:var(--mut);padding:11px;font-size:12.5px}.sheet .note{font-size:11px;color:var(--mut);line-height:1.9;margin-top:8px}
+@media(max-width:360px){.grid{gap:7px;margin:0 9px}.card{padding:10px}.hero{padding:17px}.trust{gap:5px}}@media(min-width:610px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
-<body>
-<div class="banner">🎉 با کد <b>AVVAL</b> روی اولین خریدت ۱۵٪ تخفیف بگیر</div>
-
-<div class="hero">
-  <div class="star">★</div>
-  <div class="logo">DALLAS</div>
-  <div class="tag">اشتراکِ اصل، قیمتِ دالاس</div>
-  <div class="sub">خرید اشتراک‌های اصل و VPN — تحویل سریع، پشتیبانی واقعی</div>
+<body><div class="wrap">
+<header class="top"><div><div class="logo">DALLAS<i>✦</i></div><div class="small">اشتراک اصل، قیمت دالاس</div></div><a class="support" href="https://t.me/Dallassvpnbot" target="_blank" rel="noopener noreferrer">ارتباط با دالاس ↗</a></header>
+<section class="hero"><span class="eyebrow">DALLAS DIGITAL SHOP</span><h1>دنیای اشتراک‌ها،<br><em>یک‌جا و ساده.</em></h1><p>سرویس موردنظرت رو انتخاب کن، پلن رو ببین و سفارش رو داخل بات دالاس کامل کن.</p><span class="demo">نسخه آزمایشی (Sandbox) — قیمت و موجودی زنده از کاتالوگ بات؛ روی محیط اصلی منتشر نشده</span></section>
+<div class="camp" id="camp"></div>
+<div class="stalebar" id="stalebar"></div>
+<div class="trust"><span><b>✦</b>دسته‌بندی منظم</span><span><b>⌕</b>جست‌وجوی سریع</span><span><b>↗</b>سفارش در بات</span></div>
+<div class="head" id="products"><h2>سرویس‌ها</h2><span class="count" id="count"></span></div>
+<div class="search"><input id="search" type="search" aria-label="جست‌وجوی سرویس" placeholder="نام سرویس رو جست‌وجو کن…"></div>
+<div class="cats" id="categories" aria-label="دسته‌بندی سرویس‌ها"></div>
+<div class="grid" id="grid" aria-live="polite"></div><p class="empty" id="empty">سرویسی با این مشخصات پیدا نشد.</p>
+<div class="errstate" id="errstate"></div>
+<div class="footnote" id="footnote">در حال بارگذاری کاتالوگ…</div>
 </div>
-
-<div class="trust">
-  <div><span>⚡</span>تحویل سریع</div>
-  <div><span>🛡</span>اشتراک اصل</div>
-  <div><span>💳</span>پرداخت امن</div>
-  <div><span>🎧</span>پشتیبانی واقعی</div>
-</div>
-
-<input class="search" id="search" type="text" placeholder="🔎 دنبال چی می‌گردی؟ مثلاً جمینای، اسپاتیفای…">
-<div class="cats" id="cats"></div>
-
-<div id="popWrap">
-  <div class="sec-title">⭐ محبوب‌ترین‌ها</div>
-  <div class="pop-row" id="popRow"></div>
-</div>
-
-<div id="grid"></div>
-
-<div class="sec-title">🛒 روش خرید — ساده و سریع در سه قدم</div>
-<div class="steps">
-  <div class="st"><div class="n">۱</div><div>محصول و پلن رو انتخاب کن و «خرید» رو بزن — همه‌چیز همین‌جا داخل مینی‌اپ انجام می‌شه.</div></div>
-  <div class="st"><div class="n">۲</div><div>مبلغ و شماره کارت رو با دکمه‌های کپی بردار و کارت‌به‌کارت واریز کن، بعد تیک تأیید رو بزن.</div></div>
-  <div class="st"><div class="n">۳</div><div>رسید رو داخل بات بفرست؛ سفارشت بررسی و بعد از تأیید، تحویل داده می‌شه.</div></div>
-</div>
-
-<div class="lib-banner">
-  <h3>🖼 کتابخانه پرامپت دالاس</h3>
-  <p>۷٬۹۶۴ پرامپت تصویری آماده با تصویر نمونه و جست‌وجو — برای ساخت عکس با هوش مصنوعی. مجموعه کامل + نسخه آنلاین اختصاصی.</p>
-  <button onclick="gotoProduct('dallas_prompts')">مشاهده کتابخانه پرامپت</button>
-</div>
-
-<footer>
-  ★ DALLAS — اشتراکِ اصل، قیمتِ دالاس<br>
-  پشتیبانی: از داخل <a href="https://t.me/Dallassvpnbot">بات دالاس</a> پیام بده<br>
-  کانال: <a href="https://t.me/DallasShopIR">@DallasShopIR</a>
-</footer>
-
-<div id="ovl"><div id="sheet"></div></div>
-<div id="toast">کپی شد ✅</div>
-
+<div class="ovl" id="ovl"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+<nav class="nav"><div class="nav-inner"><button class="on" id="home"><strong>⌂</strong>خانه</button><button id="categoryNav"><strong>▦</strong>دسته‌بندی‌ها</button><a href="https://t.me/Dallassvpnbot" target="_blank" rel="noopener noreferrer"><strong>↗</strong>ارتباط با بات</a></div></nav>
+<script src="pricing.js"></script>
 <script>
-const BOT = "Dallassvpnbot";
-const CARD_NUMBER = "6037-9982-1606-6141";
-const CARD_DIGITS = "6037998216066141";
-const CARD_HOLDER = "مجتبی خوشحال";
-
-const CATS = [
-  ["all", "🔥 همه"],
-  ["ai", "🤖 هوش مصنوعی"],
-  ["vpn", "🌐 VPN و اینترنت"],
-  ["design", "🎨 طراحی و ویدیو"],
-  ["fun", "🎵 سرگرمی"],
-  ["learn", "📚 یادگیری زبان"],
-];
-const CAT_NAMES = { ai:"🤖 هوش مصنوعی", vpn:"🌐 VPN و اینترنت", design:"🎨 طراحی و ویدیو", fun:"🎵 سرگرمی", learn:"📚 یادگیری زبان" };
-const NEW_IDS = ["gemini_plus","grok_plus","cursor_grok","muse_ai","lovable_pro","lovable_lite","elevenlabs","turnitin","zoom_pro","canva_edu","adobe_express","dallas_prompts","perplexity_pro"];
-const HOT_IDS = ["v2ray","gemini","chatgpt_plus","telegram_premium"];
-const POP_IDS = ["v2ray","gemini","chatgpt_plus","telegram_premium","spotify_premium"];
-
-const PRODUCTS = [
-  {id:"v2ray", cat:"vpn", t:"🌎 V2Ray متغیر", d:"کانفیگ حجمی — بدون محدودیت زمانی، یا نامحدود ۳۰ روزه با مصرف منصفانه", plans:[["۱۰ گیگ · بدون محدودیت زمانی","۴۲٬۰۰۰",42000],["۲۰ گیگ · بدون محدودیت زمانی","۸۴٬۰۰۰",84000],["۳۰ گیگ · بدون محدودیت زمانی","۱۲۶٬۰۰۰",126000],["۵۰ گیگ · بدون محدودیت زمانی","۲۱۰٬۰۰۰",210000],["۱۰۰ گیگ · بدون محدودیت زمانی","۴۲۰٬۰۰۰",420000],["نامحدود ۳۰ روزه · ۱ کاربر (مصرف منصفانه)","۲۲۴٬۰۰۰",224000],["نامحدود ۳۰ روزه · ۲ کاربر (مصرف منصفانه)","۳۹۲٬۰۰۰",392000],["نامحدود ۳۰ روزه · ۳ کاربر (مصرف منصفانه)","۷۰۰٬۰۰۰",700000]]},
-  {id:"v2ray_gaming", cat:"vpn", t:"🎮 V2Ray گیمینگ", d:"وایرگارد مخصوص بازی — پینگ پایین و اتصال پایدار، بدون محدودیت زمانی", plans:[["۱۰ گیگ · بدون محدودیت زمانی","۴۲٬۰۰۰",42000],["۲۰ گیگ · بدون محدودیت زمانی","۸۴٬۰۰۰",84000],["۳۰ گیگ · بدون محدودیت زمانی","۱۲۶٬۰۰۰",126000],["۵۰ گیگ · بدون محدودیت زمانی","۲۱۰٬۰۰۰",210000],["۱۰۰ گیگ · بدون محدودیت زمانی","۴۲۰٬۰۰۰",420000]]},
-  {id:"v2ray_fixed", cat:"vpn", t:"🛡 V2Ray آی‌پی ثابت", d:"آی‌پی ثابت اختصاصی — مخصوص ترید، صرافی و هوش مصنوعی، بدون محدودیت زمانی", plans:[["۱۰ گیگ · آی‌پی ثابت","۷۰٬۰۰۰",70000],["۲۰ گیگ · آی‌پی ثابت","۱۴۰٬۰۰۰",140000],["۳۰ گیگ · آی‌پی ثابت","۲۱۰٬۰۰۰",210000],["۵۰ گیگ · آی‌پی ثابت","۳۵۰٬۰۰۰",350000],["۱۰۰ گیگ · آی‌پی ثابت","۷۰۰٬۰۰۰",700000]]},
-  {id:"gemini", cat:"ai", t:"📱 Gemini", d:"هوش مصنوعی گوگل — ۳ ماهه", plans:[["۳ ماهه (لینک فعال‌سازی)","۸۹۸٬۰۰۰",898000]]},
-  {id:"chatgpt_k12", cat:"ai", t:"📱 ChatGPT K12 Edu", d:"اشتراک ۲ ساله", plans:[["۲ ساله","به‌زودی",0]]},
-  {id:"chatgpt_plus", cat:"ai", t:"💬 ChatGPT Plus", d:"اشتراک رسمی — Plus و Go روی اکانت شخصی", plans:[["Plus · ۱ ماهه (اکانت شخصی)","۳٬۱۷۰٬۰۰۰",3170000],["Go · ۱ ماهه (اکانت شخصی)","۳٬۰۱۰٬۰۰۰",3010000],["Plus · ۱ ماهه (اکانت آماده)","۵٬۶۸۹٬۰۰۰",5689000],["Plus · ۱ ماهه (اشتراکی ۶ نفره)","۷۵۹٬۰۰۰",759000],["Business · ۱ ماهه","۸٬۰۱۴٬۰۰۰",8014000],["Pro 5X · ۱ ماهه","۴۰٬۶۱۷٬۰۰۰",40617000],["Pro 20X · ۱ ماهه","۷۵٬۹۲۰٬۰۰۰",75920000],["Go · ۱ ماهه (اکانت آماده)","۲٬۸۴۶٬۰۰۰",2846000]]},
-  {id:"nordvpn", cat:"vpn", t:"🥏 NordVPN", d:"اشتراک پریمیوم", plans:[["۱ ماهه","۱٬۵۴۰٬۰۰۰",1540000],["۱ ساله","به‌زودی",0],["۲ ساله","به‌زودی",0]]},
-  {id:"figma_pro", cat:"design", t:"📱 Figma Pro Edu", d:"ابزار حرفه‌ای طراحی", plans:[["۱ ساله","۶٬۶۷۸٬۰۰۰",6678000]]},
-  {id:"duolingo", cat:"learn", t:"👋 Duolingo Super", d:"یادگیری زبان", plans:[["۱ ماهه","۴۱۹٬۰۰۰",419000],["۱ ساله","۵۲۳٬۰۰۰",523000],["۳ ماهه","۱٬۰۴۹٬۰۰۰",1049000],["۶ ماهه","۱٬۷۴۹٬۰۰۰",1749000],["Max · ۱ ماهه","۶۹۳٬۰۰۰",693000]]},
-  {id:"telegram_premium", cat:"fun", t:"✈️ Telegram Premium", d:"فعال‌سازی رسمی روی اکانت شما", plans:[["۳ ماهه","۳٬۸۵۰٬۰۰۰",3850000],["۶ ماهه","۵٬۱۱۰٬۰۰۰",5110000],["۱۲ ماهه","۹٬۲۴۰٬۰۰۰",9240000]]},
-  {id:"claude_pro", cat:"ai", t:"🤖 Claude Pro", d:"هوش مصنوعی Anthropic", plans:[["۱ ماهه","۷٬۶۰۴٬۰۰۰",7604000],["Max 5X · ۱ ماهه","۸۱٬۴۳۲٬۰۰۰",81432000],["Max 20X · ۱ ماهه","۱۲۸٬۷۷۶٬۰۰۰",128776000]]},
-  {id:"capcut_pro", cat:"design", t:"🎬 CapCut Pro", d:"ویرایش حرفه‌ای ویدیو", plans:[["۱ ماهه","۵۲۵٬۰۰۰",525000],["اشتراکی","۸۹۶٬۰۰۰",896000],["۱ ساله","۱۶٬۳۴۴٬۰۰۰",16344000],["۶ ماهه","۸٬۲۲۵٬۰۰۰",8225000]]},
-  {id:"canva_pro", cat:"design", t:"🎨 Canva Pro", d:"طراحی آنلاین — عضویت تیم پرو", plans:[["۱۲ ماهه","۱٬۲۶۰٬۰۰۰",1260000],["۳ ماهه (Education)","۱٬۱۱۹٬۰۰۰",1119000],["۶ ماهه (Education)","۱٬۶۷۹٬۰۰۰",1679000],["۱ ماهه (اختصاصی)","۱٬۶۲۱٬۰۰۰",1621000]]},
-  {id:"spotify_premium", cat:"fun", t:"🎵 Spotify Premium", d:"موزیک بدون تبلیغ", plans:[["۱ ماهه","۹۶۶٬۰۰۰",966000],["۳ ماهه (پرومو رسمی)","۱٬۲۱۳٬۰۰۰",1213000],["۱ ساله (Legal)","۵٬۴۶۰٬۰۰۰",5460000],["اقتصادی (Family) · ۱ ماهه","۶۲۹٬۰۰۰",629000],["اقتصادی (Family) · ۳ ماهه","۱٬۳۸۶٬۰۰۰",1386000],["اقتصادی (Family) · ۶ ماهه","۲٬۳۶۶٬۰۰۰",2366000],["اقتصادی (Family) · ۱ ساله","۳٬۶۲۶٬۰۰۰",3626000],["Individual · ۶ ماهه","۴٬۸۸۶٬۰۰۰",4886000],["Individual · ۱ ساله","۸٬۲۶۰٬۰۰۰",8260000],["Family Legal · ۱ ماهه","۶۸۶٬۰۰۰",686000]]},
-  {id:"youtube_premium", cat:"fun", t:"▶️ YouTube Premium", d:"یوتیوب بدون تبلیغ", plans:[["۱ ماهه","۱٬۹۸۷٬۰۰۰",1987000],["۳ ماهه (لینک فعال‌سازی)","۱٬۴۱۰٬۰۰۰",1410000],["۱۲ ماهه (فمیلی)","۵٬۵۶۴٬۰۰۰",5564000]]},
-  {id:"netflix_premium", cat:"fun", t:"🎬 Netflix Premium", d:"فیلم و سریال با کیفیت 4K — پروفایل اختصاصی، قابل تمدید", plans:[["۱ ماهه","۹۰۹٬۰۰۰",909000],["۲ ماهه","۱٬۷۴۹٬۰۰۰",1749000],["کامل ۵ کاربره (اکانت اختصاصی) · ۱ ماهه","۵٬۳۱۹٬۰۰۰",5319000]]},
-  {id:"microsoft365", cat:"ai", t:"📄 Microsoft 365", d:"آفیس + کوپایلت — شارژ اکانت شخصی", plans:[["۱ ماهه · قابل تمدید","۴۱۳٬۰۰۰",413000],["۶ ماهه","۱٬۳۹۹٬۰۰۰",1399000],["۱ ساله","۶۵۴٬۰۰۰",654000]]},
-  {id:"gemini_plus", cat:"ai", t:"📱 Gemini Plus", d:"هوش مصنوعی گوگل — فعال‌سازی ۶ ماهه روی اکانت شما", plans:[["۶ ماهه (لینک فعال‌سازی)","۵۹۴٬۰۰۰",594000]]},
-  {id:"grok_plus", cat:"ai", t:"📱 Grok Plus", d:"هوش مصنوعی X — اشتراک ۱ ماهه", plans:[["۱ ماهه","۲٬۰۵۱٬۰۰۰",2051000]]},
-  {id:"cursor_grok", cat:"ai", t:"📱 Cursor Premium + Grok", d:"بسته برنامه‌نویسی Cursor + Grok", plans:[["۱ ماهه","۵٬۲۰۶٬۰۰۰",5206000]]},
-  {id:"muse_ai", cat:"ai", t:"🎨 Muse AI", d:"ساخت عکس و ویدیو با هوش مصنوعی", plans:[["۱ میلیارد توکن","۴۲۰٬۰۰۰",420000],["۲ میلیارد توکن","۵۶۰٬۰۰۰",560000],["۳۱ میلیارد توکن","۷۰۰٬۰۰۰",700000]]},
-  {id:"lovable_pro", cat:"ai", t:"📱 Lovable Pro", d:"ساخت سایت و اپ با هوش مصنوعی", plans:[["۱ ماهه","۹۸۳٬۰۰۰",983000]]},
-  {id:"lovable_lite", cat:"ai", t:"📱 Lovable Pro Lite", d:"ساخت سایت و اپ — ۱۲ ماهه", plans:[["۱۲ ماهه","۲٬۸۷۲٬۰۰۰",2872000]]},
-  {id:"elevenlabs", cat:"ai", t:"🎙 ElevenLabs Creator", d:"ساخت صدای هوش مصنوعی — Creator سه‌ماهه", plans:[["۳ ماهه","۲٬۶۵۹٬۰۰۰",2659000],["Creator · ۱ ماهه","۵٬۷۹۹٬۰۰۰",5799000],["Creator · ۱ ساله","۳۰٬۵۷۹٬۰۰۰",30579000]]},
-  {id:"turnitin", cat:"learn", t:"📄 Turnitin", d:"بررسی سرقت ادبی + تشخیص متن AI", plans:[["بررسی ۱ فایل","۱٬۸۵۴٬۰۰۰",1854000]]},
-  {id:"zoom_pro", cat:"ai", t:"📱 Zoom Pro", d:"جلسه و کلاس آنلاین بدون محدودیت", plans:[["۱ ماهه","۱٬۷۰۱٬۰۰۰",1701000]]},
-  {id:"canva_edu", cat:"design", t:"🎨 Canva Edu", d:"امکانات نزدیک به Pro — ۳ ساله", plans:[["۳ ساله","۸۱۸٬۰۰۰",818000]]},
-  {id:"adobe_express", cat:"design", t:"🎨 Adobe Express Premium", d:"طراحی با ابزارهای Adobe — ۱۲ ماهه", plans:[["۱۲ ماهه","۴۹۰٬۰۰۰",490000]]},
-  {id:"dallas_prompts", cat:"ai", t:"🖼 کتابخانه پرامپت دالاس", d:"۷٬۹۶۴ پرامپت تصویری با نمونه و جست‌وجو", plans:[["مجموعه کامل (دانلود + آنلاین)","۱۳۹٬۰۰۰",139000]]},
-  {id:"perplexity_pro", cat:"ai", t:"🔍 Perplexity Pro", d:"جست‌وجوی هوشمند با منبع — تحقیق و پاسخ مستند", plans:[["۱ ماهه","۵٬۰۳۸٬۰۰۰",5038000]]},
-  {id:"telegram_stars", cat:"fun", t:"⭐ Telegram Stars", d:"استارز رسمی تلگرام؛ تحویل سریع روی اکانت خودت.", plans:[["۵۰ استار","۲۴۵٬۰۰۰",245000],["۱۰۰ استار","۱٬۰۵۲٬۰۰۰",1052000],["۱۵۰ استار","۱٬۵۷۸٬۰۰۰",1578000],["۲۵۰ استار","۱٬۲۲۵٬۰۰۰",1225000],["۳۵۰ استار","۳٬۲۴۰٬۰۰۰",3240000],["۵۰۰ استار","۲٬۴۵۰٬۰۰۰",2450000],["۷۵۰ استار","۵٬۵۹۶٬۰۰۰",5596000],["۱۰۰۰ استار","۷٬۲۰۱٬۰۰۰",7201000],["۱۵۰۰ استار","۱۰٬۸۹۸٬۰۰۰",10898000],["۲۵۰۰ استار","۱۸٬۱۶۳٬۰۰۰",18163000],["۵۰۰۰ استار","۳۴٬۴۶۰٬۰۰۰",34460000]]},
-  {id:"apple_id", cat:"fun", t:"🍎 Apple ID", d:"اپل آیدی آماده یا با ایمیل خودت.", plans:[["آماده","۱٬۳۲۹٬۰۰۰",1329000],["شخصی (با ایمیل خودت)","۲٬۰۲۹٬۰۰۰",2029000]]},
-  {id:"apple_gift_card", cat:"fun", t:"🎁 Apple Gift Card", d:"گیفت کارت اپل ریجن ترکیه؛ کد دیجیتال.", plans:[["۲۵ لیر","۲۹۴٬۰۰۰",294000],["۵۰ لیر","۵۲۴٬۰۰۰",524000],["۷۵ لیر","۷۴۱٬۰۰۰",741000],["۱۰۰ لیر","۹۷۸٬۰۰۰",978000],["۲۰۰ لیر","۱٬۸۵۸٬۰۰۰",1858000]]},
-  {id:"ps_giftcard", cat:"fun", t:"🎮 PlayStation Gift Card", d:"گیفت کارت پلی‌استیشن چند ریجن؛ کد دیجیتال فوری.", plans:[["🇩🇪 آلمان · ۵ یورو","۲٬۱۸۷٬۰۰۰",2187000],["🇩🇪 آلمان · ۱۰ یورو","۴٬۳۷۴٬۰۰۰",4374000],["🇩🇪 آلمان · ۱۵ یورو","۶٬۲۴۷٬۰۰۰",6247000],["🇩🇪 آلمان · ۲۰ یورو","۸٬۳۳۰٬۰۰۰",8330000],["🇩🇪 آلمان · ۵۰ یورو","۲۰٬۸۲۵٬۰۰۰",20825000],["🇩🇪 آلمان · ۱۰۰ یورو","۴۱٬۶۴۹٬۰۰۰",41649000],["🇦🇪 امارات · ۱۰۰ دلار","۳۷٬۷۹۶٬۰۰۰",37796000],["🇦🇪 امارات · ۵۰ دلار","۱۸٬۸۹۸٬۰۰۰",18898000],["🇦🇪 امارات · ۱۰ دلار","۳٬۹۶۹٬۰۰۰",3969000],["🇦🇪 امارات · ۲۰ دلار","۷٬۹۳۸٬۰۰۰",7938000],["🇬🇧 انگلیس · ۱۵۰ پوند","۷۴٬۷۳۵٬۰۰۰",74735000],["🇬🇧 انگلیس · ۱۰۰ پوند","۴۹٬۸۲۴٬۰۰۰",49824000],["🇬🇧 انگلیس · ۵۰ پوند","۲۶٬۱۵۸٬۰۰۰",26158000],["🇬🇧 انگلیس · ۲۰ پوند","۱۰٬۹۶۲٬۰۰۰",10962000],["🇬🇧 انگلیس · ۱۰ پوند","۵٬۴۸۱٬۰۰۰",5481000],["🇺🇸 آمریکا · ۲۰۰ دلار","۷۹٬۳۷۲٬۰۰۰",79372000],["🇺🇸 آمریکا · ۱۵۰ دلار","۵۹٬۵۲۹٬۰۰۰",59529000],["🇺🇸 آمریکا · ۱۰۰ دلار","۳۹٬۶۸۶٬۰۰۰",39686000],["🇺🇸 آمریکا · ۷۵ دلار","۲۹٬۷۶۵٬۰۰۰",29765000],["🇺🇸 آمریکا · ۵۰ دلار","۱۹٬۸۴۳٬۰۰۰",19843000],["🇺🇸 آمریکا · ۲۵ دلار","۹٬۹۲۲٬۰۰۰",9922000],["🇺🇸 آمریکا · ۱۰ دلار","۳٬۹۶۹٬۰۰۰",3969000]]},
-  {id:"discord_nitro", cat:"fun", t:"🎮 Discord Nitro", d:"نیترو کامل دیسکورد روی اکانت خودت.", plans:[["۱ ماهه","۲٬۵۵۲٬۰۰۰",2552000],["۱ ساله","۱۵٬۸۷۵٬۰۰۰",15875000]]},
-  {id:"disney_plus", cat:"fun", t:"🏰 Disney+", d:"دیزنی پلاس؛ مارول، پیکسار و استاروارز.", plans:[["۳ ماهه","۲٬۴۵۰٬۰۰۰",2450000],["۶ ماهه","۴٬۶۲۰٬۰۰۰",4620000]]},
-  {id:"paramount_plus", cat:"fun", t:"⛰️ Paramount+", d:"پارامونت پلاس؛ فیلم، سریال و فوتبال.", plans:[["۳ ماهه","۹۷۹٬۰۰۰",979000],["۶ ماهه","۱٬۲۵۹٬۰۰۰",1259000]]},
-  {id:"sling_tv", cat:"fun", t:"📺 Sling TV", d:"اسلینگ تی‌وی آمریکا؛ کانال زنده و ورزشی.", plans:[["Orange","۲۵۱٬۰۰۰",251000],["Blue","۲۵۱٬۰۰۰",251000],["Orange + Blue","۳۳۵٬۰۰۰",335000]]},
-  {id:"shudder", cat:"fun", t:"👻 Shudder", d:"شادر؛ تخصصی ژانر وحشت.", plans:[["۱ ساله","۳۳۶٬۰۰۰",336000]]},
-  {id:"curiosity_stream", cat:"fun", t:"🔭 Curiosity Stream", d:"مستند علمی و تاریخی.", plans:[["۳ ماهه","۹۸۰٬۰۰۰",980000],["۶ ماهه","۱٬۲۶۰٬۰۰۰",1260000]]},
-  {id:"history_vault", cat:"fun", t:"🏛️ History Vault", d:"آرشیو مستندهای شبکه History.", plans:[["۳ ماهه","۹۱۰٬۰۰۰",910000],["۶ ماهه","۱٬۳۸۶٬۰۰۰",1386000]]},
-  {id:"apple_music", cat:"fun", t:"🎧 Apple Music", d:"اپل موزیک Lossless روی اکانت خودت.", plans:[["۲ ماهه","۱٬۱۸۹٬۰۰۰",1189000],["۳ ماهه","۱٬۶۷۹٬۰۰۰",1679000],["۶ ماهه","۳٬۲۱۹٬۰۰۰",3219000]]},
-  {id:"wattpad", cat:"fun", t:"📖 Wattpad Premium", d:"وات‌پد پریمیوم و پلاس؛ بدون تبلیغ.", plans:[["Premium · ۱ ماهه","۳٬۳۸۰٬۰۰۰",3380000],["Plus · ۱ ماهه","۴٬۰۹۱٬۰۰۰",4091000],["Premium · ۱ ساله","۱۱٬۸۶۴٬۰۰۰",11864000],["Plus · ۱ ساله","۱۹٬۷۹۹٬۰۰۰",19799000]]},
-  {id:"gaia", cat:"fun", t:"🧘 Gaia", d:"گایا؛ یوگا و مدیتیشن.", plans:[["۳ ماهه","۶۸۵٬۰۰۰",685000],["۶ ماهه","۹۶۵٬۰۰۰",965000]]},
-  {id:"calm", cat:"fun", t:"🌙 Calm", d:"کالم؛ مدیتیشن و خواب بهتر.", plans:[["۶ ماهه","۵۸۷٬۰۰۰",587000]]},
-  {id:"dailyburn", cat:"fun", t:"🏋️ Daily Burn", d:"دیلی برن؛ تمرین در خانه.", plans:[["۳ ماهه","۲۶۶٬۰۰۰",266000],["۶ ماهه","۴۰۶٬۰۰۰",406000]]},
-  {id:"di_fm", cat:"fun", t:"🎚️ DI.FM Premium", d:"DI.FM پریمیوم؛ رادیو الکترونیک بدون تبلیغ.", plans:[["۶ ماهه","۱٬۱۱۹٬۰۰۰",1119000]]},
-  {id:"shahid_vip", cat:"fun", t:"📺 Shahid VIP", d:"شاهد VIP؛ سریال عربی و ورزش زنده.", plans:[["VIP · ۱ ماهه (اشتراکی)","۲۷۹٬۰۰۰",279000],["VIP · ۱ ماهه (شخصی)","۲٬۰۱۲٬۰۰۰",2012000],["Bigtime · ۱ ماهه","۳٬۴۱۵٬۰۰۰",3415000],["VIP Sport · ۱ ماهه","۴٬۱۷۳٬۰۰۰",4173000],["Ultimate · ۱ ماهه","۶٬۰۷۰٬۰۰۰",6070000]]},
-  {id:"headspace", cat:"fun", t:"🧘 Headspace", d:"هداسپیس؛ مدیتیشن و خواب.", plans:[["۱ ماهه","۳۷۱٬۰۰۰",371000],["۱ ساله","۳٬۰۳۶٬۰۰۰",3036000]]},
-  {id:"fabulous", cat:"fun", t:"🌟 Fabulous", d:"فبیولس؛ عادت‌سازی و روتین روزانه.", plans:[["۱ ماهه","۳۶۳٬۰۰۰",363000],["۱ ساله","۶٬۲۹۹٬۰۰۰",6299000]]},
-  {id:"flo_premium", cat:"fun", t:"🌸 Flo Premium", d:"فلو پریمیوم؛ نسخه کامل اپ سلامت.", plans:[["۱ ماهه","۴۸۹٬۰۰۰",489000],["۱ ساله","۲٬۲۳۵٬۰۰۰",2235000]]},
-  {id:"forest_focus", cat:"fun", t:"🌲 Forest Focus", d:"فارست؛ تمرکز و دوری از گوشی.", plans:[["۱ ماهه","۱٬۵۱۸٬۰۰۰",1518000],["۱ ساله","۷٬۲۰۸٬۰۰۰",7208000]]},
-  {id:"breeze_app", cat:"fun", t:"🍃 Breeze Premium", d:"بریز پریمیوم؛ آرامش و سلامت ذهن.", plans:[["۱ ماهه","۳۶۳٬۰۰۰",363000]]},
-  {id:"higgsfield", cat:"ai", t:"🎬 Higgsfield AI", d:"هیگزفیلد؛ ویدیوی سینمایی AI با کنترل دوربین.", plans:[["Basic · ۱ ماهه","۴٬۱۹۸٬۰۰۰",4198000],["Starter · ۱ ماهه","۹٬۲۱۷٬۰۰۰",9217000],["Plus · ۱ ماهه","۲۴٬۵۰۵٬۰۰۰",24505000],["Ultra · ۱ ماهه","۴۸٬۲۰۹٬۰۰۰",48209000],["Plus · ۱ ساله","۱۳۰٬۴۱۲٬۰۰۰",130412000]]},
-  {id:"hailuo", cat:"ai", t:"🎥 Hailuo AI", d:"هایلو؛ ساخت ویدیوی AI از متن و عکس.", plans:[["Standard · ۱ ماهه","۴٬۹۰۹٬۰۰۰",4909000],["Pro · ۱ ماهه","۱۶٬۴۶۶٬۰۰۰",16466000],["Master · ۱ ماهه","۳۶٬۶۵۴٬۰۰۰",36654000]]},
-  {id:"suno", cat:"ai", t:"🎼 Suno AI", d:"سونو؛ ساخت آهنگ کامل با AI.", plans:[["Pro · ۱ ماهه","۴٬۴۹۹٬۰۰۰",4499000],["Premier · ۱ ماهه","۱۲٬۸۶۵٬۰۰۰",12865000],["Pro · ۱ ساله","۳۸٬۶۶۳٬۰۰۰",38663000],["Premier · ۱ ساله","۱۱۶٬۹۰۰٬۰۰۰",116900000]]},
-  {id:"runway", cat:"ai", t:"🎞️ Runway", d:"ران‌وی؛ ویدیوساز AI حرفه‌ای.", plans:[["Standard · ۱ ماهه","۶٬۸۹۰٬۰۰۰",6890000],["Pro · ۱ ماهه","۱۴٬۶۲۲٬۰۰۰",14622000],["Max · ۱ ماهه","۴۰٬۰۶۸٬۰۰۰",40068000],["Standard · ۱ ساله","۵۸٬۹۰۸٬۰۰۰",58908000],["Pro · ۱ ساله","۳۰٬۳۶۸٬۰۰۰",30368000]]},
-  {id:"midjourney", cat:"ai", t:"🎨 Midjourney", d:"میدجورنی؛ تولید عکس هنری AI.", plans:[["Basic · ۱ ماهه","۴٬۲۱۹٬۰۰۰",4219000],["Basic · ۱ ساله","۴۰٬۴۹۰٬۰۰۰",40490000],["Standard · ۱ ماهه","۱۲٬۷۹۴٬۰۰۰",12794000],["Standard · ۱ ساله","۱۱۵٬۱۴۳٬۰۰۰",115143000],["Pro · ۱ ماهه","۲۵٬۲۳۷٬۰۰۰",25237000],["Pro · ۱ ساله","۲۲۷٬۴۷۵٬۰۰۰",227475000],["Mega · ۱ ماهه","۵۰٬۳۳۲٬۰۰۰",50332000],["Mega · ۱ ساله","۴۵۲٬۴۱۹٬۰۰۰",452419000]]},
-  {id:"google_one", cat:"ai", t:"☁️ Google One AI Pro", d:"گوگل وان AI Pro؛ فضا + جمینای پیشرفته.", plans:[["۳ ماهه","۲٬۹۲۱٬۰۰۰",2921000],["۶ ماهه","۴٬۸۲۸٬۰۰۰",4828000],["۱ ساله","۸٬۳۴۶٬۰۰۰",8346000]]},
-  {id:"quillbot", cat:"ai", t:"✍️ QuillBot Premium", d:"کوییل‌بات؛ بازنویسی حرفه‌ای متن.", plans:[["۱ ماهه","۱٬۲۴۶٬۰۰۰",1246000]]},
-  {id:"supergrok", cat:"ai", t:"🚀 SuperGrok", d:"سوپر گروک؛ Grok پیشرفته روی ایمیل خودت.", plans:[["۱ ماهه","۱۱٬۳۷۸٬۰۰۰",11378000],["۳ ماهه","۲۸٬۴۶۹٬۰۰۰",28469000],["Heavy · ۱ ماهه (بدون گارانتی)","۱۸٬۴۷۳٬۰۰۰",18473000]]},
-  {id:"mistral", cat:"ai", t:"🌬️ Mistral AI", d:"میسترال پرو + کردیت API.", plans:[["Pro · ۱ ماهه","۶٬۴۶۷٬۰۰۰",6467000],["کردیت API · ۵ دلار","۲٬۱۸۰٬۰۰۰",2180000],["کردیت API · ۱۰ دلار","۴٬۳۵۹٬۰۰۰",4359000],["کردیت API · ۲۰ دلار","۸٬۷۱۷٬۰۰۰",8717000],["کردیت API · ۳۰ دلار","۱۲٬۷۲۴٬۰۰۰",12724000],["کردیت API · ۴۰ دلار","۱۵٬۶۰۶٬۰۰۰",15606000],["کردیت API · ۵۰ دلار","۲۰٬۸۰۷٬۰۰۰",20807000],["کردیت API · ۶۰ دلار","۲۴٬۸۸۵٬۰۰۰",24885000],["کردیت API · ۷۰ دلار","۲۸٬۸۲۱٬۰۰۰",28821000],["کردیت API · ۸۰ دلار","۳۳٬۳۲۰٬۰۰۰",33320000],["کردیت API · ۹۰ دلار","۴۰٬۷۷۱٬۰۰۰",40771000],["کردیت API · ۱۰۰ دلار","۴۱٬۸۹۷٬۰۰۰",41897000],["کردیت API · ۲۰۰ دلار","۸۱٬۶۸۳٬۰۰۰",81683000]]},
-  {id:"kimi", cat:"ai", t:"🌙 Kimi AI", d:"کیمی؛ چت‌بات با حافظه متنی بلند.", plans:[["Plus · ۱ ماهه","۸٬۳۰۹٬۰۰۰",8309000],["Pro · ۱ ماهه","۱۶٬۵۹۰٬۰۰۰",16590000],["Max · ۱ ماهه","۴۱٬۶۱۵٬۰۰۰",41615000],["Ultra · ۱ ماهه","۸۲٬۲۴۶٬۰۰۰",82246000]]},
-  {id:"manus", cat:"ai", t:"🤖 Manus AI", d:"مانوس؛ ایجنت خودکار AI.", plans:[["Standard · ۱ ماهه","۷٬۵۹۳٬۰۰۰",7593000],["Standard · ۱ ساله","۳۲٬۴۷۶٬۰۰۰",32476000],["Customizable · ۸۰۰۰ کردیت","۱۶٬۸۰۰٬۰۰۰",16800000],["Customizable · ۱۲۰۰۰ کردیت","۲۴٬۶۰۴٬۰۰۰",24604000],["Extended · ۴۰۰۰۰ کردیت","۸۱٬۵۴۲٬۰۰۰",81542000],["Extended · ۸۵۰۰۰ کردیت","۱۶۱٬۶۷۹٬۰۰۰",161679000]]},
-  {id:"kiro", cat:"ai", t:"💻 Kiro", d:"کیرو؛ کدنویسی ایجنتی AWS.", plans:[["Pro دانشجویی · ۱ ساله","۲۲٬۷۷۶٬۰۰۰",22776000],["Dev Power · ۱ ماهه","۵۹٬۳۳۰٬۰۰۰",59330000]]},
-  {id:"v0_dev", cat:"ai", t:"▲ v0 by Vercel", d:"v0 ورسل؛ ساخت UI با AI.", plans:[["Plus · ۱ ماهه","۱۲٬۷۲۴٬۰۰۰",12724000],["Business · ۱ ماهه","۴۲٬۶۰۰٬۰۰۰",42600000]]},
-  {id:"devin", cat:"ai", t:"🧑‍💻 Devin AI", d:"دوین؛ مهندس نرم‌افزار خودکار AI.", plans:[["Pro · ۱ ماهه","۸٬۴۳۵٬۰۰۰",8435000],["Max · ۱ ماهه","۸۱٬۵۴۲٬۰۰۰",81542000]]},
-  {id:"openrouter", cat:"ai", t:"🔀 OpenRouter", d:"شارژ OpenRouter؛ صدها مدل با یک API.", plans:[["۱۰ دلار","۴٬۱۰۵٬۰۰۰",4105000],["۲۰ دلار","۸٬۲۱۳٬۰۰۰",8213000],["۳۰ دلار","۱۲٬۵۵۶٬۰۰۰",12556000],["۴۰ دلار","۱۷٬۴۶۷٬۰۰۰",17467000],["۵۰ دلار","۲۱٬۴۸۲٬۰۰۰",21482000],["۱۰۰ دلار","۴۲٬۳۱۸٬۰۰۰",42318000],["۲۰۰ دلار","۸۳٬۹۳۳٬۰۰۰",83933000]]},
-  {id:"minimax", cat:"ai", t:"🔊 MiniMax", d:"مینی‌مکس؛ صدا، طراحی و اپ‌ساز AI.", plans:[["Audio Starter · ماهانه","۳٬۱۶۳٬۰۰۰",3163000],["GO · ماهانه","۵٬۴۸۳٬۰۰۰",5483000],["Design Starter · ماهانه","۵٬۹۰۶٬۰۰۰",5906000],["Audio Creator · ماهانه","۶٬۹۶۰٬۰۰۰",6960000],["Explore · ماهانه","۱۲٬۰۲۱٬۰۰۰",12021000],["Audio Standard · ماهانه","۱۴٬۳۴۱٬۰۰۰",14341000],["Build · ماهانه","۳۰٬۵۷۹٬۰۰۰",30579000],["Design Plus · ماهانه","۳۱٬۶۳۳٬۰۰۰",31633000],["Audio Pro · ماهانه","۴۳٬۸۴۳٬۰۰۰",43843000],["Design Pro · ماهانه","۶۴٬۱۸۳٬۰۰۰",64183000]]},
-  {id:"heygen", cat:"ai", t:"🎭 HeyGen", d:"هی‌جن؛ ویدیو با آواتار AI.", plans:[["Creator · ۱ ماهه","۱۲٬۲۳۲٬۰۰۰",12232000],["Pro · ۱۰۰۰ کردیت","۲۰٬۶۶۷٬۰۰۰",20667000],["Pro · ۱۵۰۰ کردیت","۳۰٬۱۵۶٬۰۰۰",30156000],["Pro · ۲۰۰۰ کردیت","۳۹٬۰۱۴٬۰۰۰",39014000],["Pro · ۳۰۰۰ کردیت","۶۱٬۱۵۷٬۰۰۰",61157000],["Pro · ۵۰۰۰ کردیت","۹۹٬۱۱۶٬۰۰۰",99116000]]},
-  {id:"kling", cat:"ai", t:"🎬 Kling AI", d:"کلینگ؛ ویدیوساز AI سینمایی.", plans:[["Standard · ۱ ماهه","۳٬۱۶۳٬۰۰۰",3163000],["Pro · ۱ ماهه","۱۰٬۴۶۰٬۰۰۰",10460000],["Premier · ۸۰۰۰ کردیت","۲۶٬۳۶۱٬۰۰۰",26361000],["Premier · ۱۸۰۰۰ کردیت","۵۶٬۵۱۷٬۰۰۰",56517000],["Premier · ۲۸۰۰۰ کردیت","۸۴٬۳۵۵٬۰۰۰",84355000],["Premier · ۳۸۰۰۰ کردیت","۱۱۲٬۸۲۴٬۰۰۰",112824000],["Ultra · ۸۰۰۰ کردیت","۱۶۲٬۳۸۲٬۰۰۰",162382000]]},
-  {id:"zai", cat:"ai", t:"⚡ Z.AI", d:"Z.AI؛ اکانت آماده مدل‌های GLM.", plans:[["Lite · ۱ ماهه","۷٬۸۳۶٬۰۰۰",7836000],["Lite · ۳ ماهه","۱۷٬۵۰۳٬۰۰۰",17503000],["Lite · ۱ ساله","۵۷٬۹۹۴٬۰۰۰",57994000],["Pro · ۱ ماهه","۲۸٬۶۸۱٬۰۰۰",28681000],["Pro · ۳ ماهه","۷۰٬۶۴۷٬۰۰۰",70647000],["Pro · ۱ ساله","۲۴۴٬۴۱۷٬۰۰۰",244417000],["Max · ۱ ماهه","۶۱٬۶۶۳٬۰۰۰",61663000],["Max · ۳ ماهه","۱۴۴٬۲۴۵٬۰۰۰",144245000],["Max · ۱ ساله","۵۰۶٬۱۲۴٬۰۰۰",506124000]]},
-  {id:"openart", cat:"ai", t:"🖼️ OpenArt", d:"اوپن‌آرت؛ ساخت عکس با AI.", plans:[["Starter · ۱ ماهه","۷٬۴۲۳٬۰۰۰",7423000],["Plus · ۱ ماهه","۱۵٬۰۱۵٬۰۰۰",15015000],["Pro · ۱ ماهه","۲۱٬۴۲۵٬۰۰۰",21425000],["Wonder · ۱ ماهه","۸۴٬۲۹۲٬۰۰۰",84292000]]},
-  {id:"syntx", cat:"ai", t:"🧩 Syntx AI", d:"سینتکس؛ چند ابزار AI یکجا.", plans:[["Basic · ۱ ماهه","۵٬۶۹۴٬۰۰۰",5694000],["Basic · ۳ ماهه","۱۳٬۷۰۸٬۰۰۰",13708000],["Basic · ۶ ماهه","۲۲٬۵۶۶٬۰۰۰",22566000],["Basic · ۱۲ ماهه","۳۹٬۶۴۷٬۰۰۰",39647000],["Pro · ۱ ماهه","۸٬۹۸۴٬۰۰۰",8984000],["Pro · ۳ ماهه","۲۲٬۹۸۷٬۰۰۰",22987000],["Pro · ۶ ماهه","۴۱٬۱۲۳٬۰۰۰",41123000],["Pro · ۱۲ ماهه","۷۱٬۶۴۸٬۰۰۰",71648000],["VIP · ۱ ماهه","۲۰٬۰۳۴٬۰۰۰",20034000],["VIP · ۳ ماهه","۵۱٬۶۶۷٬۰۰۰",51667000],["VIP · ۶ ماهه","۹۰٬۶۳۹٬۰۰۰",90639000],["VIP · ۱۲ ماهه","۱۶۸٬۶۰۲٬۰۰۰",168602000],["Elite · ۱ ماهه","۲۸٬۴۶۹٬۰۰۰",28469000],["Elite · ۳ ماهه","۷۳٬۳۸۸٬۰۰۰",73388000],["Elite · ۶ ماهه","۱۳۳٬۰۶۹٬۰۰۰",133069000],["Elite · ۱۲ ماهه","۲۵۲٬۶۴۰٬۰۰۰",252640000],["Ultra Elite · ۱ ماهه","۵۱٬۸۵۶٬۰۰۰",51856000],["Ultra Elite · ۳ ماهه","۱۳۷٬۰۳۴٬۰۰۰",137034000],["Ultra Elite · ۶ ماهه","۲۵۴٬۴۳۴٬۰۰۰",254434000],["Ultra Elite · ۱۲ ماهه","۴۷۱٬۶۵۳٬۰۰۰",471653000]]},
-  {id:"veo3_ultra", cat:"ai", t:"🎥 Google Veo 3 Ultra", d:"Veo 3 Ultra؛ ویدیوساز گوگل با صدا.", plans:[["۱ ماهه (کردیت رندوم)","۹٬۴۹۰٬۰۰۰",9490000],["۱ ماهه (۲۵۰۰۰ کردیت)","۲۶٬۳۶۱٬۰۰۰",26361000],["۱ ماهه (۵۰۰۰۰ کردیت)","۴۰٬۰۴۷٬۰۰۰",40047000]]},
-  {id:"replit", cat:"ai", t:"💻 Replit Core", d:"رپلیت Core؛ اپ‌سازی با AI.", plans:[["۱ ماهه","۹٬۷۰۱٬۰۰۰",9701000],["۱ ساله","۲۱٬۰۶۲٬۰۰۰",21062000]]},
-  {id:"apify", cat:"ai", t:"🕷️ Apify", d:"اپیفای؛ اسکرپینگ و اتوماسیون وب.", plans:[["Creator · ۶ ماهه","۴٬۷۴۵٬۰۰۰",4745000],["Starter","۹٬۸۹۱٬۰۰۰",9891000],["Scale","۸۲٬۲۴۶٬۰۰۰",82246000],["Business","۳۹۳٬۳۰۱٬۰۰۰",393301000]]},
-  {id:"google_ai_ultra", cat:"ai", t:"💎 Google AI Ultra", d:"Google AI Ultra؛ بالاترین سطح AI گوگل.", plans:[["۱ ماهه (5x · کردیت رندوم)","۱۰٬۵۲۴٬۰۰۰",10524000],["۱ ماهه (20x · بدون کردیت ویدیو)","۱۲٬۴۲۱٬۰۰۰",12421000],["۱ ماهه (20x · ۲۵۰۰۰ کردیت)","۲۹٬۱۰۲٬۰۰۰",29102000]]},
-  {id:"github_student", cat:"ai", t:"🎓 GitHub Student Pack", d:"GitHub Student Pack؛ کوپایلت + ابزار دانشجویی.", plans:[["فعال‌سازی پک دانشجویی","۶٬۹۶۰٬۰۰۰",6960000]]},
-  {id:"n8n", cat:"ai", t:"🔗 n8n", d:"n8n؛ اتوماسیون گردش‌کار.", plans:[["Starter · ۱ ماهه","۱۱٬۳۸۱٬۰۰۰",11381000],["Pro · ۱ ماهه","۲۶٬۱۷۵٬۰۰۰",26175000],["Starter · ۱ ساله","۱۵٬۰۷۸٬۰۰۰",15078000]]},
-  {id:"tradingview", cat:"ai", t:"📈 TradingView", d:"تریدینگ‌ویو؛ چارت حرفه‌ای ترید.", plans:[["Plus · ۱ ماهه","۹٬۹۲۲٬۰۰۰",9922000],["Premium · ۱ ماهه","۱۵٬۵۹۱٬۰۰۰",15591000],["Premium · ۱ ساله","۱۹۸٬۴۲۸٬۰۰۰",198428000]]},
-  {id:"grammarly", cat:"ai", t:"📝 Grammarly", d:"گرامرلی؛ نگارش حرفه‌ای انگلیسی.", plans:[["اشتراکی · ۱ ماهه","۹۷۹٬۰۰۰",979000],["اشتراکی · ۳ ماهه","۱٬۸۸۹٬۰۰۰",1889000],["اشتراکی · ۶ ماهه","۳٬۳۵۹٬۰۰۰",3359000],["اشتراکی · ۱ ساله","۶٬۱۵۹٬۰۰۰",6159000],["شخصی · ۱ ماهه","۲٬۱۳۹٬۰۰۰",2139000],["شخصی · ۳ ماهه","۴٬۳۹۰٬۰۰۰",4390000],["شخصی · ۱ ساله","۱۰٬۱۳۱٬۰۰۰",10131000]]},
-  {id:"cursor_pro", cat:"ai", t:"🖱️ Cursor Pro", d:"Cursor Pro؛ ادیتور کدنویسی AI.", plans:[["Premium · ۱ ماهه","۷٬۸۰۳٬۰۰۰",7803000],["Super · ۱ ماهه","۲۴٬۸۸۵٬۰۰۰",24885000],["Ultra · ۱ ماهه","۴۹٬۳۴۸٬۰۰۰",49348000]]},
-  {id:"genspark", cat:"ai", t:"✨ GenSpark", d:"GenSpark؛ جستجو و ایجنت AI.", plans:[["۱ ماهه · ۱۰٬۰۰۰ کردیت","۱۱٬۳۸۱٬۰۰۰",11381000],["۱ ماهه · ۲۱٬۰۰۰ کردیت","۲۱٬۶۲۳٬۰۰۰",21623000],["۱ ماهه · ۳۲٬۰۰۰ کردیت","۳۴٬۹۰۰٬۰۰۰",34900000]]},
-  {id:"elicit", cat:"ai", t:"🔬 Elicit", d:"Elicit؛ دستیار پژوهش علمی AI.", plans:[["Pro · ۱ ماهه (اکانت آماده)","۹۷۹٬۰۰۰",979000],["Pro · ۱ ماهه (شارژ اکانت شخصی)","۳۴٬۰۲۱٬۰۰۰",34021000],["Scale · ۱ ماهه (شارژ اکانت شخصی)","۱۳۶٬۰۸۲٬۰۰۰",136082000]]},
-  {id:"huggingface", cat:"ai", t:"🤗 Hugging Face", d:"Hugging Face Pro و Team.", plans:[["Pro · ۱ ماهه","۴٬۹۳۲٬۰۰۰",4932000],["Team · ۱ ماهه","۹٬۱۰۵٬۰۰۰",9105000]]},
-  {id:"felo_ai", cat:"ai", t:"🔎 Felo AI", d:"Felo AI؛ جستجوی هوشمند AI.", plans:[["Premium · ۱ ماهه","۷٬۵۸۸٬۰۰۰",7588000]]},
-  {id:"manychat", cat:"ai", t:"💬 Manychat Pro", d:"Manychat Pro؛ اتوماسیون دایرکت.", plans:[["Pro · ۱ ماهه","۱۷٬۴۰۷٬۰۰۰",17407000]]},
-  {id:"qodo", cat:"ai", t:"🧑‍💻 Qodo", d:"Qodo؛ ریویو و کدنویسی AI.", plans:[["Teams · ۱ ماهه","۷٬۲۷۹٬۰۰۰",7279000]]},
-  {id:"rytr", cat:"ai", t:"🖊️ Rytr", d:"Rytr؛ نویسنده AI بازاریابی.", plans:[["Lite · ۱ ماهه","۴٬۵۵۳٬۰۰۰",4553000],["Personal · ۱ ماهه","۹٬۱۰۵٬۰۰۰",9105000],["Pro · ۱ ماهه","۲۱٬۲۴۳٬۰۰۰",21243000]]},
-  {id:"tabnine", cat:"ai", t:"⌨️ Tabnine", d:"Tabnine؛ تکمیل کد AI.", plans:[["Dev · ۱ ماهه","۲٬۷۹۹٬۰۰۰",2799000]]},
-  {id:"vercel_pro", cat:"ai", t:"▲ Vercel Pro", d:"Vercel Pro؛ دیپلوی حرفه‌ای وب.", plans:[["Pro · ۱ ماهه","۴٬۱۹۹٬۰۰۰",4199000]]},
-  {id:"zapier", cat:"ai", t:"⚡ Zapier", d:"Zapier؛ اتوماسیون بین اپ‌ها.", plans:[["Professional · ۱ ماهه","۵٬۳۷۶٬۰۰۰",5376000],["Agents Pro · ۱ ماهه","۶٬۹۹۹٬۰۰۰",6999000],["Chatbots Pro · ۱ ماهه","۳٬۳۵۹٬۰۰۰",3359000]]},
-  {id:"jetbrains", cat:"ai", t:"🧰 JetBrains", d:"JetBrains؛ لایسنس قانونی IDEها.", plans:[["AI Pro · ۱ ماهه","۳٬۹۱۹٬۰۰۰",3919000],["dotUltimate · ۱ ماهه","۷٬۴۱۹٬۰۰۰",7419000],["All Products Pack · ۱ ماهه","۹٬۳۷۹٬۰۰۰",9379000],["AI Ultimate · ۱ ماهه","۱۱٬۱۹۹٬۰۰۰",11199000]]},
-  {id:"onedrive_1tb", cat:"ai", t:"☁️ OneDrive 1TB", d:"OneDrive یک ترابایت روی اکانت خودت.", plans:[["۱ ماهه","۴۱۳٬۰۰۰",413000],["۶ ماهه","۱٬۳۹۹٬۰۰۰",1399000],["۱ ساله","۲٬۰۴۳٬۰۰۰",2043000]]},
-  {id:"mobbin", cat:"design", t:"📱 Mobbin", d:"Mobbin؛ کتابخانه فلوهای اپ برای طراحان.", plans:[["Pro · ۱ ساله","۱۱٬۳۸۸٬۰۰۰",11388000],["Team · ۱ ساله","۱۵٬۱۸۵٬۰۰۰",15185000]]},
-  {id:"autodesk_student", cat:"design", t:"📐 Autodesk Student", d:"Autodesk دانشجویی؛ AutoCAD و ابزار مهندسی.", plans:[["دانشجویی","۱٬۸۹۹٬۰۰۰",1899000]]},
-  {id:"framer", cat:"design", t:"🖥️ Framer Pro", d:"Framer Pro؛ سایت‌ساز بدون کد.", plans:[["Pro · ۱ ساله","۱۰٬۴۰۴٬۰۰۰",10404000]]},
-  {id:"faceapp", cat:"design", t:"📸 FaceApp Pro", d:"FaceApp Pro؛ ویرایش چهره (iOS).", plans:[["۱ ساله (اختصاصی · iOS)","۱٬۳۴۹٬۰۰۰",1349000]]},
-  {id:"freepik", cat:"design", t:"🖼️ Freepik Premium", d:"Freepik پریمیوم؛ دانلود نامحدود گرافیک.", plans:[["۳ ماهه","۲٬۳۷۹٬۰۰۰",2379000]]},
-  {id:"pngtree", cat:"design", t:"🌳 Pngtree", d:"Pngtree؛ فایل PNG و قالب گرافیکی.", plans:[["۳ ماهه","۱٬۲۴۵٬۰۰۰",1245000],["۶ ماهه","۱٬۸۸۹٬۰۰۰",1889000]]},
-  {id:"photoroom", cat:"design", t:"📷 PhotoRoom", d:"PhotoRoom؛ عکس محصول حرفه‌ای با AI.", plans:[["Pro · ۱ ماهه","۹۷۹٬۰۰۰",979000],["Max · ۱ ماهه","۲٬۵۱۹٬۰۰۰",2519000],["Pro · ۱ ساله","۶٬۲۹۹٬۰۰۰",6299000],["Max · ۱ ساله","۱۹٬۱۷۹٬۰۰۰",19179000]]},
-  {id:"picsart", cat:"design", t:"🎨 PicsArt Pro", d:"PicsArt Pro؛ ویرایش عکس و ویدیو.", plans:[["Pro · ۱ ماهه (اشتراکی)","۴۱۹٬۰۰۰",419000],["Pro · ۱ ماهه (شخصی)","۷٬۳۱۸٬۰۰۰",7318000]]},
-  {id:"reelsapp", cat:"design", t:"🎬 ReelsApp Pro", d:"ReelsApp Pro؛ ساخت ریلز ترند (iOS).", plans:[["Pro · ۱۲ ماهه (iOS)","۸۳۹٬۰۰۰",839000]]},
-  {id:"remini", cat:"design", t:"✨ Remini Pro", d:"Remini؛ افزایش کیفیت عکس با AI.", plans:[["Business نامحدود · ۱۲ ماهه (وب)","۵٬۵۷۲٬۰۰۰",5572000]]},
-  {id:"facetune", cat:"design", t:"💄 Facetune Premium", d:"Facetune؛ روتوش سلفی (iOS).", plans:[["Premium · ۱ ماهه (iOS)","۲۷۳٬۰۰۰",273000]]},
-  {id:"elsa_speak", cat:"learn", t:"🗣️ ELSA Speak", d:"ELSA؛ مربی تلفظ انگلیسی AI.", plans:[["Premium · ۳ ماهه","۱۰٬۱۵۳٬۰۰۰",10153000],["Premium · ۱ ساله","۲۳٬۳۶۶٬۰۰۰",23366000]]},
-  {id:"masterclass", cat:"learn", t:"🎓 MasterClass", d:"MasterClass؛ کلاس بهترین‌های دنیا.", plans:[["۱ ساله","۱٬۱۷۶٬۰۰۰",1176000]]},
-  {id:"codecademy", cat:"learn", t:"💻 Codecademy", d:"Codecademy؛ یادگیری تعاملی کدنویسی.", plans:[["Pro · ۱ ماهه (اشتراک اول)","۲۷۹٬۰۰۰",279000],["۳ ماهه","۱٬۱۹۰٬۰۰۰",1190000]]},
-  {id:"memrise", cat:"learn", t:"🧠 Memrise", d:"Memrise؛ یادگیری زبان با فلش‌کارت.", plans:[["۶ ماهه","۶۷۲٬۰۰۰",672000]]},
-  {id:"mondly", cat:"learn", t:"🌍 Mondly", d:"Mondly؛ یادگیری ۴۱ زبان.", plans:[["۶ ماهه","۷۴۱٬۰۰۰",741000],["۱ ساله","۱٬۲۳۱٬۰۰۰",1231000]]},
-  {id:"yousician", cat:"learn", t:"🎸 Yousician", d:"Yousician؛ یادگیری موسیقی تعاملی.", plans:[["۶ ماهه","۹۷۹٬۰۰۰",979000],["۱ ساله","۱٬۲۵۹٬۰۰۰",1259000]]},
-  {id:"busuu", cat:"learn", t:"🗣️ Busuu", d:"Busuu؛ یادگیری زبان با تصحیح نیتیو.", plans:[["Premium · ۱ ساله","۱۲٬۲۷۳٬۰۰۰",12273000],["Plus · ۱ ساله","۱۶٬۳۶۴٬۰۰۰",16364000]]},
-  {id:"blinkist", cat:"learn", t:"📚 Blinkist", d:"Blinkist؛ خلاصه کتاب‌های برتر.", plans:[["۱ ماهه (شخصی)","۱٬۳۶۶٬۰۰۰",1366000],["۳ ماهه (شخصی)","۳٬۷۹۴٬۰۰۰",3794000],["۱۲ ماهه (شخصی)","۸٬۲۳۲٬۰۰۰",8232000]]},
-  {id:"chegg", cat:"learn", t:"📖 Chegg Study", d:"Chegg؛ حل تمرین دانشگاهی.", plans:[["Study · ۱ ماهه","۹۰۹٬۰۰۰",909000],["Study Pack · ۱ ماهه","۶٬۱۲۵٬۰۰۰",6125000]]},
-  {id:"hellotalk", cat:"learn", t:"👋 HelloTalk VIP", d:"HelloTalk VIP؛ تبادل زبان با نیتیو.", plans:[["VIP · ۱ ماهه","۶٬۴۵۰٬۰۰۰",6450000],["VIP · ۱ ساله","۲۶٬۵۵۴٬۰۰۰",26554000]]},
-  {id:"mindvalley", cat:"learn", t:"🌱 Mindvalley", d:"Mindvalley؛ دوره‌های رشد فردی.", plans:[["Premium · ۱ ماهه","۹٬۷۹۹٬۰۰۰",9799000]]},
-  {id:"rosetta_stone", cat:"learn", t:"🗿 Rosetta Stone", d:"Rosetta Stone؛ یادگیری زبان غوطه‌وری.", plans:[["Premium · ۱ ماهه","۱۰٬۵۸۰٬۰۰۰",10580000]]},
-  {id:"smalltalk2me", cat:"learn", t:"💬 SmallTalk2Me", d:"SmallTalk2Me؛ مکالمه انگلیسی با AI.", plans:[["Pro · ۱ ماهه","۲٬۷۴۳٬۰۰۰",2743000],["Pro · ۳ ماهه","۶٬۹۹۹٬۰۰۰",6999000],["Pro · ۶ ماهه","۱۲٬۴۸۸٬۰۰۰",12488000],["Pro · ۱ ساله","۱۸٬۸۰۲٬۰۰۰",18802000]]},
-  {id:"talkpal", cat:"learn", t:"🗨️ Talkpal Premium", d:"Talkpal؛ معلم زبان AI.", plans:[["Premium · ۱ ماهه","۳۲۱٬۰۰۰",321000],["Premium · ۳ ماهه","۶٬۳۲۴٬۰۰۰",6324000],["Premium · ۱ ساله","۱۶٬۹۹۹٬۰۰۰",16999000]]},
-  {id:"praktika", cat:"learn", t:"🧑‍🏫 Praktika", d:"Praktika؛ معلم زبان با آواتار AI.", plans:[["Premium · ۲۱ روزه","۹۷۹٬۰۰۰",979000],["Premium · ۳ ماهه","۸٬۷۸۱٬۰۰۰",8781000],["Premium · ۱ ساله","۳۱٬۳۶۰٬۰۰۰",31360000]]},
-];
-
+'use strict';
+const BOT='Dallassvpnbot';
 const tg = window.Telegram && window.Telegram.WebApp;
-if (tg) { tg.ready(); tg.expand(); }
-
-const grid = document.getElementById('grid');
-const catsEl = document.getElementById('cats');
-const popRow = document.getElementById('popRow');
-const popWrap = document.getElementById('popWrap');
-let activeCat = 'all';
-let query = '';
-
-CATS.forEach(([key, name], i) => {
-  const b = document.createElement('button');
-  b.className = 'cat-btn' + (i === 0 ? ' on' : '');
-  b.textContent = name;
-  b.onclick = () => {
-    activeCat = key;
-    document.querySelectorAll('.cat-btn').forEach(x => x.classList.remove('on'));
-    b.classList.add('on');
-    render();
-  };
-  catsEl.appendChild(b);
-});
-document.getElementById('search').addEventListener('input', e => { query = e.target.value.trim(); render(); });
-
-function badge(p) {
-  if (NEW_IDS.includes(p.id)) return '<span class="badge b-new">جدید</span>';
-  if (HOT_IDS.includes(p.id)) return '<span class="badge b-hot">پرفروش</span>';
-  return '';
+const P = window.DallasPricing;
+let DATA=null, A=null, active='all', cur=null, selIdx=null;
+const grid=document.getElementById('grid'), search=document.getElementById('search');
+const sheet=document.getElementById('sheet'), ovl=document.getElementById('ovl');
+const faN = n => (n===null||n===undefined) ? '' : Number(n).toLocaleString('fa-IR');
+function make(tag,klass,txt){const x=document.createElement(tag);if(klass)x.className=klass;if(txt!==undefined)x.textContent=txt;return x;}
+function openBot(url){
+  try{ if(tg && typeof tg.openTelegramLink==='function'){ tg.openTelegramLink(url); return; } }catch(e){}
+  try{ if(tg && typeof tg.openLink==='function'){ tg.openLink(url); return; } }catch(e){}
+  window.open(url,'_blank');
 }
-function firstPriced(p) { const i = p.plans.findIndex(pl => pl[2] > 0); return i < 0 ? 0 : i; }
-
-POP_IDS.forEach(pid => {
-  const p = PRODUCTS.find(x => x.id === pid);
-  if (!p) return;
-  const idx = firstPriced(p);
-  const d = document.createElement('div');
-  d.className = 'pop';
-  d.innerHTML = `<div class="pt">${p.t}</div><div class="pd">${p.d}</div><div class="pp">از ${p.plans[idx][1]} تومان</div>`;
-  d.onclick = () => openCheckout(pid, idx);
-  popRow.appendChild(d);
-});
-
-function render() {
-  popWrap.classList.toggle('hidden', !(activeCat === 'all' && !query));
-  grid.innerHTML = '';
-  const order = ["ai", "vpn", "design", "fun", "learn"];
-  order.forEach(cat => {
-    if (activeCat !== 'all' && activeCat !== cat) return;
-    let items = PRODUCTS.filter(p => p.cat === cat);
-    if (query) items = items.filter(p => (p.t + ' ' + p.d).includes(query));
-    if (!items.length) return;
-    const h = document.createElement('div');
-    h.className = 'sec-title';
-    h.textContent = CAT_NAMES[cat];
-    grid.appendChild(h);
-    items.forEach(p => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.id = 'card-' + p.id;
-      let html = badge(p) + `<h3>${p.t}</h3><p>${p.d}</p>`;
-      p.plans.forEach((pl, idx) => {
-        const btn = pl[2] > 0
-          ? `<button class="buy" onclick="openCheckout('${p.id}',${idx})">خرید 🛒</button>`
-          : `<button class="soon" onclick="notifyMe('${p.id}')">🔔 خبرم کن</button>`;
-        html += `<div class="plan"><span class="lbl">${pl[0]}</span><span class="prc">${pl[1]} تومان</span>${btn}</div>`;
-      });
-      card.innerHTML = html;
-      grid.appendChild(card);
-    });
-  });
+function ageText(ms){
+  const h=Math.floor(ms/3600000);
+  if(h<1) return 'کمتر از یک ساعت پیش';
+  if(h<48) return 'حدود '+faN(h)+' ساعت پیش';
+  return 'حدود '+faN(Math.floor(h/24))+' روز پیش';
 }
-render();
-
-function gotoProduct(pid) {
-  activeCat = 'all'; query = '';
-  document.getElementById('search').value = '';
-  document.querySelectorAll('.cat-btn').forEach((x, i) => x.classList.toggle('on', i === 0));
-  render();
-  const el = document.getElementById('card-' + pid);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+function showError(){
+  document.querySelector('.search').style.display='none';
+  document.getElementById('categories').style.display='none';
+  grid.style.display='none';
+  document.getElementById('count').textContent='';
+  const e=document.getElementById('errstate');
+  e.innerHTML='کاتالوگ فروشگاه الان بارگذاری نشد و هیچ قیمتی نمایش داده نمی‌شه.<br>برای مشاهده و سفارش، از بات دالاس استفاده کن.';
+  const a=make('a','','ورود به بات دالاس'); a.href='https://t.me/'+BOT; a.target='_blank'; a.rel='noopener noreferrer';
+  e.append(document.createElement('br'), a);
+  e.style.display='block';
+  document.getElementById('footnote').textContent='خطا در بارگذاری یا اعتبارسنجی فید کاتالوگ؛ برای جلوگیری از نمایش قیمت نادرست، صفحه خالی ماند.';
 }
-
-function openBotLink(url) {
-  try { if (tg && typeof tg.openTelegramLink === 'function') { tg.openTelegramLink(url); return; } } catch(e){}
-  try { if (tg && typeof tg.openLink === 'function') { tg.openLink(url); return; } } catch(e){}
-  try { window.open(url, '_blank'); return; } catch(e){}
-  location.href = url;
+function render(){
+  if(!DATA || !A) return;
+  const q=search.value.trim().toLocaleLowerCase('fa');
+  grid.replaceChildren(); let shown=0;
+  for(const item of DATA.products){
+    if(active!=='all' && item.cat!==active) continue;
+    if(q && !(item.name.toLocaleLowerCase('fa').includes(q) || item.title.toLocaleLowerCase('fa').includes(q))) continue;
+    shown++;
+    const card=make('article','card');
+    const mark=(item.name||'?').trim().charAt(0).toUpperCase();
+    card.append(make('div','symbol',mark), make('h3','',item.name));
+    const nAvail=item.plans.filter(p=>p.available).length;
+    card.append(make('div','plan', item.available ? (item.plans.length+' پلن • '+nAvail+' پلن قابل سفارش') : 'در حال حاضر قابل سفارش نیست'));
+    if(item.available){
+      const st=make('div','status'); st.textContent = A.campaignLive ? 'قیمت بلک‌فرایدی، از:' : 'قیمت، از:';
+      const pr=make('div','price');
+      if(A.campaignLive){ pr.append(make('span','off','٪'+faN(A.offPct)+' تخفیف')); }
+      pr.append(document.createTextNode(faN(P.fromPrice(item, A))+' '), make('small','','تومان'));
+      card.append(st, pr);
+      const b=make('button','buy','مشاهده پلن‌ها و خرید'); b.type='button';
+      b.onclick=()=>openSheet(item.id); card.append(b);
+    } else {
+      card.append(make('div','status','فعلاً ناموجود'));
+      const a=make('a','buy notify','خبرم کن'); a.href='https://t.me/'+BOT+'?start=buy_'+item.id;
+      a.target='_blank'; a.rel='noopener noreferrer'; card.append(a);
+    }
+    grid.append(card);
+  }
+  document.getElementById('empty').style.display=shown?'none':'block';
+  document.getElementById('count').textContent=faN(shown)+' سرویس';
+  document.querySelectorAll('.cat').forEach(x=>{x.classList.toggle('on',x.dataset.cat===active);});
 }
-function notifyMe(pid) { openBotLink(`https://t.me/${BOT}?start=buy_${pid}`); }
-
-const ovl = document.getElementById('ovl');
-const sheet = document.getElementById('sheet');
-let cur = null;
-
-function openCheckout(pid, idx) {
-  const p = PRODUCTS.find(x => x.id === pid);
-  const pl = p.plans[idx];
-  cur = { p, pl, idx };
-  sheet.innerHTML = `
-    <h3>${p.t}</h3>
-    <div class="pl">پلن: ${pl[0]}</div>
-    <div class="amount">${pl[1]} <small>تومان</small></div>
-    <div class="bank">
-      💳 شماره کارت: <span class="num">${CARD_NUMBER}</span><br>
-      👤 به نام: ${CARD_HOLDER}
-    </div>
-    <div class="copyrow">
-      <button class="copybtn" onclick="copyTxt('${pl[2]}')">📋 کپی مبلغ دقیق</button>
-      <button class="copybtn" onclick="copyTxt('${CARD_DIGITS}')">💳 کپی شماره کارت</button>
-    </div>
-    <div class="note">فقط با <b>برنامه بانکی (کارت‌به‌کارت)</b> واریز کن؛ مبلغ و شماره کارت رو با دکمه‌های بالا دقیق کپی کن. بعد از واریز، رسید رو <b>داخل بات</b> می‌فرستی — سفارشت بر اساس همین خرید بررسی و بعد از تأیید تحویل داده می‌شه.</div>
-    <label class="tick"><input type="checkbox" id="tick" onchange="document.getElementById('payBtn').disabled=!this.checked">
-      <span>این طرح رو می‌خوام و مبلغش رو واریز می‌کنم ✅</span></label>
-    <button class="cta" id="payBtn" disabled onclick="sendReceipt()">✅ واریز کردم — ارسال رسید در بات</button>
-    <button class="ghost" onclick="closeSheet()">انصراف</button>`;
-  ovl.classList.add('open');
+function buildCats(){
+  const catsEl=document.getElementById('categories'); catsEl.replaceChildren();
+  const keys=[['all','همه']];
+  const seen={};
+  for(const p of DATA.products){ if(!seen[p.cat]){ seen[p.cat]=1; keys.push([p.cat, (DATA.cat_labels&&DATA.cat_labels[p.cat])||p.cat]); } }
+  for(const [key,title] of keys){
+    const b=make('button','cat',title); b.type='button'; b.dataset.cat=key;
+    b.onclick=()=>{active=key; render();}; catsEl.append(b);
+  }
 }
-function sendReceipt() { openBotLink(`https://t.me/${BOT}?start=buy_${cur.p.id}_${cur.idx}`); }
-function closeSheet() { ovl.classList.remove('open'); }
-ovl.addEventListener('click', e => { if (e.target === ovl) closeSheet(); });
-
-function copyTxt(txt) {
-  const done = () => {
-    const t = document.getElementById('toast');
-    t.style.display = 'block';
-    setTimeout(() => t.style.display = 'none', 1600);
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(String(txt)).then(done).catch(() => fallbackCopy(txt, done));
-  } else fallbackCopy(txt, done);
+function openSheet(pid){
+  const p=DATA.products.find(x=>x.id===pid); if(!p) return;
+  cur=p; selIdx=null;
+  sheet.replaceChildren();
+  sheet.append(make('h3','',p.name), make('div','desc',p.desc||''));
+  for(const pl of p.plans){
+    const row=make('button','planrow'); row.type='button';
+    const lbl=make('span','lbl',pl.label);
+    const pr=make('span','pr');
+    const disp=P.displayPrice(pl, A);
+    if(pl.available){
+      if(A.campaignLive && pl.final<pl.price){ pr.append(make('s','',faN(pl.price)+' تومان')); }
+      pr.append(make('b','',faN(disp)+' تومان'));
+      row.onclick=()=>{ selIdx=pl.idx;
+        sheet.querySelectorAll('.planrow').forEach(r=>r.classList.remove('sel')); row.classList.add('sel');
+        const cta=document.getElementById('cta'); cta.disabled=false;
+        cta.textContent='ادامه و سفارش در بات — '+faN(disp)+' تومان';
+      };
+    } else {
+      pr.append(make('b','','ناموجود')); row.disabled=true;
+    }
+    row.append(lbl, pr); sheet.append(row);
+  }
+  const cta=make('button','cta','پلن رو انتخاب کن'); cta.id='cta'; cta.disabled=true;
+  cta.onclick=()=>{ if(cur && selIdx!==null){ openBot('https://t.me/'+BOT+'?start=buy_'+cur.id+'_'+selIdx); } };
+  sheet.append(cta);
+  sheet.append(make('div','note','با ادامه، بات دالاس باز می‌شه و همون‌جا کد تخفیف، پرداخت و ارسال رسید رو کامل می‌کنی. قیمت نهایی رو خود بات از کاتالوگ زنده دوباره حساب می‌کنه.'));
+  const g=make('button','ghost','انصراف'); g.onclick=closeSheet; sheet.append(g);
+  ovl.classList.add('open'); sheet.classList.add('open');
 }
-function fallbackCopy(txt, done) {
-  const ta = document.createElement('textarea');
-  ta.value = String(txt);
-  ta.style.position = 'fixed'; ta.style.opacity = '0';
-  document.body.appendChild(ta);
-  ta.select();
-  try { document.execCommand('copy'); } catch (e) {}
-  document.body.removeChild(ta);
-  done();
-}
+function closeSheet(){ ovl.classList.remove('open'); sheet.classList.remove('open'); }
+ovl.addEventListener('click', closeSheet);
+search.addEventListener('input', render);
+document.getElementById('home').onclick=()=>{active='all';search.value='';render();window.scrollTo({top:0,behavior:'smooth'});};
+document.getElementById('categoryNav').onclick=()=>{document.getElementById('categories').scrollIntoView({behavior:'smooth',block:'center'});};
+fetch('catalog.json').then(r=>{ if(!r.ok) throw new Error('http '+r.status); return r.json(); }).then(d=>{
+  A = P.assess(d, Date.now());
+  if(!A.ok){ showError(); return; }
+  DATA=d;
+  if(A.campaignLive){
+    const c=document.getElementById('camp');
+    c.innerHTML='🏴 <b>بلک‌فرایدی دالاس</b> — <b>٪'+faN(A.offPct)+' تخفیف</b> روی همه اشتراک‌ها، فقط تا <span class="till">'+A.untilFa+'</span>';
+    c.style.display='block';
+  }
+  if(A.stale || A.skew){
+    const s=document.getElementById('stalebar');
+    s.textContent = A.skew
+      ? '⚠️ ساعت دستگاهت با زمان فید هم‌خوان نیست؛ برای اطمینان، تخفیف کمپین نمایش داده نمی‌شه و مبلغ نهایی رو بات هنگام سفارش از کاتالوگ زنده اعلام می‌کنه.'
+      : '⚠️ این فید قیمت به‌روز نیست (آخرین تولید: '+ageText(A.ageMs)+')؛ تخفیف کمپین نمایش داده نمی‌شه و مبلغ نهایی رو بات هنگام سفارش از کاتالوگ زنده اعلام می‌کنه.';
+    s.style.display='block';
+  }
+  document.getElementById('footnote').textContent='این نسخه آزمایشی است و روی محیط اصلی منتشر نشده. منبع قیمت و موجودی: کاتالوگ زنده بات دالاس؛ زمان تولید فید: '+d.generated_at.replace('T',' ')+' ('+ageText(A.ageMs)+'). هیچ قیمت یا تخفیفی داخل کد صفحه ثابت نوشته نشده؛ سفارش و پرداخت فقط داخل بات انجام می‌شود و بات قیمت را هنگام سفارش دوباره محاسبه می‌کند.';
+  buildCats(); render();
+  const open=new URLSearchParams(location.search).get('open');
+  if(open) openSheet(open);
+}).catch(()=>{ showError(); });
 </script>
-</body>
-</html>
+</body></html>
