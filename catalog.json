@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-21T08:05:49",
- "generated_ts": 1795248349,
+ "generated_at": "2026-11-22T04:50:36",
+ "generated_ts": 1795323036,
  "source": "dallas-bot products.py + price_overrides (live read)",
  "campaign": {
   "active": true,
@@ -224,8 +224,8 @@
     {
      "idx": 0,
      "label": "Plus — ۱ ماهه (اکانت شخصی)",
-     "price": 3213000,
-     "final": 2570400,
+     "price": 3211000,
+     "final": 2568800,
      "available": true
     },
     {
@@ -458,8 +458,8 @@
     {
      "idx": 1,
      "label": "اشتراکی",
-     "price": 1196000,
-     "final": 956800,
+     "price": 1193000,
+     "final": 954400,
      "available": true
     },
     {
@@ -536,8 +536,8 @@
     {
      "idx": 1,
      "label": "۳ ماهه (پرومو رسمی)",
-     "price": 1230000,
-     "final": 984000,
+     "price": 1227000,
+     "final": 981600,
      "available": true
     },
     {
@@ -688,8 +688,8 @@
     {
      "idx": 2,
      "label": "۱ ساله",
-     "price": 663000,
-     "final": 530400,
+     "price": 661000,
+     "final": 528800,
      "available": true
     }
    ]
@@ -701,13 +701,13 @@
    "title": "📱 Gemini Plus | فعال‌سازی ۶ ماهه",
    "desc": "لینک فعال‌سازی Gemini Plus شش‌ماهه روی اکانت گوگل شخصی شما — بدون نیاز به کارت بانکی و بدون ارسال رمز عبور؛ تحویل لینک فعال‌سازی.",
    "available": true,
-   "from_final": 481600,
+   "from_final": 480800,
    "plans": [
     {
      "idx": 0,
      "label": "۶ ماهه (لینک فعال‌سازی)",
-     "price": 602000,
-     "final": 481600,
+     "price": 601000,
+     "final": 480800,
      "available": true
     }
    ]
@@ -737,13 +737,13 @@
    "title": "📱 Cursor Premium + Grok | بسته برنامه‌نویسی",
    "desc": "بسته یک‌ماهه Cursor Premium به‌همراه Grok برای برنامه‌نویسی با هوش مصنوعی؛ اکانت آماده تحویل داده می‌شود.",
    "available": true,
-   "from_final": 4221600,
+   "from_final": 4213600,
    "plans": [
     {
      "idx": 0,
      "label": "۱ ماهه",
-     "price": 5277000,
-     "final": 4221600,
+     "price": 5267000,
+     "final": 4213600,
      "available": true
     }
    ]
@@ -805,13 +805,13 @@
    "title": "📱 Lovable Pro Lite | ساخت سایت و اپ",
    "desc": "اشتراک دوازده‌ماهه Lovable Pro Lite روی اکانت خودتان: ۳۰۰ کردیت یک‌باره و ۵ کردیت روزانه؛ فقط برای اکانتی که قبلاً پلن نداشته است.",
    "available": true,
-   "from_final": 2328800,
+   "from_final": 2324000,
    "plans": [
     {
      "idx": 0,
      "label": "۱۲ ماهه",
-     "price": 2911000,
-     "final": 2328800,
+     "price": 2905000,
+     "final": 2324000,
      "available": true
     }
    ]
@@ -823,13 +823,13 @@
    "title": "🎙 ElevenLabs Creator | ساخت صدای هوش مصنوعی",
    "desc": "اکانت ElevenLabs Creator سه‌ماهه برای تولید صدا و تبدیل متن به گفتار با کیفیت بالا؛ ۱۳۱ هزار کردیت در هر ماه؛ اطلاعات ورود بعد از پرداخت تحویل داده می‌شود.",
    "available": true,
-   "from_final": 2156000,
+   "from_final": 2152800,
    "plans": [
     {
      "idx": 0,
      "label": "۳ ماهه",
-     "price": 2695000,
-     "final": 2156000,
+     "price": 2691000,
+     "final": 2152800,
      "available": true
     },
     {
@@ -855,13 +855,13 @@
    "title": "📄 Turnitin | بررسی سرقت ادبی و تشخیص AI",
    "desc": "بررسی یک فایل (مقاله، پایان‌نامه یا گزارش) در Turnitin همراه با گزارش درصد مشابهت و تشخیص متن تولیدشده با هوش مصنوعی.",
    "available": true,
-   "from_final": 1503200,
+   "from_final": 1500800,
    "plans": [
     {
      "idx": 0,
      "label": "بررسی ۱ فایل",
-     "price": 1879000,
-     "final": 1503200,
+     "price": 1876000,
+     "final": 1500800,
      "available": true
     }
    ]
@@ -891,13 +891,13 @@
    "title": "🎨 Canva Edu | اشتراک ۳ ساله",
    "desc": "اکانت یا لینک دعوت Canva Edu با امکاناتی حدود ۹۹٪ مشابه Canva Pro؛ تحویل سریع بعد از پرداخت.",
    "available": true,
-   "from_final": 663200,
+   "from_final": 662400,
    "plans": [
     {
      "idx": 0,
      "label": "۳ ساله",
-     "price": 829000,
-     "final": 663200,
+     "price": 828000,
+     "final": 662400,
      "available": true
     }
    ]
