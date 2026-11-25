@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-11-24T04:50:33",
- "generated_ts": 1795495833,
+ "generated_at": "2026-11-25T04:50:34",
+ "generated_ts": 1795582234,
  "source": "dallas-bot products.py + price_overrides (live read)",
  "campaign": {
   "active": true,
@@ -224,8 +224,8 @@
     {
      "idx": 0,
      "label": "Plus — ۱ ماهه (اکانت شخصی)",
-     "price": 3360000,
-     "final": 2688000,
+     "price": 3780000,
+     "final": 3024000,
      "available": true
     },
     {
@@ -348,8 +348,8 @@
     {
      "idx": 1,
      "label": "۱ ساله",
-     "price": 668000,
-     "final": 534400,
+     "price": 808000,
+     "final": 646400,
      "available": true
     },
     {
@@ -536,8 +536,8 @@
     {
      "idx": 1,
      "label": "۳ ماهه (پرومو رسمی)",
-     "price": 1225000,
-     "final": 980000,
+     "price": 1365000,
+     "final": 1092000,
      "available": true
     },
     {
@@ -688,8 +688,8 @@
     {
      "idx": 2,
      "label": "۱ ساله",
-     "price": 660000,
-     "final": 528000,
+     "price": 1360000,
+     "final": 1088000,
      "available": true
     }
    ]
